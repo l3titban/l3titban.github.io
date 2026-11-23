@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3D</title><link rel="stylesheet" href="style.css"></head><body><script type="module">
+import {THREE,setup,ui} from './common.js';
+const P=new URLSearchParams(location.search); const cut=P.get('cut')=='1', ang=+(P.get('a')||-30), el=+(P.get('e')||35), d=+(P.get('d')||12);
+const {r,scene,cam,live}=setup(); r.localClippingEnabled=true;
+const g=new THREE.Group(); scene.add(g);
+// power bank 14 x 6.5 x 2.3 (scaled /4) -> 3.5 x 1.625 x 0.575 ; lying flat, display on top front
+function rbox(w,h,dp,rad){const s=new THREE.Shape();const x=-w/2,y=-dp/2;s.moveTo(x+rad,y);s.lineTo(x+w-rad,y);s.quadraticCurveTo(x+w,y,x+w,y+rad);s.lineTo(x+w,y+dp-rad);s.quadraticCurveTo(x+w,y+dp,x+w-rad,y+dp);s.lineTo(x+rad,y+dp);s.quadraticCurveTo(x,y+dp,x,y+dp-rad);s.lineTo(x,y+rad);s.quadraticCurveTo(x,y,x+rad,y);
+ const geo=new THREE.ExtrudeGeometry(s,{depth:h-0.12,bevelEnabled:true,bevelThickness:0.06,bevelSize:0.06,bevelSegments:6,curveSegments:16}); geo.rotateX(-Math.PI/2); geo.translate(0,0.06,0); return geo;}
+// brushed texture
+const c=document.createElement('canvas');c.width=1024;c.height=512;const x=c.getContext('2d');x.fillStyle='#1b1b1d';x.fillRect(0,0,1024,512);
+for(let i=0;i<2600;i++){x.strokeStyle=`rgba(${Math.random()>.5?255:0},${Math.random()>.5?255:0},255,${Math.random()*0.05})`;x.strokeStyle=`rgba(255,255,255,${Math.random()*0.05})`;x.beginPath();const yy=Math.random()*512;x.moveTo(0,yy);x.bezierCurveTo(300,yy+Math.random()*30-15,700,yy+Math.random()*30-15,1024,yy);x.stroke();}
+const tex=new THREE.CanvasTexture(c); tex.colorSpace=THREE.SRGBColorSpace;
+const shell=new THREE.MeshPhysicalMaterial({map:tex,roughness:0.6,clearcoat:0.3,side:THREE.DoubleSide});
+const clip=cut?[new THREE.Plane(new THREE.Vector3(0,-1,0),0.42)]:[]; shell.clippingPlanes=clip;
+const W=3.5,D=1.625,H=0.575;
+const body=new THREE.Mesh(rbox(W,H,D,0.28),shell); body.castShadow=true; g.add(body);
+// display window on top near end
+const disp=new THREE.Mesh(new THREE.PlaneGeometry(0.75,0.4),new THREE.MeshStandardMaterial({color:0x050608,roughness:0.15,metalness:0.2,emissive:0x000000}));
+disp.rotation.x=-Math.PI/2; disp.rotation.z=Math.PI/2; disp.position.set(-W/2+0.65,H+0.001,0); g.add(disp);
+const dc=document.createElement('canvas');dc.width=256;dc.height=128;const dx=dc.getContext('2d');dx.fillStyle='#000';dx.fillRect(0,0,256,128);dx.fillStyle='#3db6ff';dx.shadowColor='#3db6ff';dx.shadowBlur=18;dx.font='bold 84px monospace';dx.textAlign='center';dx.textBaseline='middle';dx.fillText('100%',128,66);
+const dt=new THREE.CanvasTexture(dc);dt.colorSpace=THREE.SRGBColorSpace;
+const digits=new THREE.Mesh(new THREE.PlaneGeometry(0.6,0.3),new THREE.MeshBasicMaterial({map:dt,transparent:true})); digits.rotation.x=-Math.PI/2; digits.position.set(-W/2+0.65,H+0.004,0); g.add(digits);
+// ports on short end (x=-W/2)
+const portM=new THREE.MeshStandardMaterial({color:0x050505,roughness:0.4});
+[[-0.45,0.36,0.14],[0,0.22,0.08],[0.45,0.36,0.14]].forEach(([z,w,h])=>{const p=new THREE.Mesh(new THREE.BoxGeometry(0.03,h,w),portM);p.position.set(-W/2-0.005,H/2,z);g.add(p);});
+if(cut){
+  disp.visible=false; digits.visible=false;
+  // 18650 cells x6 (2 rows of 3) inside
+  const cellM=[new THREE.MeshStandardMaterial({color:0x2f6bff,roughness:0.35,metalness:0.2}),new THREE.MeshStandardMaterial({color:0xd8d8d8,metalness:1,roughness:0.2})];
+  for(let i=0;i<3;i++)for(let j=0;j<2;j++){const cell=new THREE.Mesh(new THREE.CylinderGeometry(0.2,0.2,1.15,48),cellM[0]); cell.rotation.z=Math.PI/2;
+    cell.position.set(-0.05+(-0.5+j*1.25), 0.28, -0.5+i*0.5); g.add(cell);
+    [1,-1].forEach(s=>{const cap=new THREE.Mesh(new THREE.CylinderGeometry(0.2,0.2,0.06,48),cellM[1]); cap.rotation.z=Math.PI/2; cap.position.set(cell.position.x+s*0.6,0.28,cell.position.z); g.add(cap);});}
+  // PCB board near display end
+  const pcb=new THREE.Mesh(new THREE.BoxGeometry(0.55,0.05,1.3),new THREE.MeshStandardMaterial({color:0x0f6b3a,roughness:0.5})); pcb.position.set(-W/2+0.45,0.22,0); g.add(pcb);
+  for(let k=0;k<8;k++){const chip=new THREE.Mesh(new THREE.BoxGeometry(0.1,0.04,0.12),new THREE.MeshStandardMaterial({color:0x111111})); chip.position.set(-W/2+0.3+Math.random()*0.3,0.265,-0.5+Math.random()*1.0); g.add(chip);}
+  // glowing shield wireframe of protection
+  const glow=new THREE.Mesh(new THREE.BoxGeometry(W-0.25,0.5,D-0.25),new THREE.MeshBasicMaterial({color:0xFFE014,wireframe:true,transparent:true,opacity:0.0})); g.add(glow);
+}
+g.rotation.y=THREE.MathUtils.degToRad(ang);
+cam.position.set(0,0.3+d*Math.sin(THREE.MathUtils.degToRad(el)),d*Math.cos(THREE.MathUtils.degToRad(el))); cam.lookAt(0,0.3,0);
+live([0, 0.3, 0]);ui([{"label": "Целиком", "q": "a=-30&d=13"}, {"label": "Что внутри", "q": "cut=1&a=-30&d=13"}]);
+</script></body></html>

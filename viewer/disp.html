@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3D</title><link rel="stylesheet" href="style.css"></head><body><script type="module">
+import {THREE,setup,ui} from './common.js';
+const P=new URLSearchParams(location.search); const cut=P.get('cut')=='1', ang=+(P.get('a')||-25), el=+(P.get('e')||10), d=+(P.get('d')||13);
+const {r,scene,cam,live}=setup(); r.localClippingEnabled=true;
+const clip=cut?[new THREE.Plane(new THREE.Vector3(0,0,-1),0)]:[];
+const g=new THREE.Group(); scene.add(g);
+const white=new THREE.MeshPhysicalMaterial({color:0xf6f6f8,roughness:0.25,clearcoat:0.8,side:THREE.DoubleSide,clippingPlanes:clip});
+const chrome=new THREE.MeshStandardMaterial({color:0xeeeeee,metalness:1,roughness:0.12,clippingPlanes:clip,side:THREE.DoubleSide});
+const lower=new THREE.Mesh(new THREE.CylinderGeometry(0.92,0.92,2.2,128,1,!cut),white); lower.position.y=1.1; lower.castShadow=true; g.add(lower);
+const ring1=new THREE.Mesh(new THREE.CylinderGeometry(0.935,0.935,0.06,128,1,true),chrome); ring1.position.y=2.22; g.add(ring1);
+const upper=new THREE.Mesh(new THREE.CylinderGeometry(0.92,0.92,1.3,128),white); upper.position.y=2.9; upper.castShadow=true; g.add(upper);
+const ring2=new THREE.Mesh(new THREE.CylinderGeometry(0.935,0.935,0.05,128,1,true),chrome); ring2.position.y=3.56; g.add(ring2);
+const topc=new THREE.Mesh(new THREE.CylinderGeometry(0.9,0.92,0.06,128),white); topc.position.y=3.6; g.add(topc);
+// spout
+const sp=new THREE.Mesh(new THREE.BoxGeometry(0.42,0.22,0.9),white); sp.position.set(0,3.35,1.1); sp.castShadow=true; g.add(sp);
+const spr=new THREE.Mesh(new THREE.BoxGeometry(0.44,0.04,0.92),chrome); spr.position.set(0,3.22,1.1); g.add(spr);
+// level window
+const win=new THREE.Mesh(new THREE.PlaneGeometry(0.14,0.9),new THREE.MeshStandardMaterial({color:0x8a8f99,transparent:true,opacity:0.45})); win.position.set(0,0.9,0.925); g.add(win);
+const led=new THREE.Mesh(new THREE.CircleGeometry(0.05,24),new THREE.MeshBasicMaterial({color:0x6b4dff})); led.position.set(0,3.25,0.93); g.add(led);
+if(cut){win.visible=false;led.visible=false;
+ const soap=new THREE.Mesh(new THREE.CylinderGeometry(0.85,0.85,1.6,96,1,false,Math.PI/2,Math.PI),new THREE.MeshPhysicalMaterial({color:0xb7a6ff,roughness:0.05,transparent:true,opacity:0.8,side:THREE.DoubleSide})); soap.position.y=0.9; g.add(soap);
+ const st=new THREE.Mesh(new THREE.CircleGeometry(0.85,96,Math.PI,Math.PI),new THREE.MeshPhysicalMaterial({color:0xd4caff,roughness:0.02,transparent:true,opacity:0.85}));st.rotation.x=-Math.PI/2;st.position.y=1.7;g.add(st);
+ const pipe=new THREE.Mesh(new THREE.CylinderGeometry(0.06,0.06,2.4,24),new THREE.MeshStandardMaterial({color:0xdddddd,roughness:0.3}));pipe.position.y=1.5;g.add(pipe);
+ const pump=new THREE.Mesh(new THREE.CylinderGeometry(0.35,0.35,0.45,48),new THREE.MeshStandardMaterial({color:0x444444,roughness:0.4}));pump.position.y=2.75;g.add(pump);
+ const batt=new THREE.Mesh(new THREE.BoxGeometry(0.9,0.25,0.4),new THREE.MeshStandardMaterial({color:0x2f6bff,roughness:0.4}));batt.position.set(0,3.2,-0.3);g.add(batt);
+ const pcb=new THREE.Mesh(new THREE.BoxGeometry(0.8,0.04,0.5),new THREE.MeshStandardMaterial({color:0x0f6b3a}));pcb.position.set(0,3.45,-0.1);g.add(pcb);
+ const tubeTop=new THREE.Mesh(new THREE.CylinderGeometry(0.05,0.05,0.9,16),new THREE.MeshStandardMaterial({color:0xdddddd}));tubeTop.rotation.x=Math.PI/2;tubeTop.position.set(0,3.35,0.6);g.add(tubeTop);
+}
+g.rotation.y=THREE.MathUtils.degToRad(ang);
+cam.position.set(0,2+d*Math.sin(THREE.MathUtils.degToRad(el)),d*Math.cos(THREE.MathUtils.degToRad(el)));cam.lookAt(0,1.9,0);
+live([0, 1.9, 0]);ui([{"label": "Целиком", "q": "a=-25&d=15"}, {"label": "Разрез", "q": "cut=1&a=-25&d=15"}]);
+</script></body></html>

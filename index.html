@@ -101,6 +101,7 @@ body.cv #catView{display:block}
 .tile:hover{transform:translateY(-6px);box-shadow:0 24px 40px rgba(0,0,0,.55),0 0 0 2px var(--lime)}
 .tile:hover img{transform:scale(1.05)}
 .ic{position:absolute;top:12px;right:12px;display:flex;gap:6px}
+.ic .b3{width:auto;padding:0 8px;font:800 12px Unbounded;color:#0c0a16;background:var(--lime)}
 .ic span{width:30px;height:30px;border-radius:8px;background:rgba(12,10,22,.7);display:grid;place-items:center}
 .tile .ov{position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(12,10,22,.92));display:flex;flex-direction:column;justify-content:flex-end;padding:16px;gap:4px;opacity:0;transition:opacity .3s}
 .tile:hover .ov,.tile:focus-visible .ov{opacity:1}
@@ -141,8 +142,8 @@ body.cv #catView{display:block}
  .steps{grid-template-columns:minmax(0,1fr)}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
  .tile .ov{opacity:1;padding:10px}.ov b{font-size:12px}.ov small{display:none}
  .modal{padding:0;align-items:stretch}.post{display:block;max-height:none;height:100%;border-radius:0;overflow-y:auto}
- .car{height:auto;width:100%}.nav{display:none}.side{overflow:visible}.x{top:10px;right:10px}
- .cnt{left:auto;right:70px}
+ .car{height:auto;width:100%}.nav{width:38px;height:38px}.side{overflow:visible}.x{top:10px;right:10px}
+ .cnt{top:auto;bottom:12px;left:12px}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
@@ -269,7 +270,7 @@ function showCat(id){
  $('#catView').innerHTML=`<button class="back" id="back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Все категории</button>
  <div class="head" style="margin:24px 0 30px"><div><span class="kicker">${stat}</span><h1 class="h2" style="margin-top:10px">${c.name}</h1></div><p>${c.desc}</p></div>
  ${tags.length>1?`<div class="chips">${['all',...tags].map(t=>`<button class="chip ${t===filter?'on':''}" data-t="${t}">${t==='all'?'Все '+list.length:t}</button>`).join('')}</div>`:''}
- <div class="grid">${shown.length?shown.map((w,i)=>`<button class="tile" data-w="${w.id}" style="animation-delay:${i*.05}s" aria-label="${w.title}"><img src="${w.cover}" alt="" loading="lazy"><span class="ic">${w.media.some(m=>m.t==='video')?'<span>'+icVid+'</span>':''}${w.media.length>1?'<span>'+icMul+'</span>':''}</span><span class="ov"><b>${w.title}</b><small>${w.tag}</small></span></button>`).join(''):`<div class="empty"><b>Скоро тут будет</b>Раздел наполняется — загляни позже или напиши, если нужна такая работа.</div>`}</div>`;
+ <div class="grid">${shown.length?shown.map((w,i)=>`<button class="tile" data-w="${w.id}" style="animation-delay:${i*.05}s" aria-label="${w.title}"><img src="${w.cover}" alt="" loading="lazy"><span class="ic">${w.media.some(m=>m.t==='3d')?'<span class="b3">3D</span>':''}${w.media.some(m=>m.t==='video')?'<span>'+icVid+'</span>':''}${w.media.length>1?'<span>'+icMul+'</span>':''}</span><span class="ov"><b>${w.title}</b><small>${w.tag}</small></span></button>`).join(''):`<div class="empty"><b>Скоро тут будет</b>Раздел наполняется — загляни позже или напиши, если нужна такая работа.</div>`}</div>`;
  $('#back').onclick=()=>{location.hash='works'};
  document.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{filter=b.dataset.t;showCat(id)});
  document.querySelectorAll('.tile').forEach(b=>b.onclick=()=>{location.hash='w-'+b.dataset.w});
@@ -280,7 +281,7 @@ let cur=null,i=0;const track=$('#track');
 function openPost(id){
  const w=W.find(x=>x.id===id);if(!w)return;cur=w;
  if(curCat!==w.cat)showCat(w.cat);
- track.innerHTML=w.media.map(m=>m.t==='video'?`<video src="${m.src}" muted loop playsinline preload="metadata"></video>`:`<img src="${m.src}" alt="">`).join('');
+ track.innerHTML=w.media.map(m=>m.t==='video'?`<video src="${m.src}" muted loop playsinline preload="metadata"></video>`:m.t==='3d'?`<iframe src="${m.src}" title="3D-модель: ${w.title}" loading="lazy" style="border:0"></iframe>`:`<img src="${m.src}" alt="">`).join('');
  $('#dots').innerHTML=w.media.map(()=>'<i></i>').join('');
  const cat=CATS.find(c=>c.id===w.cat);
  $('#side').innerHTML=`<span class="tg">${cat.name} · ${w.tag}</span><h2 id="pTitle">${w.title}</h2><p>${w.text}</p>
