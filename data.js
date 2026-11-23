@@ -238,51 +238,6 @@ window.WORKS=[
   ]
  },
  {
-  "id": "07",
-  "cat": "cards",
-  "title": "Детский ночник с пультом, 13 цветов",
-  "niche": "Детские товары",
-  "brand": "NovaShop",
-  "wb": "https://www.wildberries.ru/catalog/182271771/detail.aspx",
-  "text": "Сказочная «ночная» стилистика вместо перегруженного коричневого шаблона; 3D-модель ночника нарисована кодом в 13 цветах; сценарии для родителей, таймер, пульт, автономность. Слайд-сцена: настоящий товар (вырезан с фото продавца) встроен в пустой фон, сгенерированный в Higgsfield, с тенью и подсветкой. Видео для карточки 5 с: оживлено в Higgsfield (Seedance) из нашего слайда, заголовок наложен поверх.",
-  "cover": "works/cards-wb/07-kids-night-light/01.jpg",
-  "ba": "works/cards-wb/07-kids-night-light/before-after.jpg",
-  "media": [
-   {
-    "t": "img",
-    "src": "works/cards-wb/07-kids-night-light/01.jpg"
-   },
-   {
-    "t": "img",
-    "src": "works/cards-wb/07-kids-night-light/02.jpg"
-   },
-   {
-    "t": "img",
-    "src": "works/cards-wb/07-kids-night-light/03.jpg"
-   },
-   {
-    "t": "img",
-    "src": "works/cards-wb/07-kids-night-light/04.jpg"
-   },
-   {
-    "t": "img",
-    "src": "works/cards-wb/07-kids-night-light/05.jpg"
-   },
-   {
-    "t": "img",
-    "src": "works/cards-wb/07-kids-night-light/06.jpg"
-   },
-   {
-    "t": "img",
-    "src": "works/cards-wb/07-kids-night-light/07.jpg"
-   },
-   {
-    "t": "video",
-    "src": "works/cards-wb/07-kids-night-light/video.mp4"
-   }
-  ]
- },
- {
   "id": "08",
   "cat": "cards",
   "title": "Лежанка для кошек и собак 40 см",
