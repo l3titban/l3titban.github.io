@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Владимир Черкашин — дизайн карточек и монтаж</title>
+<meta name="description" content="Портфолио: редизайн карточек Wildberries, видео для карточек, монтаж.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ====== НАСТРОЙ ПОД СЕБЯ: контакты и тексты в блоке CONFIG внизу ====== */
+:root{--bg:#0d0d0f;--card:#17171b;--line:#26262c;--ink:#f4f3ef;--mut:#8d8c93;--acc:#c6f432;--r:18px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:500 16px/1.5 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:20;background:rgba(13,13,15,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:800 18px Unbounded;letter-spacing:-.02em;text-decoration:none}
+.logo b{color:var(--acc)}
+.cta{font:700 14px Manrope;background:var(--acc);color:#111;padding:10px 18px;border-radius:999px;text-decoration:none}
+.hero{padding:72px 0 40px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.ava{width:128px;height:128px;border-radius:50%;background:conic-gradient(var(--acc),#38e1ff,#ff7a2f,var(--acc));padding:4px}
+.ava div{width:100%;height:100%;border-radius:50%;background:#1d1d22;display:grid;place-items:center;font:800 40px Unbounded}
+.hero h1{font:800 clamp(30px,5vw,56px)/1.02 Unbounded;letter-spacing:-.03em}
+.hero h1 span{color:var(--acc)}
+.hero p{color:var(--mut);max-width:620px;margin-top:14px;font-size:17px}
+.stats{display:flex;gap:28px;margin-top:22px}
+.stats div{font:700 14px Manrope;color:var(--mut)}
+.stats b{display:block;font:800 26px Unbounded;color:var(--ink)}
+.tabs{display:flex;gap:8px;border-top:1px solid var(--line);padding:18px 0;position:sticky;top:64px;z-index:10;background:var(--bg);overflow-x:auto}
+.tab{font:700 14px Manrope;padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--mut);cursor:pointer;white-space:nowrap}
+.tab.on{background:var(--ink);color:#111;border-color:var(--ink)}
+.tab i{font-style:normal;opacity:.55;margin-left:6px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding-bottom:80px}
+.tile{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:pointer;background:var(--card);border-radius:4px}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.tile:hover img{transform:scale(1.04)}
+.tile .ic{position:absolute;top:10px;right:10px;display:flex;gap:6px}
+.tile .ic span{width:28px;height:28px;border-radius:8px;background:rgba(0,0,0,.55);display:grid;place-items:center}
+.tile .ov{position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.8));opacity:0;transition:.3s;display:flex;flex-direction:column;justify-content:flex-end;padding:16px}
+.tile:hover .ov{opacity:1}
+.tile .ov b{font:700 15px/1.25 Manrope}.tile .ov small{color:#cfcfcf;font-size:13px}
+.empty{grid-column:1/-1;padding:80px 20px;text-align:center;color:var(--mut);border:1px dashed var(--line);border-radius:var(--r)}
+.empty b{display:block;font:700 22px Unbounded;color:var(--ink);margin-bottom:6px}
+footer{border-top:1px solid var(--line);padding:48px 0;text-align:center}
+footer h2{font:800 clamp(24px,4vw,40px) Unbounded;letter-spacing:-.02em}
+footer p{color:var(--mut);margin:10px 0 22px}
+.links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.links a{border:1px solid var(--line);padding:12px 20px;border-radius:999px;text-decoration:none;font-weight:700}
+.links a:hover{border-color:var(--acc);color:var(--acc)}
+/* модалка-пост */
+.modal{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;padding:24px}
+.modal.on{display:flex}
+.post{display:grid;grid-template-columns:auto 380px;max-width:1180px;max-height:calc(100vh - 48px);background:var(--card);border-radius:var(--r);overflow:hidden}
+.car{position:relative;background:#000;aspect-ratio:3/4;height:min(calc(100vh - 48px),1000px);overflow:hidden;touch-action:pan-y}
+.track{display:flex;height:100%;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.track>*{flex:0 0 100%;width:100%;height:100%;object-fit:contain;background:#000}
+.nav{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.9);color:#111;font:800 18px Manrope;cursor:pointer;display:grid;place-items:center}
+.nav.p{left:12px}.nav.n{right:12px}.nav[hidden]{display:none}
+.dots{position:absolute;bottom:14px;left:0;right:0;display:flex;justify-content:center;gap:5px}
+.dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4)}
+.dots i.on{background:#fff}
+.cnt{position:absolute;top:14px;right:14px;background:rgba(0,0,0,.6);font:700 12px Manrope;padding:5px 10px;border-radius:999px}
+.side>*{flex-shrink:0}.side{padding:26px;overflow-y:auto;display:flex;flex-direction:column;gap:16px}
+.side .tag{font:700 12px Manrope;letter-spacing:.08em;text-transform:uppercase;color:var(--acc)}
+.side h3{font:700 22px/1.2 Unbounded;letter-spacing:-.01em}
+.side p{color:#c9c8cd;font-size:15px}
+.side .ba{border-radius:12px;overflow:hidden;cursor:zoom-in;border:1px solid var(--line)}
+.side .ba img{width:100%;display:block}
+.side small{color:var(--mut);font-size:12px}
+.btn{display:inline-flex;justify-content:center;font:700 14px Manrope;padding:12px 16px;border-radius:12px;border:1px solid var(--line);text-decoration:none}
+.btn:hover{border-color:var(--ink)}
+.x{position:fixed;top:14px;right:18px;z-index:60;background:none;border:0;color:#fff;font:400 38px/1 Manrope;cursor:pointer}
+.zoom{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.95);display:none;align-items:center;justify-content:center;padding:20px;cursor:zoom-out}
+.zoom.on{display:flex}.zoom img{max-width:100%;max-height:100%}
+@media(max-width:860px){
+ .hero{grid-template-columns:1fr;padding-top:40px;gap:20px}.ava{width:96px;height:96px}
+ .grid{gap:3px}.tile{border-radius:0}.tile .ov{display:none}
+ .modal{padding:0;align-items:stretch}.post{display:block;max-height:none;height:100%;border-radius:0;overflow-y:auto}
+ .car{height:auto;width:100%}.nav{display:none}.cnt{right:auto;left:14px}.side{overflow:visible}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap bar"><a class="logo" href="#">черкашин<b>.</b></a><a class="cta" id="ctaTop" href="#contacts">Связаться</a></div></header>
+<main class="wrap">
+ <section class="hero">
+  <div class="ava"><div id="ini">ВЧ</div></div>
+  <div>
+   <h1 id="h1">Карточки, которые <span>кликают</span></h1>
+   <p id="lead">Делаю инфографику и видео для Wildberries и Ozon, монтирую ролики. Ниже — концепты редизайна реальных карточек: листай пост, внутри «было/стало».</p>
+   <div class="stats"><div><b id="stWorks">0</b>работ</div><div><b id="stSlides">0</b>слайдов</div><div><b id="stVid">0</b>видео</div></div>
+  </div>
+ </section>
+ <nav class="tabs" id="tabs"></nav>
+ <section class="grid" id="grid"></section>
+</main>
+<footer id="contacts"><div class="wrap">
+ <h2>Нужна карточка или ролик?</h2>
+ <p>Пиши — обсудим задачу и сроки</p>
+ <div class="links" id="links"></div>
+</div></footer>
+
+<div class="modal" id="modal">
+ <button class="x" id="x" aria-label="Закрыть">×</button>
+ <article class="post">
+  <div class="car" id="car"><div class="track" id="track"></div>
+   <button class="nav p" id="prev">‹</button><button class="nav n" id="next">›</button>
+   <div class="cnt" id="cnt"></div><div class="dots" id="dots"></div></div>
+  <div class="side" id="side"></div>
+ </article>
+</div>
+<div class="zoom" id="zoom"><img alt=""></div>
+
+<script src="data.js"></script>
+<script>
+// ===== CONFIG: поменяй на свои контакты =====
+const CONFIG={
+  name:'Владимир Черкашин', initials:'ВЧ',
+  contacts:[
+    {label:'Telegram', url:'https://t.me/your_username'},
+    {label:'Почта', url:'mailto:you@example.com'},
+    {label:'ВКонтакте', url:'https://vk.com/your_id'}
+  ],
+  cats:[
+    {id:'all', name:'Все'},
+    {id:'cards', name:'Карточки WB'},
+    {id:'video', name:'Монтаж видео'}
+  ],
+  note:'Концепт редизайна. Фото товара — продавца, графика и вёрстка — мои. Не является официальным материалом бренда.'
+};
+// =============================================
+const W=window.WORKS||[], $=s=>document.querySelector(s);
+document.title=CONFIG.name+' — дизайн карточек и монтаж';
+$('#ini').textContent=CONFIG.initials;
+$('#links').innerHTML=CONFIG.contacts.map(c=>`<a href="${c.url}" target="_blank" rel="noopener">${c.label}</a>`).join('');
+$('#stWorks').textContent=W.length;
+$('#stSlides').textContent=W.reduce((a,w)=>a+w.media.filter(m=>m.t==='img').length,0);
+$('#stVid').textContent=W.reduce((a,w)=>a+w.media.filter(m=>m.t==='video').length,0);
+const icMulti='<svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M7 3h11a3 3 0 0 1 3 3v11h-2V6a1 1 0 0 0-1-1H7V3Zm-2 4h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"/></svg>';
+const icVid='<svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M7 4.5v15a1 1 0 0 0 1.5.9l12-7.5a1 1 0 0 0 0-1.8l-12-7.5A1 1 0 0 0 7 4.5Z"/></svg>';
+let cat='all';
+function tabs(){
+  $('#tabs').innerHTML=CONFIG.cats.map(c=>{const n=c.id==='all'?W.length:W.filter(w=>w.cat===c.id).length;
+    return `<button class="tab ${c.id===cat?'on':''}" data-c="${c.id}">${c.name}<i>${n}</i></button>`}).join('');
+  $('#tabs').querySelectorAll('.tab').forEach(b=>b.onclick=()=>{cat=b.dataset.c;tabs();grid()});
+}
+function grid(){
+  const list=W.filter(w=>cat==='all'||w.cat===cat);
+  if(!list.length){$('#grid').innerHTML='<div class="empty"><b>Скоро тут будет</b>Раздел наполняется</div>';return}
+  $('#grid').innerHTML=list.map(w=>`<div class="tile" data-id="${w.id}"><img loading="lazy" src="${w.cover}" alt="${w.title}">
+   <div class="ic">${w.media.some(m=>m.t==='video')?'<span>'+icVid+'</span>':''}${w.media.length>1?'<span>'+icMulti+'</span>':''}</div>
+   <div class="ov"><b>${w.title}</b><small>${w.niche}</small></div></div>`).join('');
+  $('#grid').querySelectorAll('.tile').forEach(t=>t.onclick=()=>open(t.dataset.id));
+}
+let cur=null,i=0;
+function open(id){
+  cur=W.find(w=>w.id===id); i=0;
+  $('#track').innerHTML=cur.media.map(m=>m.t==='video'
+    ?`<video src="${m.src}" muted loop playsinline preload="metadata"></video>`
+    :`<img src="${m.src}" alt="">`).join('');
+  $('#dots').innerHTML=cur.media.map(()=>'<i></i>').join('');
+  $('#side').innerHTML=`<div class="tag">${cur.niche}</div><h3>${cur.title}</h3><p>${cur.text}</p>
+   <div><small>Было / стало — нажми, чтобы увеличить</small><div class="ba" id="ba"><img src="${cur.ba}" alt="Было и стало"></div></div>
+   <a class="btn" href="${cur.wb}" target="_blank" rel="noopener">Оригинал на Wildberries ↗</a>
+   <small>${CONFIG.note}</small>`;
+  $('#ba').onclick=()=>{$('#zoom img').src=cur.ba;$('#zoom').classList.add('on')};
+  $('#modal').classList.add('on'); document.body.style.overflow='hidden'; go(0);
+  history.replaceState(null,'','#w'+id);
+}
+function go(n){
+  i=Math.max(0,Math.min(cur.media.length-1,n));
+  $('#track').style.transform=`translateX(${-i*100}%)`;
+  $('#dots').querySelectorAll('i').forEach((d,k)=>d.classList.toggle('on',k===i));
+  $('#cnt').textContent=`${i+1}/${cur.media.length}`;
+  $('#prev').hidden=i===0; $('#next').hidden=i===cur.media.length-1;
+  $('#track').querySelectorAll('video').forEach(v=>v.pause());
+  const el=$('#track').children[i]; if(el.tagName==='VIDEO'){el.currentTime=0;el.play().catch(()=>{})}
+}
+function close(){$('#modal').classList.remove('on');document.body.style.overflow='';$('#track').querySelectorAll('video').forEach(v=>v.pause());history.replaceState(null,'',location.pathname)}
+$('#prev').onclick=()=>go(i-1); $('#next').onclick=()=>go(i+1); $('#x').onclick=close;
+$('#modal').onclick=e=>{if(e.target.id==='modal')close()};
+$('#zoom').onclick=()=>$('#zoom').classList.remove('on');
+document.onkeydown=e=>{if(!cur||!$('#modal').classList.contains('on'))return;
+  if(e.key==='Escape'){if($('#zoom').classList.contains('on'))$('#zoom').classList.remove('on');else close()}
+  if(e.key==='ArrowRight')go(i+1); if(e.key==='ArrowLeft')go(i-1)};
+let sx=null; const car=$('#car');
+car.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+car.addEventListener('touchend',e=>{if(sx===null)return;const d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>40)go(i+(d<0?1:-1));sx=null});
+tabs(); grid();
+const m=location.hash.match(/^#w(\d+)/); if(m&&W.find(w=>w.id===m[1]))open(m[1]);
+</script>
+</body>
+</html>
