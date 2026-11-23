@@ -713,5 +713,123 @@ window.WORKS=[
     "src": "works/sites/portfolio-v1/04.jpg"
    }
   ]
+ },
+ {
+  "id": "mascot-shchepkin",
+  "cat": "mascots",
+  "title": "Щепкин — маскот WoodDrive",
+  "tag": "Маскот",
+  "cover": "works/mascots/shchepkin/01.jpg",
+  "text": "Задача: персонаж для бренда деревянных ароматизаторов на козырёк, который продаёт «запах леса» и тёплый ручной вайб. Решение: плюшевый бобёр-водила в клетчатой рубашке — бобёр ассоциируется с деревом, кепка шофёра с машиной. Сделал разворот в 3 ракурсах, 5 эмоций, стикерпак в 2D и применение на слайде карточки. Инструменты: Higgsfield (генерация по референсу), Claude, вёрстка слайдов кодом.",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/mascots/shchepkin/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/mascots/shchepkin/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/mascots/shchepkin/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/mascots/shchepkin/04.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/mascots/shchepkin/05.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/mascots/shchepkin/06.jpg"
+   }
+  ]
+ },
+ {
+  "id": "site-urfu-1",
+  "cat": "sites",
+  "title": "Редизайн urfu.ru — «Один вход — любая задача»",
+  "tag": "Редизайн",
+  "cover": "works/sites/urfu-1/cover.jpg",
+  "text": "Конкурс «Взломай веб-дизайн университета». Задача: сайт УрФУ устроен как справочник подразделений — 22 входа в меню, до 60 ссылок в одном выпадающем списке, стена баннеров. Решение: навигация по задачам — 5 разделов вместо 22, поиск в центре главной, шесть быстрых действий, единая дизайн-система «Уральские самоцветы» и доступность WCAG AA без отдельной версии для слабовидящих. В макете: концепция, новый логотип-кристалл, структура, главная, мега-меню, 10 страниц и мобильная версия. Инструменты: Figma, Claude.",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/sites/urfu-1/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/sites/urfu-1/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/sites/urfu-1/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/sites/urfu-1/04.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/sites/urfu-1/05.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/sites/urfu-1/06.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/sites/urfu-1/07.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/sites/urfu-1/08.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/sites/urfu-1/09.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/sites/urfu-1/10.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/sites/urfu-1/11.jpg"
+   }
+  ]
+ },
+ {
+  "id": "site-urfu-2",
+  "cat": "sites",
+  "title": "Редизайн urfu.ru — «Уральское сияние» (Liquid Glass)",
+  "tag": "Редизайн",
+  "cover": "works/sites/urfu-2/cover.jpg",
+  "text": "Вторая концепция для того же конкурса, визуально противоположная первой: стеклянные панели в духе iOS Liquid Glass поверх фото кампуса под северным сиянием. Главная подстраивается под роль — абитуриент, студент, гость; кабинет студента собран из bento-виджетов; поиск в стиле Spotlight. Инструменты: Figma (страницы собраны собственным плагином), Higgsfield для фото.",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/sites/urfu-2/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/sites/urfu-2/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/sites/urfu-2/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/sites/urfu-2/04.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/sites/urfu-2/05.jpg"
+   }
+  ]
  }
 ];
