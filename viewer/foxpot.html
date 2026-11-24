@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3D</title><link rel="stylesheet" href="style.css"></head><body><script type="module">
+import {THREE,setup,ui} from './common.js';
+const P=new URLSearchParams(location.search),empty=P.get('e')=='1';
+const {scene,cam,live}=setup();const g=new THREE.Group();scene.add(g);
+// body texture: orange head top, white face, yellow gingham overalls at bottom
+const c=document.createElement('canvas');c.width=2048;c.height=1024;const x=c.getContext('2d');
+x.fillStyle='#fbf7f0';x.fillRect(0,0,2048,1024);
+// gingham bottom (v small = bottom => canvas bottom)
+x.fillStyle='#f3d062';x.fillRect(0,690,2048,334);
+x.fillStyle='rgba(255,255,255,.45)';for(let i=0;i<2048;i+=44)x.fillRect(i,690,14,334);for(let j=690;j<1024;j+=44)x.fillRect(0,j,2048,14);
+x.fillStyle='#e8b93c';x.fillRect(0,684,2048,12);
+// straps at front (front = u .5)
+x.fillStyle='#f3d062';x.fillRect(880,520,40,170);x.fillRect(1128,520,40,170);
+// orange top with a widow's peak toward the face
+x.fillStyle='#e07a3a';x.beginPath();x.moveTo(0,0);x.lineTo(2048,0);x.lineTo(2048,330);x.lineTo(1230,330);x.quadraticCurveTo(1100,360,1024,470);x.quadraticCurveTo(948,360,818,330);x.lineTo(0,330);x.fill();
+x.strokeStyle='#3a2a22';x.lineWidth=6;x.beginPath();x.moveTo(1024,560);x.lineTo(1024,590);x.moveTo(996,606);x.quadraticCurveTo(1024,590,1052,606);x.stroke();
+// closed eyes + cheeks
+x.strokeStyle='#3a2a22';x.lineWidth=7;x.lineCap='round';
+[[930,400],[1118,400]].forEach(([ex,ey])=>{x.beginPath();x.arc(ex,ey-14,34,.25*Math.PI,.75*Math.PI);x.stroke();for(let k=-1;k<=1;k++){x.beginPath();x.moveTo(ex+k*18,ey+18);x.lineTo(ex+k*24,ey+34);x.stroke()}});
+x.fillStyle='rgba(240,140,140,.55)';[[870,470],[1178,470]].forEach(([a,b])=>{x.beginPath();x.ellipse(a,b,34,20,0,0,7);x.fill()});
+const tx=new THREE.CanvasTexture(c);tx.colorSpace=THREE.SRGBColorSpace;tx.anisotropy=8;
+const cer=new THREE.MeshPhysicalMaterial({map:tx,roughness:.55,clearcoat:.5,clearcoatRoughness:.4});
+// lathe, phiStart PI so u=.5 faces camera (+z); straight sides so v≈height
+const pts=[[0,0],[.95,0],[1.0,.06],[1.02,.3],[1.05,1.6],[1.12,2.2],[1.14,2.26]];
+const geo=new THREE.LatheGeometry(pts.map(p=>new THREE.Vector2(...p)),128,Math.PI,Math.PI*2);
+// remap v by height so texture isn't distorted by uneven profile
+const pos=geo.attributes.position,uv=geo.attributes.uv;for(let i=0;i<uv.count;i++)uv.setY(i,pos.getY(i)/2.26);
+const body=new THREE.Mesh(geo,cer);body.castShadow=true;g.add(body);
+const rimM=new THREE.MeshPhysicalMaterial({color:0xe07a3a,roughness:.5,clearcoat:.5});
+const rim=new THREE.Mesh(new THREE.TorusGeometry(1.1,.06,16,128),rimM);rim.rotation.x=Math.PI/2;rim.position.y=2.26;g.add(rim);
+const inside=new THREE.Mesh(new THREE.CylinderGeometry(1.06,1.0,2.1,96,1,true),new THREE.MeshStandardMaterial({color:0xd06c32,roughness:.8,side:THREE.BackSide}));inside.position.y=1.2;g.add(inside);
+// ears
+const earM=[new THREE.MeshPhysicalMaterial({color:0xe07a3a,roughness:.5,clearcoat:.5}),new THREE.MeshPhysicalMaterial({color:0xfbf7f0,roughness:.5})];
+[-1,1].forEach(sx=>{const e=new THREE.Mesh(new THREE.ConeGeometry(.36,.75,4),earM[0]);e.position.set(sx*.72,2.62,.2);e.rotation.set(-.15,Math.PI/4,sx*-.28);e.castShadow=true;g.add(e);
+ const ei=new THREE.Mesh(new THREE.ConeGeometry(.2,.45,4),earM[1]);ei.position.set(sx*.71,2.56,.36);ei.rotation.set(-.15,Math.PI/4,sx*-.28);g.add(ei);
+});
+const nose=new THREE.Mesh(new THREE.SphereGeometry(.1,24,16),new THREE.MeshPhysicalMaterial({color:0x1d1512,roughness:.2,clearcoat:1}));nose.scale.set(1.2,.85,.7);nose.position.set(0,1.13,1.06);g.add(nose);
+// grass
+if(!empty){const soil=new THREE.Mesh(new THREE.CircleGeometry(1.02,64),new THREE.MeshStandardMaterial({color:0x3b2a1f,roughness:1}));soil.rotation.x=-Math.PI/2;soil.position.y=2.12;g.add(soil);
+ const bl=new THREE.ConeGeometry(.035,1,4,1);bl.translate(0,.5,0);
+ const gm=new THREE.MeshStandardMaterial({color:0x4fae38,roughness:.6});const N=240;const inst=new THREE.InstancedMesh(bl,gm,N);
+ let s=11;const rnd=()=>(s=(s*16807)%2147483647)/2147483647;const m=new THREE.Matrix4(),q=new THREE.Quaternion(),e=new THREE.Euler(),sc=new THREE.Vector3(),p=new THREE.Vector3();
+ for(let i=0;i<N;i++){const a=rnd()*6.283,rr=Math.sqrt(rnd())*.95;p.set(Math.cos(a)*rr,2.12,Math.sin(a)*rr);e.set((rnd()-.5)*.6+Math.sin(a)*rr*.25,rnd()*6,(rnd()-.5)*.6-Math.cos(a)*rr*.25);q.setFromEuler(e);const h=.6+rnd()*1.1;sc.set(1,h,1);m.compose(p,q,sc);inst.setMatrixAt(i,m);inst.setColorAt(i,new THREE.Color().setHSL(.28+rnd()*.05,.55,.32+rnd()*.15))}
+ inst.castShadow=true;g.add(inst)}
+cam.position.set(0,3,11);cam.lookAt(0,1.8,0);
+live([0,1.7,0]);ui([{label:'С травой',q:''},{label:'Пустой',q:'e=1'}]);
+</script></body></html>

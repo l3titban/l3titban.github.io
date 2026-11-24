@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3D</title><link rel="stylesheet" href="style.css"></head><body><script type="module">
+import {THREE,setup,ui} from './common.js';
+const P=new URLSearchParams(location.search),open=P.get('open')=='1';
+const {scene,cam,live}=setup();const g=new THREE.Group();scene.add(g);
+// speckled white powder coat
+const c=document.createElement('canvas');c.width=2048;c.height=2048;const x=c.getContext('2d');x.fillStyle='#f1f0ec';x.fillRect(0,0,2048,2048);
+let s=7;const rnd=()=>(s=(s*16807)%2147483647)/2147483647;
+for(let i=0;i<5200;i++){const px=rnd()*2048,py=rnd()*2048,edge=Math.min(py,2048-py)/2048,d=rnd();if(d>.25+edge*2.2)continue;x.fillStyle=`rgba(20,20,20,${.5+rnd()*.5})`;x.beginPath();x.arc(px,py,rnd()*rnd()*12+1,0,7);x.fill()}
+const tx=new THREE.CanvasTexture(c);tx.colorSpace=THREE.SRGBColorSpace;tx.anisotropy=8;
+const H=3.4,R=.56;
+const bodyM=new THREE.MeshPhysicalMaterial({map:tx,roughness:.75,clearcoat:.15});
+const bg=new THREE.LatheGeometry([[0,0],[R-.04,0],[R,.05],[R,H-.05],[R-.03,H]].map(p=>new THREE.Vector2(...p)),128);{const p=bg.attributes.position,u=bg.attributes.uv;for(let i=0;i<u.count;i++)u.setY(i,p.getY(i)/H)}
+const body=new THREE.Mesh(bg,bodyM);body.castShadow=true;g.add(body);
+const steel=new THREE.MeshStandardMaterial({color:0xd8d8d8,metalness:1,roughness:.2});
+const neck=new THREE.Mesh(new THREE.CylinderGeometry(R-.06,R-.06,.14,96),steel);neck.position.y=H+.07;g.add(neck);
+const blackM=new THREE.MeshPhysicalMaterial({color:0x151515,roughness:.45,clearcoat:.3});
+const lid=new THREE.Group();g.add(lid);
+const cap=new THREE.Mesh(new THREE.CylinderGeometry(R,R,.62,96),blackM);cap.position.y=.31;cap.castShadow=true;lid.add(cap);
+// grip ribs
+for(let i=0;i<48;i++){const a=i/48*Math.PI*2;const rb=new THREE.Mesh(new THREE.BoxGeometry(.03,.4,.03),blackM);rb.position.set(Math.sin(a)*(R+.008),.33,Math.cos(a)*(R+.008));rb.rotation.y=a;lid.add(rb)}
+// LED temperature display on top
+const d=document.createElement('canvas');d.width=512;d.height=512;const dx=d.getContext('2d');dx.fillStyle='#050505';dx.beginPath();dx.arc(256,256,256,0,7);dx.fill();
+dx.fillStyle='#ffffff';dx.font='700 190px Arial';dx.textAlign='center';dx.textBaseline='middle';dx.shadowColor='#6ad8ff';dx.shadowBlur=30;dx.fillText('62°',256,250);dx.font='700 60px Arial';dx.fillText('C',256,390);
+const dt=new THREE.CanvasTexture(d);dt.colorSpace=THREE.SRGBColorSpace;
+const disp=new THREE.Mesh(new THREE.CircleGeometry(R*.78,96),new THREE.MeshStandardMaterial({map:dt,emissive:0xffffff,emissiveMap:dt,emissiveIntensity:.9,roughness:.2}));disp.rotation.x=-Math.PI/2;disp.position.y=.625;lid.add(disp);
+const btn=new THREE.Mesh(new THREE.CylinderGeometry(.09,.09,.03,32),steel);btn.position.set(0,.64,-R*.62);lid.add(btn);
+lid.position.y=H+.14;
+if(open){lid.position.set(1.35,0,.2);lid.rotation.z=0;
+ const inner=new THREE.Mesh(new THREE.CylinderGeometry(R-.1,R-.1,.05,96,1,true),steel);inner.position.y=H+.12;g.add(inner);
+ const tea=new THREE.Mesh(new THREE.CircleGeometry(R-.11,96),new THREE.MeshStandardMaterial({color:0x7a3d12,roughness:.1}));tea.rotation.x=-Math.PI/2;tea.position.y=H-.02;g.add(tea);
+}
+g.rotation.y=-.4;
+cam.position.set(0,2.4,open?13:11.5);cam.lookAt(0,1.9,0);
+live([open?.6:0,1.95,0]);ui([{label:'Целиком',q:''},{label:'Открыт',q:'open=1'}]);
+</script></body></html>

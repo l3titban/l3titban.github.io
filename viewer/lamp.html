@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3D</title><link rel="stylesheet" href="style.css"></head><body><script type="module">
+import {THREE,setup,ui} from './common.js';
+const P=new URLSearchParams(location.search),off=P.get('off')=='1';
+const {r,scene,cam,live,key,rim}=setup();if(!off){r.toneMappingExposure=.9;key.intensity=.9;rim.intensity=.5}
+const g=new THREE.Group();scene.add(g);
+const blk=new THREE.MeshPhysicalMaterial({color:0x1b1b1d,roughness:.35,metalness:.6,clearcoat:.5});
+const steel=new THREE.MeshStandardMaterial({color:0xcfcfcf,metalness:1,roughness:.25});
+// shelf edge the clip grabs
+const wood=new THREE.MeshStandardMaterial({color:0x8a5a35,roughness:.7});
+const shelf=new THREE.Mesh(new THREE.BoxGeometry(4,.3,2.2),wood);shelf.position.set(-.6,1.15,-.6);shelf.castShadow=true;shelf.receiveShadow=true;g.add(shelf);
+// clip (two jaws + spring)
+const jaw=(y,rx)=>{const m=new THREE.Mesh(new THREE.BoxGeometry(.5,.08,1.1),blk);m.position.set(1.2,y,.15);m.rotation.x=rx;m.castShadow=true;g.add(m)};
+jaw(1.36,-.06);jaw(.94,.06);
+const spring=new THREE.Mesh(new THREE.TorusGeometry(.14,.04,12,32),steel);spring.position.set(1.2,1.15,.62);spring.rotation.y=Math.PI/2;g.add(spring);
+const pad=new THREE.Mesh(new THREE.BoxGeometry(.5,.3,.12),blk);pad.position.set(1.2,1.15,.72);g.add(pad);
+// gooseneck arm: tube along curve
+const curve=new THREE.CatmullRomCurve3([new THREE.Vector3(1.2,1.4,.15),new THREE.Vector3(1.25,2.3,.2),new THREE.Vector3(1.0,3.2,.5),new THREE.Vector3(.45,3.55,.95),new THREE.Vector3(.05,3.45,1.25)]);
+const arm=new THREE.Mesh(new THREE.TubeGeometry(curve,80,.06,16),blk);arm.castShadow=true;g.add(arm);
+for(let i=1;i<40;i++){const p=curve.getPoint(i/40);const rg=new THREE.Mesh(new THREE.TorusGeometry(.062,.012,6,20),blk);rg.position.copy(p);rg.lookAt(curve.getPoint(Math.min(1,i/40+.01)));g.add(rg)}
+// shade
+const end=curve.getPoint(1),dir=curve.getTangent(1).normalize();
+const sh=new THREE.Group();sh.position.copy(end);g.add(sh);
+const shadeOut=new THREE.MeshPhysicalMaterial({color:0x1b1b1d,roughness:.3,metalness:.7,clearcoat:.6,side:THREE.DoubleSide});
+const shadeIn=new THREE.MeshStandardMaterial({color:0xf2efe8,roughness:.4,metalness:.2,side:THREE.BackSide,emissive:off?0:0xffd9a0,emissiveIntensity:off?0:.9});
+const prof=[[.12,0],[.16,.12],[.3,.3],[.62,.85],[.66,.9]].map(p=>new THREE.Vector2(...p));
+const shade=new THREE.Mesh(new THREE.LatheGeometry(prof,64),shadeOut);shade.castShadow=true;sh.add(shade);
+const shade2=new THREE.Mesh(new THREE.LatheGeometry(prof.map(v=>new THREE.Vector2(v.x-.015,v.y)),64),shadeIn);sh.add(shade2);
+const bulbM=new THREE.MeshStandardMaterial({color:0xfff4dd,emissive:off?0x000000:0xffe2a8,emissiveIntensity:off?0:2.6,roughness:.2,transparent:true,opacity:off?.75:1});
+const bulb=new THREE.Mesh(new THREE.SphereGeometry(.24,32,24),bulbM);bulb.position.y=.5;sh.add(bulb);
+// aim shade down-forward
+sh.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),new THREE.Vector3(.15,-1,.35).normalize());
+if(!off){const L=new THREE.SpotLight(0xffd8a0,60,14,.75,.5,1.4);L.castShadow=true;L.shadow.mapSize.set(1024,1024);sh.add(L);L.position.set(0,.4,0);const t=new THREE.Object3D();t.position.set(0,6,0);sh.add(t);L.target=t;
+ const glow=new THREE.PointLight(0xffd8a0,3,3);glow.position.set(0,.5,0);sh.add(glow)}
+// table surface
+const table=new THREE.Mesh(new THREE.PlaneGeometry(14,14),new THREE.MeshStandardMaterial({color:0xcbb79c,roughness:.8}));table.rotation.x=-Math.PI/2;table.position.y=.001;table.receiveShadow=true;g.add(table);
+const book=new THREE.Mesh(new THREE.BoxGeometry(1.4,.12,1),new THREE.MeshStandardMaterial({color:0xf5f2ea,roughness:.8}));book.position.set(.4,.06,1.9);book.rotation.y=.3;book.castShadow=true;book.receiveShadow=true;g.add(book);
+cam.position.set(5.5,3.6,11);cam.lookAt(.4,1.9,.6);
+live([.4,1.9,.6]);ui([{label:'Включена',q:''},{label:'Выключена',q:'off=1'}]);
+</script></body></html>
