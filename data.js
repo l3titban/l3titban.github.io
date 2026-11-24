@@ -1313,5 +1313,27 @@ window.WORKS=[
     "src": "works/sites/igroman/slides/07.jpg"
    }
   ]
+ },
+ {
+  "id": "video-showreel",
+  "cat": "video",
+  "title": "Шоурил с Щепкиным-ведущим",
+  "tag": "Шоурил",
+  "cover": "works/video/showreel/cover.jpg",
+  "text": "34 секунды про всё, что умею, а ведёт ролик маскот Щепкин. Весь фильм нарисован кодом из моих реальных работ: горы из точек, веер карточек со шторкой «было/стало», 3D-разлёт гантели, скролл сайтов, стикеры, монтажный таймлайн. Музыка и звуки синтезированы в такт (120 BPM), голос — ElevenLabs, сведение под -14 LUFS. Две версии: горизонталь 16:9 и вертикаль 9:16 под Reels/TikTok — вертикаль перекомпонована, а не обрезана.",
+  "media": [
+   {
+    "t": "video",
+    "src": "works/video/showreel/reel-9x16.mp4",
+    "sound": true,
+    "poster": "works/video/showreel/cover.jpg"
+   },
+   {
+    "t": "video",
+    "src": "works/video/showreel/reel-16x9.mp4",
+    "sound": true,
+    "poster": "works/video/showreel/poster.jpg"
+   }
+  ]
  }
 ];
