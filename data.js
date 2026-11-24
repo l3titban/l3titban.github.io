@@ -942,6 +942,195 @@ window.WORKS=[
   "tag": "Детям"
  },
  {
+  "id": "wb-33",
+  "cat": "cards",
+  "title": "USB-ночник с голосовым управлением",
+  "wb": "https://www.wildberries.ru/catalog/913358812/detail.aspx",
+  "text": "Китайские слайды с плохим переводом заменил на уютную «ночную» карточку: понятный сценарий голосом, таймер сна и подача для детской.",
+  "cover": "works/cards-wb/33-night-bear/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/33-night-bear/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/33-night-bear/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/33-night-bear/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/33-night-bear/04.jpg"
+   }
+  ],
+  "tag": "Детям"
+ },
+ {
+  "id": "wb-34",
+  "cat": "cards",
+  "title": "Bluetooth-колонка «колесо» с RGB-подсветкой",
+  "wb": "https://www.wildberries.ru/catalog/1474385668/detail.aspx",
+  "text": "Все слайды были с английскими подписями. Сделал тёмную «гаражную» карточку с неоновым градиентом, перевёл характеристики в понятные выгоды.",
+  "cover": "works/cards-wb/34-speaker/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/34-speaker/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/34-speaker/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/34-speaker/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/34-speaker/04.jpg"
+   }
+  ],
+  "tag": "Электроника"
+ },
+ {
+  "id": "wb-35",
+  "cat": "cards",
+  "title": "Складной силиконовый чайник 1,5 л с кружками",
+  "wb": "https://www.wildberries.ru/catalog/880394085/detail.aspx",
+  "text": "Были фото без единого слова и коллажи. Сделал походную карточку: главный вау — «складывается в 4 см», дальше готовка и комплектация.",
+  "cover": "works/cards-wb/35-fold-jug/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/35-fold-jug/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/35-fold-jug/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/35-fold-jug/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/35-fold-jug/04.jpg"
+   }
+  ],
+  "tag": "Спорт"
+ },
+ {
+  "id": "wb-36",
+  "cat": "cards",
+  "title": "Зонт-автомат с системой «антиветер»",
+  "wb": "https://www.wildberries.ru/catalog/329334612/detail.aspx",
+  "text": "Вместо кислотного градиента и мелких подписей — лавандовая карточка с дождём, сценарий «вывернуло ветром — не сломался» и управление одной рукой.",
+  "cover": "works/cards-wb/36-umbrella/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/36-umbrella/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/36-umbrella/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/36-umbrella/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/36-umbrella/04.jpg"
+   }
+  ],
+  "tag": "Аксессуары"
+ },
+ {
+  "id": "wb-39",
+  "cat": "cards",
+  "title": "Электрочайник Kitfort KT-6115-3 с выбором температуры",
+  "wb": "https://www.wildberries.ru/catalog/241328502/detail.aspx",
+  "text": "Из каталожных фото на белом сделал тёплую «кухонную» карточку: главный оффер — температура под напиток, дальше дисплей и двойные стенки.",
+  "cover": "works/cards-wb/39-kettle/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/39-kettle/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/39-kettle/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/39-kettle/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/39-kettle/04.jpg"
+   }
+  ],
+  "tag": "Кухня"
+ },
+ {
+  "id": "wb-40",
+  "cat": "cards",
+  "title": "Плюшевая собака лежачая, 35 см",
+  "wb": "https://www.wildberries.ru/catalog/1587215590/detail.aspx",
+  "text": "Перевёл английские подписи в тёплую «детскую» подачу, дал окрасам имена, чтобы покупатель выбирал щенка, а не артикул.",
+  "cover": "works/cards-wb/40-plush-dog/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/40-plush-dog/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/40-plush-dog/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/40-plush-dog/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/40-plush-dog/04.jpg"
+   }
+  ],
+  "tag": "Детям"
+ },
+ {
+  "id": "wb-42",
+  "cat": "cards",
+  "title": "Перчатки зимние утеплённые для рыбалки, 5 пар",
+  "wb": "https://www.wildberries.ru/catalog/1474364987/detail.aspx",
+  "text": "Оригинальные слайды были с китайскими иероглифами, кривым переводом и огнём на фоне. Сделал чистую «морозную» карточку: сцена на зимней рыбалке (генерация с реальными перчатками), два слоя защиты, сценарии и цена за пару.",
+  "cover": "works/cards-wb/42-fish-gloves/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/42-fish-gloves/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/42-fish-gloves/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/42-fish-gloves/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/42-fish-gloves/04.jpg"
+   }
+  ],
+  "tag": "Спорт"
+ },
+ {
   "id": "3d-mug-config",
   "cat": "3d",
   "title": "Конфигуратор термокружки — живой 3D",
