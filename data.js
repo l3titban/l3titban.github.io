@@ -22,7 +22,7 @@ window.WORKS=[
     "src": "works/cards-wb/01-sweet-white-cable-clips/03.jpg"
    }
   ],
-  "tag": "Дом / порядок"
+  "tag": "Дом"
  },
  {
   "id": "wb-02",
@@ -47,7 +47,7 @@ window.WORKS=[
     "src": "works/cards-wb/02-topcomfy-cable-organizer/03.jpg"
    }
   ],
-  "tag": "Дом / порядок"
+  "tag": "Дом"
  },
  {
   "id": "wb-03",
@@ -100,7 +100,7 @@ window.WORKS=[
     "src": "works/cards-wb/03-cook-expert-thermomug/video-360.mp4"
    }
   ],
-  "tag": "Кухня / посуда"
+  "tag": "Кухня"
  },
  {
   "id": "wb-04",
@@ -145,7 +145,7 @@ window.WORKS=[
     "src": "works/cards-wb/04-kukolka-serum/video.mp4"
    }
   ],
-  "tag": "Косметика / уход"
+  "tag": "Красота"
  },
  {
   "id": "wb-05",
@@ -190,7 +190,7 @@ window.WORKS=[
     "src": "works/cards-wb/05-isolon-fitness-mat/video.mp4"
    }
   ],
-  "tag": "Спорт / фитнес"
+  "tag": "Спорт"
  },
  {
   "id": "wb-06",
@@ -235,7 +235,7 @@ window.WORKS=[
     "src": "works/cards-wb/06-car-vacuum-cleaner/video.mp4"
    }
   ],
-  "tag": "Автотовары"
+  "tag": "Авто"
  },
  {
   "id": "wb-08",
@@ -317,7 +317,7 @@ window.WORKS=[
     "src": "works/cards-wb/09-bereke-backpack/06.jpg"
    }
   ],
-  "tag": "Аксессуары / сумки"
+  "tag": "Аксессуары"
  },
  {
   "id": "wb-10",
@@ -354,7 +354,7 @@ window.WORKS=[
     "src": "works/cards-wb/10-neck-massager/06.jpg"
    }
   ],
-  "tag": "Здоровье / массаж"
+  "tag": "Красота"
  },
  {
   "id": "wb-11",
@@ -395,7 +395,7 @@ window.WORKS=[
     "src": "works/cards-wb/11-futula-humidifier/07.jpg"
    }
   ],
-  "tag": "Бытовая техника / климат"
+  "tag": "Дом"
  },
  {
   "id": "wb-12",
@@ -444,7 +444,7 @@ window.WORKS=[
     "src": "works/cards-wb/12-juicebro-power-bank/video.mp4"
    }
   ],
-  "tag": "Электроника / аксессуары"
+  "tag": "Электроника"
  },
  {
   "id": "wb-13",
@@ -485,7 +485,7 @@ window.WORKS=[
     "src": "works/cards-wb/13-soap-dispenser/07.jpg"
    }
   ],
-  "tag": "Дом / ванная"
+  "tag": "Дом"
  },
  {
   "id": "wb-14",
@@ -534,7 +534,412 @@ window.WORKS=[
     "src": "works/cards-wb/14-proiron-dumbbells/video.mp4"
    }
   ],
-  "tag": "Спорт / силовые"
+  "tag": "Спорт"
+ },
+ {
+  "id": "wb-16",
+  "cat": "cards",
+  "title": "Механическая клавиатура FURYCUBE H61K",
+  "wb": "https://www.wildberries.ru/catalog/1294002004/detail.aspx",
+  "text": "Убрал белый каталожный фон: тёмный «геймерский» стиль с лаймовым неоном на реальных фото продавца, оффер про компактный формат, Hot-Swap и свитчи.",
+  "cover": "works/cards-wb/16-keyboard/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/16-keyboard/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/16-keyboard/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/16-keyboard/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/16-keyboard/04.jpg"
+   }
+  ],
+  "tag": "Электроника"
+ },
+ {
+  "id": "wb-17",
+  "cat": "cards",
+  "title": "Смарт-часы SmartX X7 MAX",
+  "wb": "https://www.wildberries.ru/catalog/221212471/detail.aspx",
+  "text": "Вместо жёлтых коллажей с пятью шрифтами — тёмный технологичный стиль, сгенерированная сцена «часы на руке» на пробежке, понятные цифры автономности и комплектации. Фото товара — продавца; ИИ использован только там, где нужен человек или сцена с товаром.",
+  "cover": "works/cards-wb/17-smartwatch/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/17-smartwatch/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/17-smartwatch/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/17-smartwatch/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/17-smartwatch/04.jpg"
+   }
+  ],
+  "tag": "Электроника"
+ },
+ {
+  "id": "wb-18",
+  "cat": "cards",
+  "title": "Плед жаккардовый VLADI 150×200",
+  "wb": "https://www.wildberries.ru/catalog/221208326/detail.aspx",
+  "text": "Из голых фото ткани сделал «уютную» карточку: сцена с девушкой в пледе, серифный заголовок, акцент на узор, состав и размер. Фото товара — продавца; ИИ использован только там, где нужен человек или сцена с товаром.",
+  "cover": "works/cards-wb/18-plaid/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/18-plaid/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/18-plaid/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/18-plaid/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/18-plaid/04.jpg"
+   }
+  ],
+  "tag": "Дом"
+ },
+ {
+  "id": "wb-19",
+  "cat": "cards",
+  "title": "Плюшевая капибара 35 см",
+  "wb": "https://www.wildberries.ru/catalog/1843256045/detail.aspx",
+  "text": "Вместо фото с китайскими иероглифами — тёплый детский стиль: сцена с девочкой (генерация с реальной игрушкой), выбор шапочек, безопасность. Фото товара — продавца; ИИ использован только там, где нужен человек или сцена с товаром.",
+  "cover": "works/cards-wb/19-capybara/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/19-capybara/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/19-capybara/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/19-capybara/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/19-capybara/04.jpg"
+   }
+  ],
+  "tag": "Детям"
+ },
+ {
+  "id": "wb-20",
+  "cat": "cards",
+  "title": "Лампа на прищепке настольная",
+  "wb": "https://www.wildberries.ru/catalog/329300726/detail.aspx",
+  "text": "Убрал кислотно-зелёный шаблон: тёплый вечерний стиль, сцена за столом, реальные фото крепления, честно про лампочку не в комплекте. Фото товара — продавца; ИИ использован только там, где нужен человек или сцена с товаром.",
+  "cover": "works/cards-wb/20-clip-lamp/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/20-clip-lamp/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/20-clip-lamp/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/20-clip-lamp/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/20-clip-lamp/04.jpg"
+   }
+  ],
+  "tag": "Дом"
+ },
+ {
+  "id": "wb-23",
+  "cat": "cards",
+  "title": "Сковорода «Мечта» Premium mokko 26 см",
+  "wb": "https://www.wildberries.ru/catalog/221211313/detail.aspx",
+  "text": "Вместо перегруженной зелёной инфографики — тёмный «фуд» стиль, сцена с яичницей, честные цифры дна/стенок, сценарий «ручку снял — в духовку». Фото товара — продавца; ИИ использован только там, где нужен человек или сцена с товаром.",
+  "cover": "works/cards-wb/23-frying-pan/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/23-frying-pan/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/23-frying-pan/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/23-frying-pan/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/23-frying-pan/04.jpg"
+   }
+  ],
+  "tag": "Кухня"
+ },
+ {
+  "id": "wb-24",
+  "cat": "cards",
+  "title": "Зарядное устройство GaN 65 Вт X662",
+  "wb": "https://www.wildberries.ru/catalog/1270907585/detail.aspx",
+  "text": "Карточка была целиком на китайском. Перевёл смысл в понятный русский оффер, светлый техно-стиль, сцена на столе, объяснение GaN без воды. Фото товара — продавца; ИИ использован только там, где нужен человек или сцена с товаром.",
+  "cover": "works/cards-wb/24-gan-charger/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/24-gan-charger/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/24-gan-charger/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/24-gan-charger/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/24-gan-charger/04.jpg"
+   }
+  ],
+  "tag": "Электроника"
+ },
+ {
+  "id": "wb-25",
+  "cat": "cards",
+  "title": "Солнцезащитные очки CALANDO AT8531",
+  "wb": "https://www.wildberries.ru/catalog/371063271/detail.aspx",
+  "text": "Из пяти фото на белом сделал fashion-карточку в журнальной эстетике: модель в очках (генерация с реальной оправой), размеры, материал. Фото товара — продавца; ИИ использован только там, где нужен человек или сцена с товаром.",
+  "cover": "works/cards-wb/25-sunglasses/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/25-sunglasses/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/25-sunglasses/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/25-sunglasses/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/25-sunglasses/04.jpg"
+   }
+  ],
+  "tag": "Аксессуары"
+ },
+ {
+  "id": "wb-26",
+  "cat": "cards",
+  "title": "Вращающаяся подставка для специй 360°",
+  "wb": "https://www.wildberries.ru/catalog/1301818441/detail.aspx",
+  "text": "У продавца были классные фото без единого слова. Добавил оффер, сценарии использования и подачу «порядок в шкафу» без лишней генерации.",
+  "cover": "works/cards-wb/26-spice-rack/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/26-spice-rack/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/26-spice-rack/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/26-spice-rack/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/26-spice-rack/04.jpg"
+   }
+  ],
+  "tag": "Кухня"
+ },
+ {
+  "id": "wb-27",
+  "cat": "cards",
+  "title": "Автодержатель с беспроводной зарядкой BOROFONE BH220",
+  "wb": "https://www.wildberries.ru/catalog/846165698/detail.aspx",
+  "text": "Были фото с английскими подписями внизу. Сделал «водительскую» тёмную карточку с зелёным акцентом зарядки, объяснил автозажим и совместимость.",
+  "cover": "works/cards-wb/27-car-holder/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/27-car-holder/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/27-car-holder/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/27-car-holder/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/27-car-holder/04.jpg"
+   }
+  ],
+  "tag": "Авто"
+ },
+ {
+  "id": "wb-28",
+  "cat": "cards",
+  "title": "Термос с датчиком температуры Best Hunter 0,5 л",
+  "wb": "https://www.wildberries.ru/catalog/219549211/detail.aspx",
+  "text": "Красный фон-студия заменён на атмосферу зимнего леса (генерация с реальным термосом), фича «температура на крышке» вынесена в отдельный слайд. Фото товара — продавца; ИИ использован только там, где нужен человек или сцена с товаром.",
+  "cover": "works/cards-wb/28-thermos/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/28-thermos/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/28-thermos/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/28-thermos/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/28-thermos/04.jpg"
+   }
+  ],
+  "tag": "Спорт"
+ },
+ {
+  "id": "wb-29",
+  "cat": "cards",
+  "title": "Кошелёк женский DuCapio",
+  "wb": "https://www.wildberries.ru/catalog/253637074/detail.aspx",
+  "text": "Из однотипных фото на мраморе собрал премиальную карточку: изумрудная палитра под цвет товара, серифный шрифт, схема отделений.",
+  "cover": "works/cards-wb/29-wallet/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/29-wallet/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/29-wallet/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/29-wallet/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/29-wallet/04.jpg"
+   }
+  ],
+  "tag": "Аксессуары"
+ },
+ {
+  "id": "wb-30",
+  "cat": "cards",
+  "title": "Коврик для мыши Achotop 90×40 см",
+  "wb": "https://www.wildberries.ru/catalog/1131587907/detail.aspx",
+  "text": "Карточка была просто фотками без смысла. Добавил оффер «весь стол под мышку», показал принты сеткой, размеры и резиновую основу.",
+  "cover": "works/cards-wb/30-mousepad/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/30-mousepad/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/30-mousepad/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/30-mousepad/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/30-mousepad/04.jpg"
+   }
+  ],
+  "tag": "Электроника"
+ },
+ {
+  "id": "wb-31",
+  "cat": "cards",
+  "title": "Горшок «Милая Лисичка»",
+  "wb": "https://www.wildberries.ru/catalog/253671770/detail.aspx",
+  "text": "У товара были милые фото без текста. Сделал мягкую «инстаграмную» карточку с округлым шрифтом и обыграл травку как причёску лисы.",
+  "cover": "works/cards-wb/31-flowerpot/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/31-flowerpot/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/31-flowerpot/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/31-flowerpot/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/31-flowerpot/04.jpg"
+   }
+  ],
+  "tag": "Дом"
+ },
+ {
+  "id": "wb-32",
+  "cat": "cards",
+  "title": "Конструктор металлический №1, 206 деталей",
+  "wb": "https://www.wildberries.ru/catalog/670219071/detail.aspx",
+  "text": "Из фото коробки на белом сделал тёплую «семейную» карточку: внук и дед собирают машинку (генерация с реальным набором), ностальгический оффер. Фото товара — продавца; ИИ использован только там, где нужен человек или сцена с товаром.",
+  "cover": "works/cards-wb/32-metal-constructor/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/32-metal-constructor/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/32-metal-constructor/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/32-metal-constructor/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/32-metal-constructor/04.jpg"
+   }
+  ],
+  "tag": "Детям"
  },
  {
   "id": "3d-thermomug",
@@ -745,6 +1150,44 @@ window.WORKS=[
    {
     "t": "img",
     "src": "works/mascots/shchepkin/06.jpg"
+   }
+  ]
+ },
+ {
+  "id": "mascot-pysh",
+  "cat": "mascots",
+  "title": "Пыш — маскот доставки «ЛЕПИМ»",
+  "tag": "Маскот · стикерпак",
+  "cover": "works/mascots/pysh/01.jpg",
+  "text": "Задача: персонаж для выдуманной доставки пельменей, который живёт в чате поддержки и на упаковке. Решение: пельмешек Пыш с веточкой укропа — защип-гребень даёт узнаваемый силуэт, укроп работает как «антенна» эмоций. Нарисовал полностью векторно кодом (SVG): 14 стикеров для Telegram с белой обводкой, палитра, логотип, упаковка, сценарии в чате и анимированный стикер. Без нейросетей — каждая поза собирается из параметров (глаза, рот, руки, реквизит), так что пак легко расширять.",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/mascots/pysh/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/mascots/pysh/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/mascots/pysh/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/mascots/pysh/04.jpg"
+   },
+   {
+    "t": "video",
+    "src": "works/mascots/pysh/anim.mp4"
+   },
+   {
+    "t": "img",
+    "src": "works/mascots/pysh/05.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/mascots/pysh/06.jpg"
    }
   ]
  },
