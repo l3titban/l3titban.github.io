@@ -1414,7 +1414,7 @@ window.WORKS=[
  },
  {
   "id": "app-igroman",
-  "cat": "sites",
+  "cat": "apps",
   "title": "IGROMAN — мобильное приложение клуба",
   "tag": "UI · приложение",
   "cover": "works/sites/igroman-app/01.jpg",
@@ -1440,7 +1440,7 @@ window.WORKS=[
  },
  {
   "id": "app-sosedi",
-  "cat": "sites",
+  "cat": "apps",
   "title": "«Соседи» — приложение для общаги",
   "tag": "UI · концепт",
   "cover": "works/sites/dorm-app/01.jpg",

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>l3titban — портфолио</title>
-<meta name="description" content="Портфолио l3titban: карточки для маркетплейсов, 3D и моушен, сайты, монтаж.">
+<meta name="description" content="Портфолио l3titban: соцсети и баннеры, логотипы и айдентика, маскоты, приложения, карточки для маркетплейсов, 3D.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -68,7 +68,7 @@ section.sec{padding-top:110px;padding-bottom:30px}
 .cbody{border-top:1px solid var(--line);padding:24px 26px 26px;display:flex;gap:18px;align-items:flex-end;flex:1;width:100%}
 .cbody>div{flex:1;display:flex;flex-direction:column;gap:8px}
 .meta{display:flex;gap:10px;align-items:center;font:600 14px Manrope;color:var(--mut)}
-.reelbox{border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#000;aspect-ratio:16/9}.reelbox video{width:100%;height:100%;display:block;object-fit:cover}
+.reelbox{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#000;aspect-ratio:16/9}.reelbox video{width:100%;height:100%;display:block;object-fit:cover}
 .soon{font:700 12px Manrope;color:#0c0a16;background:var(--lime);padding:3px 10px;border-radius:999px}
 .cat .ct{display:block;font:800 27px/1.1 Unbounded;letter-spacing:-.02em}
 .cat .cd{display:block;font-size:15px;color:var(--mut)}
@@ -147,6 +147,9 @@ body.cv #catView{display:block}
  .cnt{top:auto;bottom:12px;left:12px}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+.snd{position:absolute;right:16px;bottom:16px;display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(12,10,22,.72);backdrop-filter:blur(10px);color:#fff;font:700 14px/20px inherit;font-family:inherit;cursor:pointer;transition:transform .3s cubic-bezier(.22,1,.36,1),background-color .3s cubic-bezier(.22,1,.36,1)}
+.snd:hover{background:rgba(198,244,50,.92);color:#0c0a16}.snd:active{transform:scale(.98)}.snd:focus-visible{outline:2px solid #c6f432;outline-offset:3px}
+.down{transition:transform .5s cubic-bezier(.22,1,.36,1),border-color .3s cubic-bezier(.22,1,.36,1),background-color .3s cubic-bezier(.22,1,.36,1)}.down:hover{border-color:#c6f432;background:rgba(198,244,50,.1)}
 </style>
 </head>
 <body>
@@ -164,13 +167,13 @@ body.cv #catView{display:block}
  <section class="hero" id="top">
   <span class="kicker">ПОРТФОЛИО · ВЛАДИМИР ЧЕРКАШИН</span>
   <h1 class="big" aria-label="l3titban"><span class="tilt" id="tilt" aria-hidden="true"></span></h1>
-  <p>Карточки для маркетплейсов, 3D, сайты и монтаж. Делаю руками и нейросетями, а не по шаблону.</p>
+  <p>Соцсети, айдентика и маскоты. А ещё приложения, карточки для маркетплейсов и 3D. Делаю руками и нейросетями, а не по шаблону.</p>
   <a class="down" href="#works" aria-label="Листай вниз к работам"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
  </section>
 
  <section class="sec in" id="reel">
   <div class="head rv"><h2 class="h2">Шоурил</h2><p>30 секунд обо всём сразу: монтаж, моушен, 3D и персонаж-ведущий. Включи звук.</p></div>
-  <div class="reelbox rv"><video src="works/video/showreel/reel-16x9.mp4" poster="works/video/showreel/poster.jpg" controls playsinline preload="none"></video></div>
+  <div class="reelbox rv"><video id="reelv" src="works/video/showreel/reel-16x9.mp4" poster="works/video/showreel/poster.jpg" autoplay muted loop playsinline preload="auto"></video><button type="button" class="snd" id="snd" aria-pressed="false" aria-label="Включить звук"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="w" d="M17 9l4 6M21 9l-4 6"/></svg><span>Включить звук</span></button></div>
  </section>
 
  <section class="sec in" id="works">
@@ -217,8 +220,8 @@ body.cv #catView{display:block}
 <button class="zoom" id="zoom" aria-label="Закрыть увеличение"><img alt=""></button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="bg.js?v=1795533195"></script>
-<script src="data.js?v=1795533195"></script>
+<script src="bg.js?v=1795534345"></script>
+<script src="data.js?v=1795534345"></script>
 <script>
 {
 // ===== НАСТРОЙ: контакты =====
@@ -229,16 +232,16 @@ const NOTE='Концепт редизайна. Фото товара — про�
 // =============================
 const HIDE=['video'],W=(window.WORKS||[]).filter(w=>!HIDE.includes(w.cat)),$=s=>document.querySelector(s);
 const CATS=[
- {id:'cards',name:'Карточки WB',desc:'Инфографика для Wildberries: обложки, слайды, видео и «было / стало».',w:2},
- {id:'3d',name:'3D и моушен',desc:'Модели и разрезы товаров кодом, вращения 360°, оживлённые сцены.',w:2},
- {id:'sites',name:'Сайты и приложения',desc:'Сайты с нуля, редизайны и мобильные приложения: от схемы до экранов.',w:2},
- // монтаж скрыт до появления своих роликов
- //{id:'video',name:'Монтаж видео',desc:'Ролики для TikTok и Reels: истории, динамика, субтитры, озвучка.',w:3,icon:'<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>'},
- {id:'brand',name:'Лого и айдентика',desc:'Знаки, логотипы и фирменный стиль: цвет, шрифты, упаковка, носители.',w:2},
  {id:'smm',name:'Соцсети и баннеры',desc:'Ленты, сторис и рекламные баннеры в стиле бренда.',w:2},
- {id:'mascots',name:'Маскоты',desc:'Персонажи для брендов и карточек: от скетча до 3D.',w:2,icon:'<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="10" r="6"/><circle cx="10" cy="9" r=".8" fill="currentColor"/><circle cx="14" cy="9" r=".8" fill="currentColor"/><path d="M9.5 12c1.5 1.2 3.5 1.2 5 0M7 20c1-2.5 3-4 5-4s4 1.5 5 4"/></svg>'}
+ {id:'brand',name:'Лого и айдентика',desc:'Знаки, логотипы и фирменный стиль: цвет, шрифты, упаковка, носители.',w:2},
+ {id:'mascots',name:'Маскоты',desc:'Персонажи для брендов и карточек: от скетча до 3D.',w:2,icon:'<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="10" r="6"/><circle cx="10" cy="9" r=".8" fill="currentColor"/><circle cx="14" cy="9" r=".8" fill="currentColor"/><path d="M9.5 12c1.5 1.2 3.5 1.2 5 0M7 20c1-2.5 3-4 5-4s4 1.5 5 4"/></svg>'},
+ {id:'apps',name:'Приложения',desc:'Мобильные приложения: сценарии, экраны и личные кабинеты.',w:3},
+ {id:'cards',name:'Карточки WB',desc:'Инфографика для Wildberries: обложки, слайды, видео и «было / стало».',w:3},
+ {id:'3d',name:'3D и моушен',desc:'Модели и разрезы товаров кодом, вращения 360°, оживлённые сцены.',w:3},
+ {id:'sites',name:'Сайты',desc:'Сайты с нуля и редизайны: от схемы до живой вёрстки.',w:3},
+ //{id:'video',name:'Монтаж видео',desc:'Ролики для TikTok и Reels: истории, динамика, субтитры, озвучка.',w:3,icon:'<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>'},
 ];
-const FANPICK={cards:['wb-17','wb-03','wb-25'],'3d':['3d-dumbbells','3d-mug-config','motion-scenes'],sites:['app-sosedi','site-igroman','app-igroman'],mascots:['mascot-pysh','mascot-shchepkin'],brand:['brand-grunt','brand-lepim'],smm:['smm-grunt','smm-lepim'],video:['video-showreel']};
+const FANPICK={cards:['wb-17','wb-03','wb-25'],'3d':['3d-dumbbells','3d-mug-config','motion-scenes'],sites:['site-urfu-2','site-igroman','site-urfu-1'],apps:['app-igroman','app-sosedi'],mascots:['mascot-pysh','mascot-shchepkin'],brand:['brand-grunt','brand-lepim'],smm:['smm-grunt','smm-lepim'],video:['video-showreel']};
 const icVid='<svg width="13" height="13" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg>';
 const icMul='<svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 3h11a3 3 0 0 1 3 3v11h-2V6a1 1 0 0 0-1-1H7zm-2 4h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/></svg>';
 const arr='<span class="arr" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>';
@@ -328,6 +331,15 @@ function route(){
 addEventListener('hashchange',route);route();
 $('#logo').onclick=e=>{e.preventDefault();history.replaceState(null,'',location.pathname);if(cur)closePost();showHome();scrollTo({top:0,behavior:'smooth'})};
 }
+</script>
+<script>
+(()=>{const d=document.querySelector('.down');if(d){const on=()=>window.bgOpen&&bgOpen(1),off=()=>window.bgOpen&&bgOpen(0);
+ d.addEventListener('mouseenter',on);d.addEventListener('mouseleave',off);d.addEventListener('focus',on);d.addEventListener('blur',off);d.addEventListener('click',off)}
+ const v=document.getElementById('reelv'),b=document.getElementById('snd');if(!v||!b)return;
+ const set=m=>{v.muted=m;b.setAttribute('aria-pressed',String(!m));b.setAttribute('aria-label',m?'Включить звук':'Выключить звук');b.querySelector('span').textContent=m?'Включить звук':'Выключить звук';b.querySelector('.w').setAttribute('d',m?'M17 9l4 6M21 9l-4 6':'M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12')};
+ b.addEventListener('click',()=>{set(!v.muted);v.play().catch(()=>{})});
+ new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)v.play().catch(()=>{});else v.pause()}),{threshold:.15}).observe(v);
+})();
 </script>
 </body>
 </html>

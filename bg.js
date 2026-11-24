@@ -40,11 +40,12 @@
   const mouse = new THREE.Vector2(9, 9);
   const mat = new THREE.ShaderMaterial({
     transparent: true, depthWrite: false,
-    uniforms: { uT: { value: 0 }, uL: { value: L }, uPx: { value: r.getPixelRatio() }, uMouse: { value: mouse }, uFade: { value: 1 } },
+    uniforms: { uT: { value: 0 }, uL: { value: L }, uPx: { value: r.getPixelRatio() }, uMouse: { value: mouse }, uFade: { value: 1 }, uOpen: { value: 0 } },
     vertexShader: NOISE + `
-    uniform float uT,uL,uPx;uniform vec2 uMouse;attribute float seed;varying float vA;varying float vS;varying float vH;
+    uniform float uT,uL,uPx,uOpen;uniform vec2 uMouse;attribute float seed;varying float vA;varying float vS;varying float vH;
     void main(){vec3 p=position;p.z=mod(p.z+uT,uL)-uL+8.;
      float y=h(vec2(p.x,p.z-uT));p.y=y;vH=y;
+     float ax=abs(p.x);p.x+=sign(p.x)*uOpen*(10.+smoothstep(4.,70.,ax)*72.);p.y-=uOpen*smoothstep(20.,0.,ax)*2.5;
      vec4 mv=modelViewMatrix*vec4(p,1.);float d=-mv.z;
      vec4 cp=projectionMatrix*mv;vec2 ndc=cp.xy/cp.w;
      float push=smoothstep(.22,0.,length(ndc-uMouse));mv.y+=push*1.6;
@@ -72,8 +73,8 @@
   rg.setAttribute('position', new THREE.Float32BufferAttribute(ridge, 3));
   rg.setAttribute('k', new THREE.Float32BufferAttribute(rs, 1));
   const rmat = new THREE.ShaderMaterial({
-    transparent: true, depthWrite: false, uniforms: { uPx: { value: r.getPixelRatio() } },
-    vertexShader: `attribute float k;varying float vk;uniform float uPx;void main(){vk=k;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);gl_PointSize=uPx*2.;}`,
+    transparent: true, depthWrite: false, uniforms: { uPx: { value: r.getPixelRatio() }, uOpen: { value: 0 } },
+    vertexShader: `attribute float k;varying float vk;uniform float uPx,uOpen;void main(){vk=k;vec3 p=position;p.x+=sign(p.x)*uOpen*(40.+abs(p.x)*.35);gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.);gl_PointSize=uPx*2.;}`,
     fragmentShader: `varying float vk;void main(){if(length(gl_PointCoord-.5)>.5)discard;gl_FragColor=vec4(vec3(.75,.72,.9),.25+.7*vk*vk);}`
   });
   const ridgeP = new THREE.Points(rg, rmat); scene.add(ridgeP);
@@ -92,6 +93,8 @@
   const fit = () => { const w = host.clientWidth, h = host.clientHeight; r.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); };
   addEventListener('resize', fit); fit();
 
+  let open = 0, openT = 0;
+  window.bgOpen = v => { openT = v ? 1 : 0; };
   let tx = 0, ty = 0, mx = 0, my = 0, travel = 0, last = performance.now(), run = true;
   addEventListener('pointermove', e => { tx = e.clientX / innerWidth * 2 - 1; ty = -(e.clientY / innerHeight * 2 - 1); mouse.set(tx, ty); });
   document.addEventListener('visibilitychange', () => { run = !document.hidden; if (run) { last = performance.now(); requestAnimationFrame(loop); } });
@@ -101,6 +104,9 @@
     const dt = Math.min(.05, (now - last) / 1000); last = now;
     if (!reduce) travel += dt * 6;
     mat.uniforms.uT.value = travel;
+    open += (openT - open) * Math.min(1, dt * (openT > open ? 3.2 : 4.5));
+    const eo = reduce ? 0 : open * open * (3 - 2 * open);
+    mat.uniforms.uOpen.value = eo; rmat.uniforms.uOpen.value = eo;
     mx += (tx - mx) * dt * 2; my += (ty - my) * dt * 2;
     const sc = Math.min(scrollY / innerHeight, 4);
     const eye = 9 + sc * 5;
