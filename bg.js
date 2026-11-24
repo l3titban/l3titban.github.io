@@ -102,12 +102,12 @@
   const loop = now => {
     if (!run) return;
     const dt = Math.min(.05, (now - last) / 1000); last = now;
-    if (!reduce) travel += dt * 6;
+    travel += dt * (reduce ? 2.5 : 6);
     mat.uniforms.uT.value = travel;
 
     mx += (tx - mx) * dt * 2; my += (ty - my) * dt * 2;
     open += (openT - open) * Math.min(1, dt * (openT > open ? 3.2 : 4.5));
-    const eo = reduce ? 0 : open * open * (3 - 2 * open);
+    const eo = open * open * (3 - 2 * open);
     mat.uniforms.uOpen.value = eo; rmat.uniforms.uOpen.value = eo;
     const sc = Math.min(scrollY / innerHeight, 4);
     const eye = 9 + sc * 5 - eo * 3.5;
