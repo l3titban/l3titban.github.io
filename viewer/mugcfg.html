@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Конфигуратор термокружки</title><link rel="stylesheet" href="style.css">
+<style>
+body{display:flex;flex-direction:column}
+#stage{position:relative;flex:1;min-height:0}
+#stage canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
+.hint{position:absolute;bottom:12px}
+#panel{touch-action:auto;background:rgba(14,11,24,.92);border-top:1px solid #2a2536;padding:14px 16px 16px;color:#ece9f5;overflow-y:auto;max-height:46vh;font:600 13px Manrope,system-ui,sans-serif}
+.row{margin-bottom:12px}.row:last-child{margin-bottom:0}
+.lab{display:flex;justify-content:space-between;color:#a19cb0;font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px}
+.lab b{color:#ece9f5;letter-spacing:0;text-transform:none;font-size:12px}
+.sw{display:flex;gap:8px;flex-wrap:wrap}
+.sw button{width:30px;height:30px;border-radius:50%;border:2px solid #2a2536;cursor:pointer;padding:0;outline-offset:2px}
+.sw button.on{border-color:#c6f432;box-shadow:0 0 0 2px #0e0b18 inset}
+.seg{display:flex;gap:4px;background:#1a1628;border-radius:999px;padding:3px;width:max-content;max-width:100%;flex-wrap:wrap}
+.seg button{font:700 12px Manrope,system-ui,sans-serif;color:#a19cb0;background:none;border:0;padding:7px 12px;border-radius:999px;cursor:pointer}
+.seg button.on{background:#c6f432;color:#0c0a16}
+input[type=text]{width:100%;box-sizing:border-box;background:#1a1628;border:1px solid #2a2536;border-radius:12px;color:#fff;font:700 15px Manrope,system-ui,sans-serif;padding:10px 12px;outline:none}
+input[type=text]:focus{border-color:#c6f432}
+.foot{display:flex;align-items:center;gap:10px;margin-top:4px}
+.price{font:800 22px Manrope,system-ui,sans-serif;color:#fff;flex:1}.price small{display:block;font:600 11px Manrope;color:#a19cb0}
+.btn{font:800 13px Manrope,system-ui,sans-serif;border:0;border-radius:999px;padding:11px 16px;cursor:pointer}
+.b1{background:#c6f432;color:#0c0a16}.b2{background:#1a1628;color:#ece9f5;border:1px solid #2a2536}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#toast{position:fixed;left:50%;top:16px;transform:translate(-50%,-80px);background:#c6f432;color:#0c0a16;font:800 13px Manrope;padding:10px 16px;border-radius:999px;transition:transform .35s;z-index:9}
+#toast.on{transform:translate(-50%,0)}
+@media(min-width:860px){body{flex-direction:row}#panel{width:340px;max-height:none;border-top:0;border-left:1px solid #2a2536;padding:24px;display:flex;flex-direction:column;justify-content:center}.grid2{grid-template-columns:1fr}.hint{bottom:20px}}
+</style></head><body>
+<div id="stage"><div class="hint">Крути кружку · меняй цвета · пиши гравировку</div></div>
+<div id="panel">
+ <div class="grid2">
+  <div class="row"><div class="lab">Корпус <b id="nBody"></b></div><div class="sw" id="swBody"></div></div>
+  <div class="row"><div class="lab">Крышка <b id="nLid"></b></div><div class="sw" id="swLid"></div></div>
+ </div>
+ <div class="grid2">
+  <div class="row"><div class="lab">Покрытие</div><div class="seg" id="sgFin"></div></div>
+  <div class="row"><div class="lab">Кольцо</div><div class="seg" id="sgRing"></div></div>
+ </div>
+ <div class="row"><div class="lab">Гравировка <b id="nLen"></b></div><input type="text" id="eng" maxlength="16" placeholder="Имя или короткая фраза" value="Вова"></div>
+ <div class="row"><div class="lab">Шрифт</div><div class="seg" id="sgFont"></div></div>
+ <div class="foot"><div class="price" id="price"></div><button class="btn b2" id="rnd" title="Случайный дизайн">🎲</button><button class="btn b1" id="buy">В корзину</button></div>
+</div>
+<div id="toast"></div>
+<script type="module">
+import {THREE} from './common.js';
+import {RoomEnvironment} from './RoomEnvironment.js';
+import {OrbitControls} from './OrbitControls.js';
+const stage=document.getElementById('stage');
+const r=new THREE.WebGLRenderer({antialias:true,alpha:true});
+r.setPixelRatio(Math.min(devicePixelRatio,2));r.shadowMap.enabled=true;r.shadowMap.type=THREE.PCFSoftShadowMap;
+r.toneMapping=THREE.ACESFilmicToneMapping;r.outputColorSpace=THREE.SRGBColorSpace;stage.appendChild(r.domElement);
+const scene=new THREE.Scene();const pm=new THREE.PMREMGenerator(r);scene.environment=pm.fromScene(new RoomEnvironment(),0.04).texture;
+const cam=new THREE.PerspectiveCamera(30,1,0.1,100);
+const key=new THREE.DirectionalLight(0xffffff,2.2);key.position.set(3,6,4);key.castShadow=true;key.shadow.mapSize.set(2048,2048);key.shadow.radius=8;
+Object.assign(key.shadow.camera,{left:-4,right:4,top:4,bottom:-4});scene.add(key);
+const rim=new THREE.DirectionalLight(0xffffff,1.2);rim.position.set(-4,3,-3);scene.add(rim);
+const ground=new THREE.Mesh(new THREE.PlaneGeometry(20,20),new THREE.ShadowMaterial({opacity:.35}));ground.rotation.x=-Math.PI/2;ground.receiveShadow=true;scene.add(ground);
+
+const COL=[['Молочный','#f3f0ea'],['Графит','#2c2c30'],['Шалфей','#9fb39a'],['Терракота','#c8673f'],['Небо','#8fb3d9'],['Лимон','#f2d24b'],['Лаванда','#b7a6d9'],['Вишня','#8e2433']];
+const FIN=[['Матовое',.72,0],['Глянец',.22,.9]];
+const RING=[['Сталь','#dcdcdc',.18],['Золото','#e3b55b',.22],['Чёрный','#2a2a2a',.35]];
+const FONTS=[['Рукописный','italic 700 190px Georgia, serif'],['Жирный','900 170px "Arial Black", Arial, sans-serif'],['Моно','700 170px "Courier New", monospace']];
+const st={body:0,lid:1,fin:0,ring:0,font:0,txt:'Вова'};
+
+const g=new THREE.Group();scene.add(g);
+const prof=[[0,0],[0.74,0],[0.78,0.04],[0.80,0.15],[0.92,2.75],[0.92,2.78]].map(p=>new THREE.Vector2(...p));
+const bodyM=new THREE.MeshPhysicalMaterial({roughness:.7,clearcoat:0,clearcoatRoughness:.3});
+const body=new THREE.Mesh(new THREE.LatheGeometry(prof,128),bodyM);body.castShadow=true;g.add(body);
+const ringM=new THREE.MeshStandardMaterial({metalness:1,roughness:.18});
+const ring=new THREE.Mesh(new THREE.CylinderGeometry(.935,.935,.18,128,1,true),ringM);ring.position.y=2.86;g.add(ring);
+const lidM=new THREE.MeshPhysicalMaterial({roughness:.4,clearcoat:.4});
+const lid=new THREE.Mesh(new THREE.CylinderGeometry(.88,.94,.42,128),lidM);lid.position.y=3.16;lid.castShadow=true;g.add(lid);
+const top=new THREE.Mesh(new THREE.CylinderGeometry(.80,.88,.06,128),lidM);top.position.y=3.40;g.add(top);
+const tab=new THREE.Mesh(new THREE.BoxGeometry(.5,.16,.5,4,4,4),lidM);tab.position.set(0,3.5,.35);tab.castShadow=true;g.add(tab);
+// engraving band: straight 2-point lathe so v maps linearly to height
+const y0=.55,y1=2.35,rad=y=>.80+.12*(y-.15)/2.6+.003;
+const band=new THREE.LatheGeometry([new THREE.Vector2(rad(y0),y0),new THREE.Vector2(rad(y1),y1)],128,Math.PI,Math.PI*2);
+const cv=document.createElement('canvas');cv.width=2048;cv.height=512;const cx=cv.getContext('2d');
+const atex=new THREE.CanvasTexture(cv);atex.anisotropy=8;
+const engM=new THREE.MeshStandardMaterial({color:0xcfcfcf,metalness:1,roughness:.35,alphaMap:atex,transparent:true,depthWrite:false});
+const eng=new THREE.Mesh(band,engM);g.add(eng);
+// flat 0..1 of lathe goes bottom->top in v; canvas y=0 is top of texture (flipY) → text upright
+function drawEng(){
+  cx.fillStyle='#000';cx.fillRect(0,0,2048,512);
+  const t=st.txt.trim();document.getElementById('nLen').textContent=t.length+' / 16';
+  if(!t){atex.needsUpdate=true;return}
+  cx.fillStyle='#fff';cx.textAlign='center';cx.textBaseline='middle';
+  let f=FONTS[st.font][1];cx.font=f;let w=cx.measureText(t).width*1.33;const max=760;
+  const k=w>max?max/w:1;cx.save();cx.translate(1024,256);cx.scale(k*1.33,k<1?Math.max(k,.7):1);cx.fillText(t,0,8);cx.restore();
+  atex.needsUpdate=true;
+}
+const hex=h=>new THREE.Color(h);
+const lum=h=>{const c=hex(h);return .3*c.r+.59*c.g+.11*c.b};
+function apply(){
+  bodyM.color=hex(COL[st.body][1]);lidM.color=hex(COL[st.lid][1]);
+  const [,ro,cc]=FIN[st.fin];bodyM.roughness=ro;bodyM.clearcoat=cc;
+  const [,rc,rr]=RING[st.ring];ringM.color=hex(rc);ringM.roughness=rr;
+  // laser engraving exposes steel on dark bodies, darkens light ones
+  const L=lum(COL[st.body][1]);
+  if(L<.35){engM.color=hex('#d9d9d9');engM.metalness=1;engM.roughness=.3}
+  else{engM.color=hex(COL[st.body][1]).multiplyScalar(.45);engM.metalness=.2;engM.roughness=.8}
+  document.getElementById('nBody').textContent=COL[st.body][0];document.getElementById('nLid').textContent=COL[st.lid][0];
+  const p=1490+(st.ring==1?300:0)+(st.txt.trim()?250:0)+(st.fin==1?150:0);
+  document.getElementById('price').innerHTML=p.toLocaleString('ru-RU')+' ₽<small>350 мл · держит тепло 6 ч</small>';
+  drawEng();sync();
+}
+function swatches(id,k){const el=document.getElementById(id);el.innerHTML=COL.map((c,i)=>`<button aria-label="${c[0]}" title="${c[0]}" style="background:${c[1]}" data-i="${i}"></button>`).join('');
+  el.onclick=e=>{const b=e.target.closest('button');if(!b)return;st[k]=+b.dataset.i;apply()}}
+function seg(id,list,k){const el=document.getElementById(id);el.innerHTML=list.map((c,i)=>`<button data-i="${i}">${c[0]}</button>`).join('');
+  el.onclick=e=>{const b=e.target.closest('button');if(!b)return;st[k]=+b.dataset.i;apply()}}
+function sync(){[['swBody','body'],['swLid','lid'],['sgFin','fin'],['sgRing','ring'],['sgFont','font']].forEach(([id,k])=>document.querySelectorAll('#'+id+' button').forEach((b,i)=>b.classList.toggle('on',i==st[k])))}
+swatches('swBody','body');swatches('swLid','lid');seg('sgFin',FIN,'fin');seg('sgRing',RING,'ring');seg('sgFont',FONTS,'font');
+const inp=document.getElementById('eng');inp.oninput=()=>{st.txt=inp.value;apply();spinTo()};
+document.getElementById('rnd').onclick=()=>{const R=n=>Math.floor(Math.random()*n);st.body=R(COL.length);st.lid=R(COL.length);st.fin=R(2);st.ring=R(3);st.font=R(3);apply()};
+const toast=m=>{const t=document.getElementById('toast');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),1800)};
+document.getElementById('buy').onclick=()=>toast(`${COL[st.body][0]} + ${COL[st.lid][0]}${st.txt.trim()?' · «'+st.txt.trim()+'»':''} — в корзине`);
+document.fonts&&document.fonts.ready.then(drawEng);
+
+const d=12.5;cam.position.set(0,1.8+d*Math.sin(.14),d*Math.cos(.14));
+const ctl=new OrbitControls(cam,r.domElement);ctl.target.set(0,1.6,0);ctl.enableDamping=true;ctl.dampingFactor=.08;ctl.enablePan=false;
+ctl.minDistance=6;ctl.maxDistance=18;ctl.maxPolarAngle=Math.PI*.52;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;ctl.autoRotate=!reduce;ctl.autoRotateSpeed=1.2;
+let idle;ctl.addEventListener('start',()=>{ctl.autoRotate=false;clearTimeout(idle);document.body.classList.add('used')});
+ctl.addEventListener('end',()=>{clearTimeout(idle);idle=setTimeout(()=>ctl.autoRotate=!reduce,5000)});
+// when typing, turn the engraving to the camera
+let spin=null;function spinTo(){ctl.autoRotate=false;clearTimeout(idle);const a=Math.atan2(cam.position.x,cam.position.z);let cur=g.rotation.y,tgt=a;
+  while(tgt-cur>Math.PI)tgt-=2*Math.PI;while(tgt-cur<-Math.PI)tgt+=2*Math.PI;spin={from:cur,to:tgt,t:0};idle=setTimeout(()=>ctl.autoRotate=!reduce,6000)}
+function size(){const w=stage.clientWidth,h=stage.clientHeight;r.setSize(w,h,false);const a=w/h;cam.aspect=a;cam.fov=a<.9?2*Math.atan(Math.tan(Math.PI/12)*.9/a)*180/Math.PI:30;cam.updateProjectionMatrix()}
+new ResizeObserver(size).observe(stage);size();
+let last=performance.now();
+(function loop(now){const dt=Math.min(.05,(now-last)/1000);last=now;
+  if(spin){spin.t=Math.min(1,spin.t+dt*2.5);const e=1-Math.pow(1-spin.t,3);g.rotation.y=spin.from+(spin.to-spin.from)*e;if(spin.t>=1)spin=null}
+  ctl.update();r.render(scene,cam);requestAnimationFrame(loop)})(last);
+apply();
+</script></body></html>
