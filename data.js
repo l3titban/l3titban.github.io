@@ -1274,5 +1274,44 @@ window.WORKS=[
     "src": "works/sites/urfu-2/05.jpg"
    }
   ]
+ },
+ {
+  "id": "site-igroman",
+  "cat": "sites",
+  "title": "IGROMAN — сайт бронирования PlayStation-клуба",
+  "tag": "Сайт с нуля · концепт",
+  "cover": "works/sites/igroman/slides/01.jpg",
+  "live": "works/sites/igroman/index.html",
+  "text": "Задача из жизни: я работал администратором в PlayStation-клубе в Степногорске, где все брони жили в WhatsApp и на листочках. Сделал концепт сайта: живая схема клуба по реальной планировке (кто играет и до скольки), бронь с расчётом цены (будни/выходные, лишние гости в VIP, доп. джойстики), предоплата 50%, подтверждение, RU/KZ. Плюс админка: статусы «пришли/ушли» с подтверждением и отменой, история и выручка смены, подмена PS5 на PS4 при аренде, управление холодильником — что кончилось, сразу пропадает с сайта. Сначала кликабельный макет, правки с «заказчиком», потом рабочая вёрстка.",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/sites/igroman/slides/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/sites/igroman/slides/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/sites/igroman/slides/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/sites/igroman/slides/04.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/sites/igroman/slides/05.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/sites/igroman/slides/06.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/sites/igroman/slides/07.jpg"
+   }
+  ]
  }
 ];

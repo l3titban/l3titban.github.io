@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IGROMAN — админка</title>
+<meta name="description" content="Концепт сайта бронирования PlayStation-клуба IGROMAN: живая схема клуба, бронь с предоплатой, админка. Автор — Владимир Черкашин.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0e0d0b}
+a{color:#ffc93c}a:hover{color:#ffe08a}
+button{font-family:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:3px solid #ffc93c;outline-offset:2px}
+</style>
+
+<style>#concept{margin:0 auto 24px;width:max-content;max-width:90vw;padding:8px 12px;border-radius:10px;background:#201d15;border:1px solid #3a3426;color:#c9c1ab;font:700 12px Manrope,sans-serif}#concept a{color:#ffc93c}</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+
+<div style="font-family: Manrope, system-ui, sans-serif; color: #f6f1e3; background: #0e0d0b; min-height: 100vh">
+  <header style="max-width: 1320px; margin: 0 auto; padding: 22px 24px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between">
+    <div style="display: flex; align-items: center; gap: 14px">
+      <span style="font: 800 22px Unbounded; color: #ffc93c; letter-spacing: .04em">IGROMAN</span>
+      <span style="padding: 6px 10px; border-radius: 8px; background: #201d15; font: 800 12px Manrope; letter-spacing: .12em; color: #c9c1ab">АДМИНКА</span>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
+      <span style="font: 700 14px Manrope; color: #a39b86">Вторник, 24 ноября · смена: Вова</span>
+      <a href="index.html" style="padding: 10px 14px; border-radius: 12px; border: 1px solid #3a3426; text-decoration: none; font: 800 14px Manrope">← Сайт для гостей</a>
+    </div>
+  </header>
+
+  <!-- уведомление -->
+  <template data-sc="if" value="{{ showToast }}" hint-placeholder-val="{{ true }}">
+    <div role="status" style="max-width: 1320px; margin: 0 auto; padding: 0 24px">
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between; padding: 16px 20px; border-radius: 18px; background: #241f12; border: 1px solid #ffc93c">
+        <div style="display: flex; gap: 14px; align-items: center">
+          <span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 12px; background: #ffc93c; display: grid; place-items: center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a1406" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"></path><path d="M10 20a2 2 0 0 0 4 0"></path></svg>
+          </span>
+          <div>
+            <div style="font: 800 16px Manrope">Новая бронь с сайта · IG-2411-07</div>
+            <div style="font: 600 14px Manrope; color: #c9c1ab; margin-top: 3px">VIP 1 · сегодня 19:00–21:00 · 7 человек · предоплата 50% получена · продублировано в Telegram</div>
+          </div>
+        </div>
+        <button onClick="{{ acceptNew }}" style="height: 44px; padding: 0 18px; border-radius: 12px; border: 0; background: #ffc93c; color: #1a1406; font: 800 14px Manrope">Принять</button>
+      </div>
+    </div>
+  </template>
+
+  <template data-sc="if" value="{{ hasUndo }}" hint-placeholder-val="{{ false }}">
+    <div role="status" style="max-width: 1320px; margin: 12px auto 0; padding: 0 24px">
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; padding: 12px 18px; border-radius: 14px; background: #201d15; border: 1px solid #3a3426">
+        <span style="font: 700 14px Manrope; color: #c9c1ab">{{undoText}}</span>
+        <button onClick="{{ undoLast }}" style="height: 40px; padding: 0 16px; border-radius: 10px; border: 0; background: #f6f1e3; color: #1a1406; font: 800 13px Manrope">Отменить</button>
+      </div>
+    </div>
+  </template>
+
+  <div style="max-width: 1320px; margin: 0 auto; padding: 20px 24px 48px; display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+    <!-- брони -->
+    <section style="flex: 999 1 640px; min-width: 0; background: #17150f; border: 1px solid #2e2a1f; border-radius: 22px; padding: 22px">
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center">
+        <h1 style="margin: 0; font: 800 24px Unbounded">Брони на сегодня</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap">
+          <span style="padding: 8px 12px; border-radius: 10px; background: #201d15; font: 800 13px Manrope">{{bookCount}} броней</span>
+          <span style="padding: 8px 12px; border-radius: 10px; background: #201d15; font: 800 13px Manrope; color: #ffc93c">{{sumText}} предоплат</span>
+        </div>
+      </div>
+      <div style="overflow-x: auto; margin-top: 16px">
+        <table style="width: 100%; min-width: 640px; border-collapse: collapse; font: 700 15px Manrope">
+          <thead>
+            <tr style="color: #a39b86; font-size: 12px; letter-spacing: .08em; text-align: left">
+              <th scope="col" style="padding: 10px 12px">ВРЕМЯ</th>
+              <th scope="col" style="padding: 10px 12px">МЕСТО</th>
+              <th scope="col" style="padding: 10px 12px">ГОСТЬ</th>
+              <th scope="col" style="padding: 10px 12px">ЛЮДЕЙ</th>
+              <th scope="col" style="padding: 10px 12px">ДОП</th>
+              <th scope="col" style="padding: 10px 12px">СТАТУС</th>
+              <th scope="col" style="padding: 10px 12px">ДЕЙСТВИЕ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template data-sc="for" list="{{ bookings }}" as="b" hint-placeholder-count="5">
+              <tr style="border-top: 1px solid #2e2a1f">
+                <td style="padding: 14px 12px; font: 800 15px Unbounded">{{b.time}}</td>
+                <th scope="row" style="padding: 14px 12px; text-align: left">{{b.place}}</th>
+                <td style="padding: 14px 12px; color: #c9c1ab">{{b.guest}}</td>
+                <td style="padding: 14px 12px">{{b.people}}</td>
+                <td style="padding: 14px 12px; color: #c9c1ab">{{b.extra}}</td>
+                <td style="padding: 14px 12px"><span style="{{ b.badge }}">{{b.status}}</span></td>
+                <td style="padding: 10px 12px">
+                  <template data-sc="if" value="{{ b.asking }}" hint-placeholder-val="{{ false }}">
+                    <div role="alert" style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center">
+                      <span style="font: 800 12px Manrope; color: #f3b7b9">{{b.askText}}</span>
+                      <button onClick="{{ b.yes }}" style="height: 36px; padding: 0 12px; border-radius: 10px; border: 0; background: #e5484d; color: #fff; font: 800 12px Manrope">Да</button>
+                      <button onClick="{{ b.no }}" style="height: 36px; padding: 0 12px; border-radius: 10px; border: 1px solid #3a3426; background: #17150f; color: #d9d1bd; font: 800 12px Manrope">Нет</button>
+                    </div>
+                  </template>
+                  <template data-sc="if" value="{{ b.notAsking }}" hint-placeholder-val="{{ true }}">
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap">
+                      <template data-sc="for" list="{{ b.actions }}" as="ac" hint-placeholder-count="2">
+                        <button onClick="{{ ac.go }}" style="{{ ac.style }}">{{ac.label}}</button>
+                      </template>
+                    </div>
+                  </template>
+                </td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 style="margin: 28px 0 0; font: 800 20px Unbounded">История за день</h2>
+      <p style="margin: 6px 0 0; font: 600 14px Manrope; color: #a39b86">Все, кто играл сегодня. Отметил «Ушли» — бронь переезжает сюда, место на сайте освобождается. Ошибся — жми «Вернуть».</p>
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px">
+        <template data-sc="for" list="{{ history }}" as="h" hint-placeholder-count="3">
+          <div style="display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; padding: 12px 14px; border-radius: 12px; background: #201d15; font: 700 14px Manrope">
+            <span style="font: 800 14px Unbounded; color: #c9c1ab; min-width: 120px">{{h.time}}</span>
+            <span style="min-width: 110px">{{h.place}}</span>
+            <span style="color: #a39b86; flex: 1 1 160px">{{h.guest}}</span>
+            <span style="{{ h.badge }}">{{h.status}}</span>
+            <span style="font: 800 14px Manrope; color: #ffc93c; min-width: 80px; text-align: right">{{h.sum}}</span>
+            <button onClick="{{ h.undo }}" aria-label="{{ h.undoAria }}" style="height: 36px; padding: 0 12px; border-radius: 10px; border: 1px solid #3a3426; background: #17150f; color: #d9d1bd; font: 800 12px Manrope">↶ Вернуть</button>
+          </div>
+        </template>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-top: 18px">
+        <div style="padding: 16px; border-radius: 14px; border: 1px solid #2e2a1f"><div style="font: 800 22px Unbounded; color: #ffc93c">{{shiftSum}}</div><div style="font: 700 13px Manrope; color: #a39b86; margin-top: 4px">выручка за смену</div></div>
+        <div style="padding: 16px; border-radius: 14px; border: 1px solid #2e2a1f"><div style="font: 800 22px Unbounded">{{shiftGames}}</div><div style="font: 700 13px Manrope; color: #a39b86; margin-top: 4px">сеансов сыграно</div></div>
+        <div style="padding: 16px; border-radius: 14px; border: 1px solid #2e2a1f"><div style="font: 800 22px Unbounded">{{noShow}}</div><div style="font: 700 13px Manrope; color: #a39b86; margin-top: 4px">не пришли</div></div>
+      </div>
+    </section>
+
+    <!-- станции -->
+    <section style="flex: 1 1 400px; min-width: 0; background: #17150f; border: 1px solid #2e2a1f; border-radius: 22px; padding: 22px">
+      <h2 style="margin: 0; font: 800 22px Unbounded">Что где стоит</h2>
+      <p style="margin: 8px 0 0; font: 600 14px/1.5 Manrope; color: #a39b86">Забрали PS5 в аренду — поставь на место PS4. На сайте цена и значок поменяются сами.</p>
+      <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 16px">
+        <template data-sc="for" list="{{ stations }}" as="s" hint-placeholder-count="8">
+          <div style="padding: 12px 14px; border-radius: 14px; background: #201d15; border: 1px solid #2e2a1f">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px">
+              <span style="font: 800 15px Manrope">{{s.name}}</span>
+              <span style="font: 700 12px Manrope; color: #a39b86">{{s.note}}</span>
+            </div>
+            <div role="group" aria-label="{{ s.aria }}" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-top: 10px">
+              <template data-sc="for" list="{{ s.opts }}" as="o" hint-placeholder-count="4">
+                <button onClick="{{ o.pick }}" aria-pressed="{{ o.on }}" style="{{ o.style }}">{{o.label}}</button>
+              </template>
+            </div>
+          </div>
+        </template>
+      </div>
+      <div style="margin-top: 16px; padding: 14px; border-radius: 14px; border: 1px dashed #4a4434">
+        <div style="font: 800 14px Manrope">Аренда на дом</div>
+        <div style="font: 600 14px/1.6 Manrope; color: #c9c1ab; margin-top: 6px">Выдано: {{rentedPs5}} × PS5 · свободно для аренды: PS5 — {{freePs5}}, PS4 — 5</div>
+      </div>
+    </section>
+
+    <!-- холодильник и меню -->
+    <section id="menu" style="flex: 1 1 100%; min-width: 0; background: #17150f; border: 1px solid #2e2a1f; border-radius: 22px; padding: 22px">
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: flex-end">
+        <div>
+          <h2 style="margin: 0; font: 800 22px Unbounded">Холодильник и меню</h2>
+          <p style="margin: 8px 0 0; font: 600 14px/1.5 Manrope; color: #a39b86">Выключил «Есть» — позиция сразу пропадает с сайта. Привезли новое — добавь снизу.</p>
+        </div>
+        <span style="padding: 8px 12px; border-radius: 10px; background: #201d15; font: 800 13px Manrope">{{inStock}} из {{menuTotal}} в наличии</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin-top: 16px">
+        <template data-sc="for" list="{{ menuItems }}" as="m" hint-placeholder-count="8">
+          <div style="{{ m.card }}">
+            <div style="display: flex; justify-content: space-between; gap: 10px; align-items: flex-start">
+              <div>
+                <div style="font: 800 16px Manrope">{{m.n}}</div>
+                <div style="font: 700 13px Manrope; color: #a39b86; margin-top: 4px">{{m.catLabel}} · {{m.price}}</div>
+              </div>
+              <button onClick="{{ m.toggle }}" role="switch" aria-checked="{{ m.on }}" aria-label="{{ m.toggleAria }}" style="{{ m.switchStyle }}">{{m.switchText}}</button>
+            </div>
+            <template data-sc="if" value="{{ m.asking }}" hint-placeholder-val="{{ false }}">
+              <div role="alert" style="display: flex; gap: 6px; align-items: center; margin-top: 10px">
+                <span style="font: 800 12px Manrope; color: #f3b7b9; flex: 1">Удалить из меню совсем?</span>
+                <button onClick="{{ m.yes }}" style="height: 34px; padding: 0 12px; border-radius: 9px; border: 0; background: #e5484d; color: #fff; font: 800 12px Manrope">Да</button>
+                <button onClick="{{ m.no }}" style="height: 34px; padding: 0 12px; border-radius: 9px; border: 1px solid #3a3426; background: #17150f; color: #d9d1bd; font: 800 12px Manrope">Нет</button>
+              </div>
+            </template>
+            <template data-sc="if" value="{{ m.notAsking }}" hint-placeholder-val="{{ true }}">
+              <button onClick="{{ m.del }}" style="margin-top: 10px; height: 34px; padding: 0; border: 0; background: transparent; color: #8a816b; font: 700 12px Manrope; text-decoration: underline">Удалить позицию</button>
+            </template>
+          </div>
+        </template>
+      </div>
+
+      <form onSubmit="{{ addItem }}" style="margin-top: 18px; padding: 16px; border-radius: 16px; border: 1px dashed #4a4434; display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end">
+        <label style="flex: 2 1 240px; display: flex; flex-direction: column; gap: 6px; font: 800 12px Manrope; color: #c9c1ab">Название
+          <input value="{{ newName }}" onChange="{{ onName }}" placeholder="Например, Pepsi 0,5" style="height: 46px; border-radius: 12px; border: 1px solid #3a3426; background: #0e0d0b; color: #f6f1e3; padding: 0 14px; font: 700 15px Manrope">
+        </label>
+        <label style="flex: 1 1 120px; display: flex; flex-direction: column; gap: 6px; font: 800 12px Manrope; color: #c9c1ab">Цена, ₸
+          <input value="{{ newPrice }}" onChange="{{ onPrice }}" inputMode="numeric" placeholder="600" style="height: 46px; border-radius: 12px; border: 1px solid #3a3426; background: #0e0d0b; color: #f6f1e3; padding: 0 14px; font: 700 15px Manrope">
+        </label>
+        <label style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 6px; font: 800 12px Manrope; color: #c9c1ab">Раздел
+          <select value="{{ newCat }}" onChange="{{ onCat }}" style="height: 46px; border-radius: 12px; border: 1px solid #3a3426; background: #0e0d0b; color: #f6f1e3; padding: 0 10px; font: 700 15px Manrope">
+            <option value="drink">Напиток</option>
+            <option value="food">Еда</option>
+          </select>
+        </label>
+        <button type="submit" disabled="{{ cantAdd }}" style="{{ addStyle }}">Добавить</button>
+      </form>
+      <template data-sc="if" value="{{ addErr }}" hint-placeholder-val="{{ false }}">
+        <p role="alert" style="margin: 8px 0 0; font: 700 13px Manrope; color: #f3b7b9">{{addErrText}}</p>
+      </template>
+    </section>
+  </div>
+</div>
+</template>
+<div id="concept">Концепт · <a href="https://l3titban.github.io/#w-site-igroman">портфолио автора</a></div>
+<script src="dc-lite.js"></script>
+<script>
+class Component extends DCLogic {
+  constructor(p) {
+    super(p);
+    this.state = { toast: true, ask: null, last: null, delAsk: null, newName: '', newPrice: '', newCat: 'drink', menu: [
+      { id: 'm1', n: 'Gorilla', p: 600, cat: 'drink', on: true },
+      { id: 'm2', n: 'Tassay Energy', p: 600, cat: 'drink', on: true },
+      { id: 'm3', n: 'Coca-Cola', p: 600, cat: 'drink', on: true },
+      { id: 'm4', n: 'Fanta', p: 600, cat: 'drink', on: false },
+      { id: 'm5', n: 'Sprite', p: 600, cat: 'drink', on: true },
+      { id: 'm6', n: 'Fuse Tea', p: 600, cat: 'drink', on: true },
+      { id: 'm7', n: 'Bonaqua', p: 450, cat: 'drink', on: true },
+      { id: 'm8', n: 'Сэндвич сырный', p: 600, cat: 'food', on: true }
+    ], bk: [
+      { id: 'h1', time: '14:10–16:00', end: '16:00', place: 'PS #4', guest: 'Алихан, +7 708 ··· 12', people: '2', extra: '—', st: 'left', sum: 1800 },
+      { id: 'h2', time: '14:30–15:30', end: '15:30', place: 'VIP 2', guest: 'Сайт · IG-2411-02', people: '5', extra: '—', st: 'left', sum: 1500 },
+      { id: 'h3', time: '15:00–16:00', end: '—', place: 'PS #1', guest: 'Сайт · IG-2411-03', people: '2', extra: '—', st: 'noshow', sum: 900 },
+      { id: 'a1', time: '16:00–18:30', end: '18:30', place: 'PS #2', guest: 'Ерлан, +7 701 ··· 41', people: '3', extra: '—', st: 'now', sum: 2250 },
+      { id: 'a2', time: '16:30–19:00', end: '19:00', place: 'Mini VIP', guest: 'Айгерим, +7 747 ··· 08', people: '4', extra: '+1 джойстик', st: 'now', sum: 3500 },
+      { id: 'n7', time: '19:00–21:00', end: '21:00', place: 'VIP 1', guest: 'Сайт · IG-2411-07', people: '7', extra: '+1 гость', st: 'newb', sum: 4000 },
+      { id: 'a4', time: '20:00–22:00', end: '22:00', place: 'VIP 2', guest: 'Данияр, +7 775 ··· 93', people: '5', extra: '+2 джойстика', st: 'wait', sum: 4000 },
+      { id: 'a5', time: '21:00–22:00', end: '22:00', place: 'PS #1', guest: 'Сайт · IG-2411-05', people: '2', extra: '—', st: 'wait', sum: 900 },
+      { id: 'a6', time: '22:00–00:00', end: '00:00', place: 'PS #4', guest: 'Сайт · IG-2411-06', people: '4', extra: '+2 джойстика', st: 'wait', sum: 2800 }
+    ], mode: { g1: 'ps5', g2: 'ps5', g3: 'ps4', g4: 'ps5', mini: 'ps5', vip1: 'ps5', vip2: 'ps5', vip3: 'off' } };
+  }
+  componentDidMount() {
+    try { var raw = window.localStorage.getItem('igroman.menu.v1'); if (raw) this.setState({ menu: JSON.parse(raw) }); else window.localStorage.setItem('igroman.menu.v1', JSON.stringify(this.state.menu)); } catch (e) {}
+  }
+  renderVals() {
+    var self = this, S = this.state;
+    var names = [['g1', 'Общий зал · PS #1'], ['g2', 'Общий зал · PS #2'], ['g3', 'Общий зал · PS #3'], ['g4', 'Общий зал · PS #4'], ['mini', 'Mini VIP'], ['vip1', 'VIP 1'], ['vip2', 'VIP 2'], ['vip3', 'VIP 3']];
+    var opts = [['ps5', 'PS5'], ['ps4', 'PS4'], ['rent', 'Аренда'], ['off', 'Ремонт']];
+    var notes = { ps5: 'на сайте: PS5', ps4: 'на сайте: PS4, цена PS4', rent: 'на сайте: недоступно', off: 'на сайте: не работает' };
+    var stations = names.map(function (n) {
+      var cur = S.mode[n[0]];
+      return {
+        name: n[1], note: notes[cur], aria: 'Консоль на месте ' + n[1],
+        opts: opts.map(function (o) {
+          var on = cur === o[0];
+          var col = o[0] === 'off' || o[0] === 'rent' ? '#e5484d' : '#ffc93c';
+          return {
+            label: o[1], on: on,
+            style: 'height:40px;border-radius:10px;font:800 13px Manrope;' + (on ? 'border:2px solid ' + col + ';background:' + (col === '#ffc93c' ? '#ffc93c;color:#1a1406' : '#3b1d1e;color:#f3b7b9') : 'border:1px solid #3a3426;background:#17150f;color:#d9d1bd'),
+            pick: function () { var m = Object.assign({}, self.state.mode); m[n[0]] = o[0]; self.setState({ mode: m }); }
+          };
+        })
+      };
+    });
+    var BADGE = { ok: 'background:#ffc93c;color:#1a1406', now: 'background:#3b1d1e;color:#f3b7b9;border:1px solid #e5484d', wait: 'background:#201d15;color:#ffe08a;border:1px solid #ffc93c', newb: 'background:#f6f1e3;color:#1a1406', left: 'background:#2b2820;color:#c9c1ab', noshow: 'background:#1e1112;color:#f3b7b9;border:1px dashed #e5484d' };
+    var badge = function (k) { return 'display:inline-block;padding:5px 10px;border-radius:8px;font:800 12px Manrope;' + BADGE[k]; };
+    var LBL = { newb: 'Новая', ok: 'Принята', wait: 'Ждём', now: 'Играют', left: 'Ушли', noshow: 'Не пришли' };
+    var btn = function (kind) { return 'height:36px;padding:0 12px;border-radius:10px;font:800 12px Manrope;' + (kind === 'main' ? 'border:0;background:#ffc93c;color:#1a1406' : 'border:1px solid #3a3426;background:#17150f;color:#d9d1bd'); };
+    var setSt = function (id, st) {
+      var prev = null;
+      var b = self.state.bk.map(function (x) { if (x.id !== id) return x; prev = x.st; return Object.assign({}, x, { st: st, prev: x.st, end: st === 'left' ? '17:42' : x.end }); });
+      self.setState({ bk: b, ask: null, last: { id: id, from: prev, to: st } });
+    };
+    var restore = function (id, to) { var b = self.state.bk.map(function (x) { return x.id === id ? Object.assign({}, x, { st: to }) : x; }); self.setState({ bk: b, last: null }); };
+    var RISKY = { left: 'Точно ушли?', noshow: 'Точно не пришли?' };
+    var NEXT = {
+      newb: [['Принять', 'ok', 'main'], ['Отклонить', 'noshow']],
+      ok: [['Пришли', 'now', 'main'], ['Не пришли', 'noshow']],
+      wait: [['Пришли', 'now', 'main'], ['Не пришли', 'noshow']],
+      now: [['Ушли', 'left', 'main']]
+    };
+    var active = S.bk.filter(function (b) { return b.st !== 'left' && b.st !== 'noshow'; });
+    var done = S.bk.filter(function (b) { return b.st === 'left' || b.st === 'noshow'; });
+    var fmt = function (n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₸'; };
+    var bookings = active.map(function (b) {
+      var asking = S.ask && S.ask.id === b.id;
+      return Object.assign({}, b, {
+        status: LBL[b.st], badge: badge(b.st), asking: !!asking, notAsking: !asking,
+        askText: asking ? RISKY[S.ask.to] : '',
+        yes: function () { setSt(b.id, self.state.ask.to); },
+        no: function () { self.setState({ ask: null }); },
+        actions: (NEXT[b.st] || []).map(function (a) { return { label: a[0], style: btn(a[2]), go: function () { if (RISKY[a[1]]) self.setState({ ask: { id: b.id, to: a[1] } }); else setSt(b.id, a[1]); } }; })
+      });
+    });
+    var history = done.map(function (b) { return { undoAria: 'Вернуть бронь ' + b.place, undo: function () { restore(b.id, b.prev || (b.st === 'left' ? 'now' : 'wait')); }, time: b.time.split('–')[0] + '–' + (b.st === 'left' ? b.end : '—'), place: b.place, guest: b.guest, status: LBL[b.st], badge: badge(b.st), sum: b.st === 'left' ? fmt(b.sum) : fmt(b.sum / 2) + ' предоплата' }; });
+    var shift = done.reduce(function (a, b) { return a + (b.st === 'left' ? b.sum : b.sum / 2); }, 0);
+    var save = function (menu) { try { window.localStorage.setItem('igroman.menu.v1', JSON.stringify(menu)); } catch (e) {} self.setState({ menu: menu }); };
+    var menu = S.menu;
+    var catLabel = { drink: 'Напиток', food: 'Еда' };
+    var menuItems = menu.map(function (m) {
+      var asking = S.delAsk === m.id;
+      return {
+        n: m.n, on: m.on, price: fmt(m.p), catLabel: catLabel[m.cat],
+        card: 'padding:14px;border-radius:14px;background:#201d15;border:1px solid ' + (m.on ? '#2e2a1f' : '#3a3426') + (m.on ? '' : ';opacity:.7'),
+        switchText: m.on ? 'Есть' : 'Нет',
+        toggleAria: m.n + (m.on ? ': в наличии' : ': нет в наличии'),
+        switchStyle: 'min-width:72px;height:40px;border-radius:999px;font:800 13px Manrope;' + (m.on ? 'border:0;background:#ffc93c;color:#1a1406' : 'border:1px solid #5a1f22;background:#1e1112;color:#f3b7b9'),
+        toggle: function () { save(self.state.menu.map(function (x) { return x.id === m.id ? Object.assign({}, x, { on: !x.on }) : x; })); },
+        asking: asking, notAsking: !asking,
+        del: function () { self.setState({ delAsk: m.id }); },
+        no: function () { self.setState({ delAsk: null }); },
+        yes: function () { self.setState({ delAsk: null }); save(self.state.menu.filter(function (x) { return x.id !== m.id; })); }
+      };
+    });
+    var priceNum = parseInt(String(S.newPrice).replace(/\D/g, ''), 10);
+    var dupe = menu.some(function (m) { return m.n.trim().toLowerCase() === S.newName.trim().toLowerCase(); });
+    var cantAdd = !S.newName.trim() || !priceNum || dupe;
+    var rented = Object.keys(S.mode).filter(function (k) { return S.mode[k] === 'rent' || (S.mode[k] === 'ps4' && k.charAt(0) === 'g'); }).length;
+    return {
+      showToast: S.toast,
+      bookings: bookings, bookCount: bookings.length, sumText: fmt(active.reduce(function (a, b) { return a + b.sum / 2; }, 0)),
+      history: history,
+      hasUndo: !!(S.last && (S.last.to === 'left' || S.last.to === 'noshow')),
+      undoText: S.last ? (S.bk.filter(function (x) { return x.id === S.last.id; })[0] || {}).place + ' → «' + LBL[S.last.to] + '». Место освобождено.' : '',
+      undoLast: function () { var l = self.state.last; if (l) restore(l.id, l.from); }, shiftSum: fmt(shift), shiftGames: done.filter(function (b) { return b.st === 'left'; }).length, noShow: done.filter(function (b) { return b.st === 'noshow'; }).length,
+      acceptNew: function () { setSt('n7', 'ok'); self.setState({ toast: false }); },
+      menuItems: menuItems, inStock: menu.filter(function (m) { return m.on; }).length, menuTotal: menu.length,
+      newName: S.newName, newPrice: S.newPrice, newCat: S.newCat,
+      onName: function (e) { self.setState({ newName: e.target.value }); },
+      onPrice: function (e) { self.setState({ newPrice: e.target.value.replace(/\D/g, '').slice(0, 6) }); },
+      onCat: function (e) { self.setState({ newCat: e.target.value }); },
+      cantAdd: cantAdd,
+      addErr: dupe && !!S.newName.trim(), addErrText: 'Такая позиция уже есть в меню — просто включи её.',
+      addStyle: 'height:46px;padding:0 20px;border-radius:12px;border:0;font:800 15px Manrope;' + (cantAdd ? 'background:#2b2820;color:#8a816b;cursor:not-allowed' : 'background:#ffc93c;color:#1a1406'),
+      addItem: function (e) {
+        if (e && e.preventDefault) e.preventDefault();
+        if (cantAdd) return;
+        save(self.state.menu.concat([{ id: 'm' + Date.now(), n: self.state.newName.trim(), p: priceNum, cat: self.state.newCat, on: true }]));
+        self.setState({ newName: '', newPrice: '' });
+      },
+      stations: stations, rentedPs5: rented, freePs5: Math.max(0, 2 - rented + 1)
+    };
+  }
+}
+
+mountDC(Component);
+</script>
+</body>
+</html>
