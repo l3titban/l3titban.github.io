@@ -79,9 +79,24 @@ section.sec{padding-top:110px;padding-bottom:30px}
 .step b{font:800 40px Unbounded;color:var(--lime)}
 .step h3{font:800 20px/1.2 Unbounded}
 .step p{font-size:15px;color:var(--mut)}
-.tools{display:flex;flex-wrap:wrap;gap:12px}
-.tools span{font:700 17px Manrope;border:1px solid #3a3448;padding:14px 22px;border-radius:999px;background:rgba(21,18,31,.6);backdrop-filter:blur(6px);transition:border-color .2s,color .2s}
-.tools span:hover{border-color:var(--lime);color:var(--lime)}
+.mq{position:relative;overflow:hidden;padding:200px 0 18px;margin-top:-150px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mq-track{display:flex;gap:14px;width:max-content;animation:mq 38s linear infinite}
+.mq-track:hover,.mq.hold .mq-track{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.tl{position:relative;flex:none;display:flex;align-items:center;gap:12px;padding:12px 22px 12px 12px;border-radius:999px;border:1px solid #3a3448;background:rgba(21,18,31,.72);backdrop-filter:blur(6px);cursor:default;transition:border-color .3s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)}
+.tl i{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font:800 15px Manrope;font-style:normal;color:#0c0a16}
+.tl b{font:700 17px Manrope;color:#ece9f5;white-space:nowrap}.tl small{display:block;font:600 12px Manrope;color:#8f88a6;white-space:nowrap}
+.tl:hover,.tl.on{border-color:var(--lime);transform:translateY(-4px)}
+.tl .pop{position:absolute;left:50%;bottom:calc(100% + 14px);width:330px;height:170px;transform:translateX(-50%);pointer-events:none}
+.tl .pop a{position:absolute;bottom:0;left:50%;width:118px;height:158px;margin-left:-59px;border-radius:14px;overflow:hidden;border:1px solid #3a3448;box-shadow:0 18px 34px rgba(0,0,0,.5);opacity:0;transform:translate(0,30px) scale(.6);transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .3s cubic-bezier(.22,1,.36,1);pointer-events:none}
+.tl .pop a img{width:100%;height:100%;object-fit:cover;display:block}
+.tl:hover .pop a,.tl.on .pop a{opacity:1;pointer-events:auto}
+.tl:hover .pop a:nth-child(1),.tl.on .pop a:nth-child(1){transform:translate(-112px,8px) rotate(-10deg)}
+.tl:hover .pop a:nth-child(2),.tl.on .pop a:nth-child(2){transform:translate(0,-6px);transition-delay:.04s;z-index:2}
+.tl:hover .pop a:nth-child(3),.tl.on .pop a:nth-child(3){transform:translate(112px,8px) rotate(10deg);transition-delay:.08s}
+.tl .pop a:hover{border-color:var(--lime)}
+.mq-hint{font:600 14px Manrope;color:#8f88a6;margin-top:8px}
+@media (prefers-reduced-motion:reduce){.mq-track{animation:none;flex-wrap:wrap;width:auto}.mq{-webkit-mask-image:none;mask-image:none}}
 .contact{margin-top:110px;padding:120px 18px 50px;text-align:center;border-top:1px solid var(--line);background:linear-gradient(transparent,rgba(12,10,22,.7))}
 .contact .h2{font-size:clamp(40px,8vw,110px)}
 .contact p{margin:18px 0 26px;color:var(--mut);font-size:18px}
@@ -193,7 +208,7 @@ body.cv #catView{display:block}
 
  <section class="sec in" id="tools">
   <h2 class="h2 sm rv" style="margin-bottom:32px">Инструменты</h2>
-  <div class="tools rv"><span>Figma</span><span>Photoshop</span><span>CapCut</span><span>Claude</span><span>Higgsfield</span><span>ElevenLabs</span><span>three.js</span><span>HTML / CSS / JS</span></div>
+  <div class="mq rv" id="mq"><div class="mq-track" id="mqt"></div></div><p class="mq-hint">Наведи на инструмент — покажу, что в нём сделано</p>
  </section>
 </main>
 
@@ -220,8 +235,8 @@ body.cv #catView{display:block}
 <button class="zoom" id="zoom" aria-label="Закрыть увеличение"><img alt=""></button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="bg.js?v=1795535571"></script>
-<script src="data.js?v=1795535571"></script>
+<script src="bg.js?v=1795538899"></script>
+<script src="data.js?v=1795538899"></script>
 <script>
 {
 // ===== НАСТРОЙ: контакты =====
@@ -339,6 +354,16 @@ $('#logo').onclick=e=>{e.preventDefault();history.replaceState(null,'',location.
  const set=m=>{v.muted=m;b.setAttribute('aria-pressed',String(!m));b.setAttribute('aria-label',m?'Включить звук':'Выключить звук');b.querySelector('span').textContent=m?'Включить звук':'Выключить звук';b.querySelector('.w').setAttribute('d',m?'M17 9l4 6M21 9l-4 6':'M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12')};
  b.addEventListener('click',()=>{set(!v.muted);v.play().catch(()=>{})});
  new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)v.play().catch(()=>{});else v.pause()}),{threshold:.15}).observe(v);
+})();
+</script>
+<script>
+(()=>{const T=[['Figma','макеты сайтов и приложений','#c6f432',['app-sosedi','app-igroman','site-urfu-2']],['Photoshop','ретушь и вырезка товаров','#9b8cff',['wb-25','wb-03','wb-31']],['Higgsfield','фото и сцены для брендов','#ffb36b',['smm-chub','smm-ryvok','smm-grunt']],['Claude','код, вёрстка, логика','#ff8a65',['site-igroman','3d-mug-config','brand-lepim']],['three.js','3D-модели и конфигураторы','#6fd6ff',['3d-mug-config','3d-thermos','3d-lamp']],['ElevenLabs','озвучка роликов','#f0f0f0',['video-showreel','mascot-shchepkin','motion-scenes']],['CapCut','монтаж и субтитры','#ff5c8a',['video-showreel','motion-scenes','3d-dumbbells']],['HTML / CSS / JS','живые сайты и интерактив','#ffe14d',['site-igroman','site-urfu-1','3d-mug-config']]];
+ const all=window.WORKS||[],cov=id=>{const w=all.find(x=>x.id===id);return w?w.cover:''};
+ const one=t=>`<div class="tl" tabindex="0"><i style="background:${t[2]}">${t[0].replace(/[^A-Za-zА-я]/g,'').slice(0,2)}</i><span><b>${t[0]}</b><small>${t[1]}</small></span><span class="pop">${t[3].filter(cov).map(id=>`<a href="#w-${id}" aria-label="Открыть работу"><img src="${cov(id)}" alt="" loading="lazy"></a>`).join('')}</span></div>`;
+ const tr=document.getElementById('mqt');if(!tr)return;tr.innerHTML=T.map(one).join('')+T.map(one).join('');
+ const mq=document.getElementById('mq');
+ tr.addEventListener('click',e=>{const t=e.target.closest('.tl');if(!t||e.target.closest('a'))return;const was=t.classList.contains('on');tr.querySelectorAll('.tl.on').forEach(x=>x.classList.remove('on'));t.classList.toggle('on',!was);mq.classList.toggle('hold',!was)});
+ document.addEventListener('click',e=>{if(!e.target.closest('#mq')){tr.querySelectorAll('.tl.on').forEach(x=>x.classList.remove('on'));mq.classList.remove('hold')}});
 })();
 </script>
 </body>

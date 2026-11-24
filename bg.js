@@ -45,18 +45,18 @@
     uniform float uT,uL,uPx,uOpen;uniform vec2 uMouse;attribute float seed;varying float vA;varying float vS;varying float vH;
     void main(){vec3 p=position;p.z=mod(p.z+uT,uL)-uL+8.;
      float y=h(vec2(p.x,p.z-uT));p.y=y;vH=y;
-     float ax=abs(p.x);p.x+=sign(p.x)*uOpen*(10.+smoothstep(4.,70.,ax)*72.);p.y-=uOpen*smoothstep(20.,0.,ax)*2.5;
+     float ax=abs(p.x);float side=smoothstep(6.,60.,ax);p.x+=sign(p.x)*uOpen*(8.+side*38.);p.y=p.y*(1.+uOpen*side*1.1)-uOpen*(1.-side)*3.;vH=p.y;
      vec4 mv=modelViewMatrix*vec4(p,1.);float d=-mv.z;
      vec4 cp=projectionMatrix*mv;vec2 ndc=cp.xy/cp.w;
      float push=smoothstep(.22,0.,length(ndc-uMouse));mv.y+=push*1.6;
      gl_Position=projectionMatrix*mv;
      gl_PointSize=min(uPx*3.2,uPx*(1.+seed*1.2)*(70./d))*(1.+push*.6);
      vA=smoothstep(uL-8.,uL*.4,d)*smoothstep(3.,22.,d)*(.6+.4*smoothstep(0.,18.,vH));vS=seed;}`,
-    fragmentShader: `uniform float uFade;varying float vA;varying float vS;varying float vH;
+    fragmentShader: `uniform float uFade,uOpen;varying float vA;varying float vS;varying float vH;
     void main(){vec2 c=gl_PointCoord-.5;float r=length(c);if(r>.5)discard;
      vec3 col=vec3(.93,.92,.97);
      if(vS>.985)col=vec3(.776,.957,.196);else if(vS>.93)col=vec3(.62,.56,.96);
-     col*=.55+.45*clamp(vH/30.,0.,1.);
+     col*=.55+.45*clamp(vH/30.,0.,1.);col=mix(col,vec3(.776,.957,.196),uOpen*.55*smoothstep(8.,40.,vH));
      gl_FragColor=vec4(col,vA*uFade*(1.-smoothstep(.3,.5,r))*.95);}`
   });
   scene.add(new THREE.Points(g, mat));
@@ -74,7 +74,7 @@
   rg.setAttribute('k', new THREE.Float32BufferAttribute(rs, 1));
   const rmat = new THREE.ShaderMaterial({
     transparent: true, depthWrite: false, uniforms: { uPx: { value: r.getPixelRatio() }, uOpen: { value: 0 } },
-    vertexShader: `attribute float k;varying float vk;uniform float uPx,uOpen;void main(){vk=k;vec3 p=position;p.x+=sign(p.x)*uOpen*(40.+abs(p.x)*.35);gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.);gl_PointSize=uPx*2.;}`,
+    vertexShader: `attribute float k;varying float vk;uniform float uPx,uOpen;void main(){vk=k;vec3 p=position;p.x+=sign(p.x)*uOpen*(30.+abs(p.x)*.25);p.y*=1.+uOpen*.6;gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.);gl_PointSize=uPx*2.;}`,
     fragmentShader: `varying float vk;void main(){if(length(gl_PointCoord-.5)>.5)discard;gl_FragColor=vec4(vec3(.75,.72,.9),.25+.7*vk*vk);}`
   });
   const ridgeP = new THREE.Points(rg, rmat); scene.add(ridgeP);
@@ -104,12 +104,13 @@
     const dt = Math.min(.05, (now - last) / 1000); last = now;
     if (!reduce) travel += dt * 6;
     mat.uniforms.uT.value = travel;
+
+    mx += (tx - mx) * dt * 2; my += (ty - my) * dt * 2;
     open += (openT - open) * Math.min(1, dt * (openT > open ? 3.2 : 4.5));
     const eo = reduce ? 0 : open * open * (3 - 2 * open);
     mat.uniforms.uOpen.value = eo; rmat.uniforms.uOpen.value = eo;
-    mx += (tx - mx) * dt * 2; my += (ty - my) * dt * 2;
     const sc = Math.min(scrollY / innerHeight, 4);
-    const eye = 9 + sc * 5;
+    const eye = 9 + sc * 5 - eo * 3.5;
     cam.position.set(mx * 4, eye + my * 1.5, 4);
     cam.lookAt(mx * 8, eye - 2.2 - sc * 2.5 + my * 2, -60);
     mat.uniforms.uFade.value = 1 - Math.min(sc, 3) * .12;
