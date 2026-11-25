@@ -79,6 +79,11 @@ section.sec{padding-top:110px;padding-bottom:30px}
 .step b{font:800 40px Unbounded;color:var(--lime)}
 .step h3{font:800 20px/1.2 Unbounded}
 .step p{font-size:15px;color:var(--mut)}
+.heroBtns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.about{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:start}.ab-l{display:flex;flex-direction:column;gap:18px}.ab-l p{color:var(--mut);font-size:17px;line-height:1.55}.ab-l .ab-lead{color:var(--ink);font-size:22px;line-height:1.45}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px}.facts div{background:rgba(21,18,31,.8);border:1px solid var(--line);border-radius:16px;padding:14px 16px;font-size:15px;color:var(--ink)}.facts b{display:block;font:800 11px Manrope;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:4px}
+.steps.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:980px){.about{grid-template-columns:1fr}}
 .mq{position:relative;overflow:hidden;padding:200px 0 18px;margin-top:-150px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .mq-track{display:flex;gap:14px;width:max-content;animation:mq 38s linear infinite}
 .mq-track:hover,.mq.hold .mq-track{animation-play-state:paused}
@@ -151,7 +156,7 @@ body.cv #catView{display:block}
 .x{position:fixed;top:18px;right:22px;z-index:60;width:48px;height:48px;border-radius:50%;border:1px solid #4a4458;background:rgba(12,10,22,.6);display:grid;place-items:center;cursor:pointer}
 .zoom{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.95);display:none;align-items:center;justify-content:center;padding:20px;cursor:zoom-out;border:0}
 .zoom.on{display:flex}.zoom img{max-width:100%;max-height:100%}
-@media(max-width:980px){.cat,.cat.w3{grid-column:span 3}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}nav a.l{display:none}}
+@media(max-width:980px){.cat,.cat.w3{grid-column:span 3}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.steps.two{grid-template-columns:1fr}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}nav a.l{display:none}}
 @media(max-width:640px){
  .cats{grid-template-columns:minmax(0,1fr)}.cat,.cat.w3{grid-column:auto}.fan{height:220px}.fan>*{width:120px;height:160px}
  .fan .f1{transform:translate(-56px,12px) rotate(-9deg)}.fan .f2{transform:translate(56px,12px) rotate(9deg)}
@@ -173,16 +178,17 @@ body.cv #catView{display:block}
 <header id="hdr"><div class="in bar">
  <a class="logo" href="#" id="logo">l3titban<b>.</b></a>
  <nav aria-label="Навигация">
-  <a class="l" href="#works">РАБОТЫ</a><a class="l" href="#process">КАК РАБОТАЮ</a><a class="l" href="#tools">ИНСТРУМЕНТЫ</a><a class="l" href="#contacts">КОНТАКТЫ</a>
+  <a class="l" href="#works">РАБОТЫ</a><a class="l" href="#about">ОБО МНЕ</a><a class="l" href="#tools">ИНСТРУМЕНТЫ</a><a class="l" href="#contacts">КОНТАКТЫ</a>
   <a class="btn" id="tgTop" href="#contacts">Написать</a>
  </nav>
 </div></header>
 
 <main id="home">
  <section class="hero" id="top">
-  <span class="kicker">ПОРТФОЛИО · ВЛАДИМИР ЧЕРКАШИН</span>
+  <span class="kicker">ВЛАДИМИР ЧЕРКАШИН · ГРАФИЧЕСКИЙ ДИЗАЙНЕР</span>
   <h1 class="big" aria-label="l3titban"><span class="tilt" id="tilt" aria-hidden="true"></span></h1>
-  <p>Соцсети, айдентика и маскоты. А ещё приложения, карточки для маркетплейсов и 3D. Делаю руками и нейросетями, а не по шаблону.</p>
+  <p>Соцсети и баннеры, айдентика, карточки для Kaspi и Wildberries, интерфейсы приложений. Ищу удалённую работу в команде.</p>
+  <div class="heroBtns"><a class="btn" href="cv/cherkashin-designer.pdf" download>Скачать резюме</a><a class="btn ghost" href="#works">Смотреть работы</a></div>
   <a class="down" href="#works" aria-label="Листай вниз к работам"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
  </section>
 
@@ -198,13 +204,21 @@ body.cv #catView{display:block}
   <div class="cats" id="cats"></div>
  </section>
 
- <section class="sec in" id="process">
-  <h2 class="h2 sm rv" style="margin-bottom:40px">Как работаю</h2>
-  <div class="steps">
-   <div class="step rv"><b>01</b><h3>Пишешь в телегу</h3><p>Кидаешь товар или задачу, пару референсов, если есть.</p></div>
-   <div class="step rv"><b>02</b><h3>Разбираем задачу</h3><p>Уточняю аудиторию, фишки товара и что бесит в текущем варианте.</p></div>
-   <div class="step rv"><b>03</b><h3>Эскиз и правки</h3><p>Показываю первый вариант, два круга правок входят.</p></div>
-   <div class="step rv"><b>04</b><h3>Готовые файлы</h3><p>JPG / PNG под размеры площадки, видео, исходники по договорённости.</p></div>
+ <section class="sec in" id="about">
+  <h2 class="h2 sm rv" style="margin-bottom:40px">Обо мне</h2>
+  <div class="about rv">
+   <div class="ab-l">
+    <p class="ab-lead">Привет, я Владимир. Графический дизайнер, junior. Беру бренд целиком: придумываю знак, собираю фирменный стиль, веду ленту и рисую экраны приложения в том же стиле.</p>
+    <p>До дизайна чинил компьютеры и работал оператором печати, поэтому знаю, как макет выглядит на бумаге, а не только на экране. Работаю в Photoshop и Figma. Нейросети использую для фото и сцен, а живые макеты и 3D собираю кодом: идею можно потрогать уже на первом созвоне.</p>
+    <div class="facts"><div><b>Формат</b>удалённо, полный день</div><div><b>Часовой пояс</b>UTC+5</div><div><b>Гражданство</b>Казахстан</div><div><b>Языки</b>русский</div></div>
+    <div class="heroBtns" style="justify-content:flex-start"><a class="btn" href="cv/cherkashin-designer.pdf" download>Резюме PDF</a><a class="btn ghost" href="#contacts">Контакты</a></div>
+   </div>
+   <div class="steps two">
+    <div class="step"><b>01</b><h3>Держу стиль</h3><p>Логотип, лента, баннеры и упаковка выглядят как один бренд, а не как пять подрядчиков.</p></div>
+    <div class="step"><b>02</b><h3>Быстро даю варианты</h3><p>Сцены и фото для макетов делаю за часы, а не жду фотосессию.</p></div>
+    <div class="step"><b>03</b><h3>Сдаю под площадку</h3><p>Размеры Kaspi, WB, Instagram, РСЯ и печати, исходники в Figma и PSD.</p></div>
+    <div class="step"><b>04</b><h3>Нормально принимаю правки</h3><p>Спрашиваю про цель и аудиторию, а не спорю о вкусе.</p></div>
+   </div>
   </div>
  </section>
 
@@ -217,8 +231,8 @@ body.cv #catView{display:block}
 <main id="catView" class="in" aria-live="polite"></main>
 
 <footer class="contact" id="contacts">
- <h2 class="h2 rv">Есть проект?</h2>
- <p class="rv">Пиши — обсудим задачу и сроки</p>
+ <h2 class="h2 rv">Давайте работать</h2>
+ <p class="rv">Открыт к удалённой работе и тестовым заданиям. Отвечаю в течение дня.</p>
  <div class="links rv" id="links"></div>
  <div class="foot">l3titban · 2026</div>
 </footer>
@@ -237,13 +251,15 @@ body.cv #catView{display:block}
 <button class="zoom" id="zoom" aria-label="Закрыть увеличение"><img alt=""></button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="bg.js?v=1795588998"></script>
-<script src="data.js?v=1795588998"></script>
+<script src="bg.js?v=1795589412"></script>
+<script src="data.js?v=1795589412"></script>
 <script>
 {
 // ===== НАСТРОЙ: контакты =====
 const CONTACTS=[
- {label:'Telegram · @l3titban_work',url:'https://t.me/l3titban_work',main:true}
+ {label:'Telegram · @l3titban_work',url:'https://t.me/l3titban_work',main:true},
+ {label:'WhatsApp · +7 950 214-36-92',url:'https://wa.me/79502143692'},
+ {label:'Резюме PDF',url:'cv/cherkashin-designer.pdf'}
 ];
 const NOTE='Концепт редизайна. Фото товара — продавца, графика и вёрстка — мои.';
 // =============================
@@ -253,7 +269,7 @@ const CATS=[
  {id:'brand',name:'Лого и айдентика',desc:'Знаки, логотипы и фирменный стиль: цвет, шрифты, упаковка, носители.',w:2},
  {id:'mascots',name:'Маскоты',desc:'Персонажи для брендов и карточек: от скетча до 3D.',w:2,icon:'<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="10" r="6"/><circle cx="10" cy="9" r=".8" fill="currentColor"/><circle cx="14" cy="9" r=".8" fill="currentColor"/><path d="M9.5 12c1.5 1.2 3.5 1.2 5 0M7 20c1-2.5 3-4 5-4s4 1.5 5 4"/></svg>'},
  {id:'apps',name:'Приложения',desc:'Мобильные приложения: сценарии, экраны и личные кабинеты.',w:3},
- {id:'cards',name:'Карточки WB',desc:'Инфографика для Wildberries: обложки, слайды, видео и «было / стало».',w:3},
+ {id:'cards',name:'Карточки маркетплейсов',desc:'Инфографика для Kaspi и Wildberries: обложки, слайды и «было / стало».',w:3},
  {id:'3d',name:'3D и моушен',desc:'Модели и разрезы товаров кодом, вращения 360°, оживлённые сцены.',w:3},
  {id:'sites',name:'Сайты',desc:'Сайты с нуля и редизайны: от схемы до живой вёрстки.',w:3},
  //{id:'video',name:'Монтаж видео',desc:'Ролики для TikTok и Reels: истории, динамика, субтитры, озвучка.',w:3,icon:'<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>'},
