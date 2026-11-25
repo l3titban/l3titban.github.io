@@ -221,12 +221,10 @@ body.cv #catView{display:block}
   <a class="down" href="#best" aria-label="Листай вниз к работам"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
  </section>
 
-<!-- шоурил скрыт до переделки
  <section class="sec in" id="reel">
-  <div class="head rv"><h2 class="h2">Шоурил</h2><p>30 секунд обо всём сразу: монтаж, моушен, 3D и персонаж-ведущий. Включи звук.</p></div>
-  <div class="reelbox rv"><video id="reelv" src="works/video/showreel/reel-16x9.mp4" poster="works/video/showreel/poster.jpg" muted loop playsinline preload="none"></video><button type="button" class="snd" id="snd" aria-pressed="false" aria-label="Включить звук"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="w" d="M17 9l4 6M21 9l-4 6"/></svg><span>Включить звук</span></button></div>
+  <div class="head rv"><h2 class="h2">Шоурил</h2><p>37 секунд: Нюх, ГРУНТ, ЛЕПИМ и всё остальное — моушен-монтаж в бит. Включи звук.</p></div>
+  <div class="reelbox rv"><video id="reelv" src="works/video/showreel/reel-16x9.mp4?v=95608905" poster="works/video/showreel/poster.jpg?v=95608905" muted loop playsinline preload="none"></video><button type="button" class="snd" id="snd" aria-pressed="false" aria-label="Включить звук"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="w" d="M17 9l4 6M21 9l-4 6"/></svg><span>Включить звук</span></button></div>
  </section>
- -->
 
  <section class="sec in" id="best">
   <div class="head rv"><h2 class="h2">Избранное</h2><p>Девять работ, с которых стоит начать, если времени мало.</p></div>
@@ -290,8 +288,8 @@ body.cv #catView{display:block}
 <button class="zoom" id="zoom" aria-label="Закрыть увеличение"><img alt=""></button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="bg.js?v=95607463"></script>
-<script src="data.js?v=95607463"></script>
+<script src="bg.js?v=95608905"></script>
+<script src="data.js?v=95608905"></script>
 <script>
 {
 // ===== НАСТРОЙ: контакты =====
@@ -329,9 +327,9 @@ $('#links').innerHTML=CONTACTS.map(c=>`<a class="btn ${c.main?'':'ghost'}" href=
 $('#tgTop').href=CONTACTS[0].url;$('#tgTop').target='_blank';$('#tgTop').rel='noopener';
 const hdr=$('#hdr');const onS=()=>hdr.classList.toggle('solid',scrollY>40);addEventListener('scroll',onS,{passive:true});onS();
 
-const BEST=['case-nyuh','pack-grunt-bag','app-poehali','smm-lepim','print-stebel','wb-42','app-nyuh','mascot-pysh','print-lepim'];
+const BEST=['case-nyuh','pack-grunt-bag','app-poehali','smm-lepim','print-stebel','wb-42','app-nyuh','mascot-bag','print-lepim'];
 const CASES=[
- {id:'nyuh',name:'Нюх',sub:'ветклиника и зоомагазин',c:'#1d6b4c',hero:'brand-nyuh',text:'Ветклиника с зоомагазином у дома. Знак — собачий нос с ветеринарным крестиком вместо блика, мятная палитра вместо «больничного» синего. Из одного знака выросли вывеска, приложение, иконки, упаковка лакомств, полиграфия и презентация франшизы.',ids:['case-nyuh','brand-nyuh','icons-nyuh','app-nyuh','pack-nyuh','print-nyuh','deck-nyuh']},
+ {id:'nyuh',name:'Нюх',sub:'ветклиника и зоомагазин',c:'#1d6b4c',hero:'brand-nyuh',text:'Ветклиника с зоомагазином у дома. Знак — собачий нос с ветеринарным крестиком вместо блика, мятная палитра вместо «больничного» синего. Из одного знака выросли вывеска, приложение, иконки, упаковка лакомств, полиграфия и презентация франшизы.',ids:['case-nyuh','brand-nyuh','icons-nyuh','app-nyuh','smm-nyuh','pack-nyuh','print-nyuh','deck-nyuh']},
  {id:'grunt',name:'ГРУНТ',sub:'обжарка кофе и кофейня',c:'#b5653a',hero:'pack-grunt-bag',text:'Маленький ростер с кофейней. Слои почвы — сквозной мотив: на упаковке, в меню, в презентации. Вкус пишем крупным курсивом, как в винной карте.',ids:['brand-grunt','pack-grunt-bag','pack-grunt','print-grunt','smm-grunt','deck-grunt']},
  {id:'lepim',name:'ЛЕПИМ',sub:'доставка домашних пельменей',c:'#e8432e',hero:'brand-lepim',text:'Доставка пельменей с маскотом Пышем. Тёплый красный и жёлтый, круглые формы и персонаж, который живёт везде: от ленты в соцсетях до ситилайта и коробки в морозилке.',ids:['brand-lepim','mascot-pysh','app-lepim','pack-lepim','print-lepim','smm-lepim']},
  {id:'blik',name:'Блик',sub:'детейлинг-студия',c:'#ff4b1f',hero:'brand-blik',text:'Детейлинг-студия. Знак — искра-блик, ради которой машину полируют. Чёрный, хром и оранжевая деталь — в айдентике, соцсетях, на билборде и в коммерческом предложении для автопарков.',ids:['brand-blik','smm-blik','print-blik','deck-blik']},
