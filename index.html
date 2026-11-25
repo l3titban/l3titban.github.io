@@ -251,8 +251,8 @@ body.cv #catView{display:block}
 <button class="zoom" id="zoom" aria-label="Закрыть увеличение"><img alt=""></button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="bg.js?v=1795596397"></script>
-<script src="data.js?v=1795596397"></script>
+<script src="bg.js?v=1795598062"></script>
+<script src="data.js?v=1795598062"></script>
 <script>
 {
 // ===== НАСТРОЙ: контакты =====
@@ -329,7 +329,7 @@ function openPost(id){
  track.innerHTML=w.media.map(m=>m.t==='video'?`<video src="${m.src}" ${m.sound?'controls':'muted loop'} playsinline preload="metadata"${m.poster?` poster="${m.poster}"`:''}></video>`:m.t==='3d'?`<iframe src="${m.src}" title="3D-модель: ${w.title}" loading="lazy" style="border:0"></iframe>`:`<img src="${m.src}" alt="">`).join('');
  $('#dots').innerHTML=w.media.map(()=>'<i></i>').join('');
  const cat=CATS.find(c=>c.id===w.cat);
- $('#side').innerHTML=`<span class="tg">${cat.name} · ${w.tag}</span><h2 id="pTitle">${w.title}</h2><p>${w.text}</p>
+ $('#side').innerHTML=`<span class="tg">${cat.name}${w.tag&&w.tag.toLowerCase()!==cat.name.toLowerCase()?' · '+w.tag:''}</span><h2 id="pTitle">${w.title}</h2><p>${w.text}</p>
  ${w.ba?`<div><span class="lbl">Было / стало — нажми, чтобы увеличить</span><button class="ba" id="ba" aria-label="Увеличить было и стало"><img src="${w.ba}" alt="Было и стало"></button></div>`:''}
  ${w.live?`<a class="btn" href="${w.live}" target="_blank" rel="noopener">${w.liveLabel||"Открыть живой сайт ↗"}</a>`:''}
  <a class="btn${w.live?' ghost':''}" href="${CONTACTS[0].url}" target="_blank" rel="noopener">Хочу так же</a>

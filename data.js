@@ -2112,7 +2112,7 @@ window.WORKS=[
   "id": "deck-grunt",
   "cat": "decks",
   "title": "«ГРУНТ» — опт для кофеен и офисов",
-  "tag": "Презентация",
+  "tag": "16:9",
   "cover": "works/decks/grunt/01.jpg",
   "text": "Презентация оптовых поставок на 7 слайдов: о ростере, таблица лотов с ценами за кг, два формата сотрудничества и три шага старта. Редакционный стиль с курсивом — как в меню и на упаковке. Цифры условные.",
   "media": [
@@ -2138,7 +2138,7 @@ window.WORKS=[
   "id": "deck-blik",
   "cat": "decks",
   "title": "«Блик» — коммерческое предложение для автопарков",
-  "tag": "Презентация",
+  "tag": "16:9",
   "cover": "works/decks/blik/01.jpg",
   "text": "КП для таксопарков и автосалонов на 7 слайдов: проблема в цифрах, три пакета с ценами, процесс работы, до/после и оффер «первая машина бесплатно». Цифры условные.",
   "media": [
@@ -2164,7 +2164,7 @@ window.WORKS=[
   "id": "deck-nyuh",
   "cat": "decks",
   "title": "«Нюх» — презентация франшизы",
-  "tag": "Презентация",
+  "tag": "16:9",
   "cover": "works/decks/nyuh/01.jpg?v=1795595618",
   "text": "Презентация на 8 слайдов для будущих партнёров ветклиники «Нюх»: проблема хозяина питомца, три направления точки, модель выручки с диаграммой, график окупаемости, формат точки и что получает партнёр. Цифры условные — это концепт, но сетка, графики и подача готовы под реальные данные.",
   "media": [
@@ -2194,25 +2194,25 @@ window.WORKS=[
   "id": "pack-nyuh",
   "cat": "pack",
   "title": "«Нюх» — лакомства собственной марки",
-  "tag": "Упаковка",
-  "cover": "works/pack/nyuh/01.jpg",
+  "tag": "Коробка · развёртка",
+  "cover": "works/pack/nyuh/01.jpg?v=2",
   "text": "Коробка лакомств для зоомагазина при клинике: мятный цвет и знак-нос связывают пачку с вывеской и приложением. На обороте — таблица «сколько давать» по весу собаки и честный состав. Развёртка с линиями реза и сгиба.",
   "media": [
    {
     "t": "img",
-    "src": "works/pack/nyuh/01.jpg"
+    "src": "works/pack/nyuh/01.jpg?v=2"
    },
    {
     "t": "img",
-    "src": "works/pack/nyuh/02.jpg"
+    "src": "works/pack/nyuh/02.jpg?v=2"
    },
    {
     "t": "img",
-    "src": "works/pack/nyuh/03.jpg"
+    "src": "works/pack/nyuh/03.jpg?v=2"
    },
    {
     "t": "img",
-    "src": "works/pack/nyuh/04.jpg"
+    "src": "works/pack/nyuh/04.jpg?v=2"
    }
   ]
  },
@@ -2220,25 +2220,25 @@ window.WORKS=[
   "id": "pack-grunt",
   "cat": "pack",
   "title": "«ГРУНТ» — коробка дрип-кофе",
-  "tag": "Упаковка",
-  "cover": "works/pack/grunt/01.jpg",
+  "tag": "Коробка · развёртка",
+  "cover": "works/pack/grunt/01.jpg?v=2",
   "text": "Коробка на 10 дрип-пакетов: вкус крупным курсивом, как в меню кофейни, внизу слои почвы из айдентики. На обороте — заварка в три шага и паспорт лота. Развёртка и вид на полке.",
   "media": [
    {
     "t": "img",
-    "src": "works/pack/grunt/01.jpg"
+    "src": "works/pack/grunt/01.jpg?v=2"
    },
    {
     "t": "img",
-    "src": "works/pack/grunt/02.jpg"
+    "src": "works/pack/grunt/02.jpg?v=2"
    },
    {
     "t": "img",
-    "src": "works/pack/grunt/03.jpg"
+    "src": "works/pack/grunt/03.jpg?v=2"
    },
    {
     "t": "img",
-    "src": "works/pack/grunt/04.jpg"
+    "src": "works/pack/grunt/04.jpg?v=2"
    }
   ]
  },
@@ -2246,25 +2246,25 @@ window.WORKS=[
   "id": "pack-lepim",
   "cat": "pack",
   "title": "«ЛЕПИМ» — коробка пельменей",
-  "tag": "Упаковка",
-  "cover": "works/pack/lepim/01.jpg",
+  "tag": "Коробка · развёртка",
+  "cover": "works/pack/lepim/01.jpg?v=2",
   "text": "Коробка 800 г для заморозки в цветах доставки, с маскотом Пышем. На обороте — как варить в три шага, КБЖУ и состав крупно. Развёртка с клапанами-замками и вид на полке.",
   "media": [
    {
     "t": "img",
-    "src": "works/pack/lepim/01.jpg"
+    "src": "works/pack/lepim/01.jpg?v=2"
    },
    {
     "t": "img",
-    "src": "works/pack/lepim/02.jpg"
+    "src": "works/pack/lepim/02.jpg?v=2"
    },
    {
     "t": "img",
-    "src": "works/pack/lepim/03.jpg"
+    "src": "works/pack/lepim/03.jpg?v=2"
    },
    {
     "t": "img",
-    "src": "works/pack/lepim/04.jpg"
+    "src": "works/pack/lepim/04.jpg?v=2"
    }
   ]
  },
