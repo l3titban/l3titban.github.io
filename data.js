@@ -1,5 +1,135 @@
 window.WORKS=[
  {
+  "id": "kaspi-k6-carpet",
+  "cat": "cards",
+  "title": "Kaspi · Ковёр круглый 140×140",
+  "text": "Убрал иконки поверх фото и оставил интерьеры продавца. Сценарии вместо списка свойств: ребёнок на ковре, робот-пылесос, стирка в машинке. Размер и основа — на последнем слайде, с подписями на казахском.",
+  "cover": "works/cards-kaspi/k6-carpet/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k6-carpet/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k6-carpet/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k6-carpet/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k6-carpet/04.jpg"
+   }
+  ],
+  "tag": "Kaspi"
+ },
+ {
+  "id": "kaspi-k5-nightlight",
+  "cat": "cards",
+  "title": "Kaspi · Ночник 3D «стеклянный шар»",
+  "text": "Главное фото — живой кадр товара без надписей. Честно предупреждаю, что рисунок приходит случайный (у продавца это было мелким шрифтом), показываю варианты, питание от USB и подарочный сценарий. Подписи на казахском.",
+  "cover": "works/cards-kaspi/k5-nightlight/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k5-nightlight/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k5-nightlight/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k5-nightlight/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k5-nightlight/04.jpg"
+   }
+  ],
+  "tag": "Kaspi"
+ },
+ {
+  "id": "kaspi-k3-vacuum",
+  "cat": "cards",
+  "title": "Kaspi · Моющий вертикальный пылесос",
+  "text": "Двенадцать слайдов продавца с мелкими подписями сократил до четырёх. Чистый пакшот на белом, сцена «пролили сок» (генерация с реальным пылесосом), характеристики и самоочистка по шагам. Подписи на русском и казахском.",
+  "cover": "works/cards-kaspi/k3-vacuum/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k3-vacuum/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k3-vacuum/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k3-vacuum/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k3-vacuum/04.jpg"
+   }
+  ],
+  "tag": "Kaspi"
+ },
+ {
+  "id": "kaspi-k2-kettle",
+  "cat": "cards",
+  "title": "Kaspi · Чайник электрический с термометром, 1,8 л",
+  "text": "У продавца надписи наползали на товар даже на главном фото. Оставил чистый пакшот, а главную фишку — градусник на корпусе — превратил в шпаргалку по температуре заваривания. Цифры и безопасность — отдельными слайдами, с подписями на казахском.",
+  "cover": "works/cards-kaspi/k2-kettle/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k2-kettle/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k2-kettle/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k2-kettle/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k2-kettle/04.jpg"
+   }
+  ],
+  "tag": "Kaspi"
+ },
+ {
+  "id": "kaspi-k1-kazan",
+  "cat": "cards",
+  "title": "Kaspi · Казан афганский 8 л",
+  "text": "Главное фото — чистый пакшот без надписей, как требует Kaspi. Дальше плов для семьи за дастарханом (генерация с реальным казаном), толщина стенок и таблица «какой объём взять». Подписи дублирую на казахском.",
+  "cover": "works/cards-kaspi/k1-kazan/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k1-kazan/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k1-kazan/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k1-kazan/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k1-kazan/04.jpg"
+   }
+  ],
+  "tag": "Kaspi"
+ },
+ {
   "id": "wb-51",
   "cat": "cards",
   "title": "Гирлянда «бахрома» уличная, 25 м, разноцветная",
@@ -1769,6 +1899,112 @@ window.WORKS=[
    {
     "t": "img",
     "src": "works/sites/portfolio-v1/04.jpg"
+   }
+  ]
+ },
+ {
+  "id": "print-nyuh",
+  "cat": "print",
+  "title": "«Нюх» — флаер A5 и евробуклет",
+  "tag": "Полиграфия",
+  "cover": "works/print/print-nyuh/01.jpg",
+  "text": "Флаер с одним оффером («первый приём −50%») для раздачи у зоомагазина и евробуклет на стойку клиники: прайс в тенге, памятка по прививкам, контакты и QR на приложение. Показано на мокапе и чистовыми макетами.",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/print/print-nyuh/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/print/print-nyuh/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/print/print-nyuh/03.jpg"
+   }
+  ]
+ },
+ {
+  "id": "print-grunt",
+  "cat": "print",
+  "title": "«ГРУНТ» — меню A4 для кофейни",
+  "tag": "Полиграфия",
+  "cover": "works/print/print-grunt/01.jpg",
+  "text": "Меню на стойку в акриловой подставке: три раздела вместо стены текста, названия курсивом из айдентики, цены в тенге и местный акцент — раф «Курт». Внизу те же слои почвы, что на упаковке.",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/print/print-grunt/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/print/print-grunt/02.jpg"
+   }
+  ]
+ },
+ {
+  "id": "print-lepim",
+  "cat": "print",
+  "title": "«ЛЕПИМ» — ситилайт на остановке",
+  "tag": "Наружка",
+  "cover": "works/print/print-lepim/01.jpg",
+  "text": "Ситилайт 1,2×1,8 м для доставки пельменей. На остановке люди ждут и думают про ужин, поэтому оффер — «ужин через 40 минут» и скидка по коду. Маскот Пыш делает постер узнаваемым.",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/print/print-lepim/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/print/print-lepim/02.jpg"
+   }
+  ]
+ },
+ {
+  "id": "print-blik",
+  "cat": "print",
+  "title": "«Блик» — билборд 6×3",
+  "tag": "Наружка",
+  "cover": "works/print/print-blik/01.jpg",
+  "text": "Билборд для детейлинг-студии на проспекте: знак, одна фраза, цена керамики и сайт. Читается за три секунды из машины, остальное делает фото работы.",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/print/print-blik/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/print/print-blik/02.jpg"
+   }
+  ]
+ },
+ {
+  "id": "deck-nyuh",
+  "cat": "decks",
+  "title": "«Нюх» — презентация франшизы",
+  "tag": "Презентация",
+  "cover": "works/decks/nyuh/01.jpg",
+  "text": "Презентация на 8 слайдов для будущих партнёров ветклиники «Нюх»: проблема хозяина питомца, три направления точки, модель выручки с диаграммой, график окупаемости, формат точки и что получает партнёр. Цифры условные — это концепт, но сетка, графики и подача готовы под реальные данные.",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/decks/nyuh/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/decks/nyuh/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/decks/nyuh/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/decks/nyuh/04.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/decks/nyuh/05.jpg"
    }
   ]
  },

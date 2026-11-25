@@ -53,7 +53,7 @@ section.sec{padding-top:110px;padding-bottom:30px}
 .rv.on{opacity:1;transform:none}
 .cats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px}
 .cat{grid-column:span 2;background:rgba(21,18,31,.8);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .35s,border-color .35s,opacity .8s;text-align:left;padding:0}
-.cat.w3{grid-column:span 3}
+.cat.w3{grid-column:span 3}.cat.w6{grid-column:span 6}
 .cat.on:hover{transform:translateY(-6px);border-color:#4a4458}
 .fan{position:relative;height:270px;width:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(157,144,245,.07),transparent)}
 .fan>*{position:absolute;width:150px;height:200px;border-radius:10px;overflow:hidden;box-shadow:0 18px 34px rgba(0,0,0,.5);transition:transform .5s cubic-bezier(.2,.8,.2,1.2)}
@@ -156,9 +156,9 @@ body.cv #catView{display:block}
 .x{position:fixed;top:18px;right:22px;z-index:60;width:48px;height:48px;border-radius:50%;border:1px solid #4a4458;background:rgba(12,10,22,.6);display:grid;place-items:center;cursor:pointer}
 .zoom{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.95);display:none;align-items:center;justify-content:center;padding:20px;cursor:zoom-out;border:0}
 .zoom.on{display:flex}.zoom img{max-width:100%;max-height:100%}
-@media(max-width:980px){.cat,.cat.w3{grid-column:span 3}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.steps.two{grid-template-columns:1fr}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}nav a.l{display:none}}
+@media(max-width:980px){.cat,.cat.w3{grid-column:span 3}.cat.w6{grid-column:span 6}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.steps.two{grid-template-columns:1fr}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}nav a.l{display:none}}
 @media(max-width:640px){
- .cats{grid-template-columns:minmax(0,1fr)}.cat,.cat.w3{grid-column:auto}.fan{height:220px}.fan>*{width:120px;height:160px}
+ .cats{grid-template-columns:minmax(0,1fr)}.cat,.cat.w3,.cat.w6{grid-column:auto}.fan{height:220px}.fan>*{width:120px;height:160px}
  .fan .f1{transform:translate(-56px,12px) rotate(-9deg)}.fan .f2{transform:translate(56px,12px) rotate(9deg)}
  .steps{grid-template-columns:minmax(0,1fr)}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
  .tile .ov{opacity:1;padding:10px}.ov b{font-size:12px}.ov small{display:none}
@@ -251,8 +251,8 @@ body.cv #catView{display:block}
 <button class="zoom" id="zoom" aria-label="Закрыть увеличение"><img alt=""></button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="bg.js?v=1795589412"></script>
-<script src="data.js?v=1795589412"></script>
+<script src="bg.js?v=1795590043"></script>
+<script src="data.js?v=1795590043"></script>
 <script>
 {
 // ===== НАСТРОЙ: контакты =====
@@ -267,14 +267,15 @@ const HIDE=['video'],W=(window.WORKS||[]).filter(w=>!HIDE.includes(w.cat)),$=s=>
 const CATS=[
  {id:'smm',name:'Соцсети и баннеры',desc:'Ленты, сторис и рекламные баннеры в стиле бренда.',w:2},
  {id:'brand',name:'Лого и айдентика',desc:'Знаки, логотипы и фирменный стиль: цвет, шрифты, упаковка, носители.',w:2},
- {id:'mascots',name:'Маскоты',desc:'Персонажи для брендов и карточек: от скетча до 3D.',w:2,icon:'<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="10" r="6"/><circle cx="10" cy="9" r=".8" fill="currentColor"/><circle cx="14" cy="9" r=".8" fill="currentColor"/><path d="M9.5 12c1.5 1.2 3.5 1.2 5 0M7 20c1-2.5 3-4 5-4s4 1.5 5 4"/></svg>'},
- {id:'apps',name:'Приложения',desc:'Мобильные приложения: сценарии, экраны и личные кабинеты.',w:3},
+ {id:'print',name:'Наружка и полиграфия',desc:'Билборды, ситилайты, флаеры, буклеты и меню — с мокапами и чистовыми макетами.',w:2},
  {id:'cards',name:'Карточки маркетплейсов',desc:'Инфографика для Kaspi и Wildberries: обложки, слайды и «было / стало».',w:3},
- {id:'3d',name:'3D и моушен',desc:'Модели и разрезы товаров кодом, вращения 360°, оживлённые сцены.',w:3},
- {id:'sites',name:'Сайты',desc:'Сайты с нуля и редизайны: от схемы до живой вёрстки.',w:3},
- //{id:'video',name:'Монтаж видео',desc:'Ролики для TikTok и Reels: истории, динамика, субтитры, озвучка.',w:3,icon:'<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>'},
+ {id:'apps',name:'Приложения',desc:'Мобильные приложения: сценарии, экраны и личные кабинеты.',w:3},
+ {id:'decks',name:'Презентации',desc:'Презентации для партнёров и клиентов: структура, графики, слайды 16:9.',w:2},
+ {id:'mascots',name:'Маскоты',desc:'Персонажи для брендов и карточек: от скетча до 3D.',w:2,icon:'<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="10" r="6"/><circle cx="10" cy="9" r=".8" fill="currentColor"/><circle cx="14" cy="9" r=".8" fill="currentColor"/><path d="M9.5 12c1.5 1.2 3.5 1.2 5 0M7 20c1-2.5 3-4 5-4s4 1.5 5 4"/></svg>'},
+ {id:'3d',name:'3D и моушен',desc:'Модели и разрезы товаров кодом, вращения 360°, оживлённые сцены.',w:2},
+ {id:'sites',name:'Сайты',desc:'Сайты с нуля и редизайны: от схемы до живой вёрстки.',w:6}
 ];
-const FANPICK={cards:['wb-51','wb-50','wb-47'],'3d':['3d-thermos','3d-mug-config','3d-lamp'],sites:['site-igroman','site-urfu-1','site-urfu-2'],apps:['app-nyuh','app-poehali','app-lepim'],mascots:['mascot-bag','mascot-pysh','mascot-shchepkin'],brand:['brand-blik','brand-nyuh','brand-stebel'],smm:['smm-blik','smm-poehali','smm-jun'],video:['video-showreel']};
+const FANPICK={print:['print-nyuh','print-lepim','print-blik'],decks:['deck-nyuh'],cards:['kaspi-k3-vacuum','kaspi-k1-kazan','kaspi-k5-nightlight'],'3d':['3d-thermos','3d-mug-config','3d-lamp'],sites:['site-igroman','site-urfu-1','site-urfu-2'],apps:['app-nyuh','app-poehali','app-lepim'],mascots:['mascot-bag','mascot-pysh','mascot-shchepkin'],brand:['brand-blik','brand-nyuh','brand-stebel'],smm:['smm-blik','smm-poehali','smm-jun'],video:['video-showreel']};
 const icVid='<svg width="13" height="13" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg>';
 const icMul='<svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 3h11a3 3 0 0 1 3 3v11h-2V6a1 1 0 0 0-1-1H7zm-2 4h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/></svg>';
 const arr='<span class="arr" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>';
@@ -296,7 +297,7 @@ const fanHTML=c=>{
  return `<span class="fan">${ws.map((w,i)=>`<span class="f${i+1}"><img src="${w.cover}" alt="" loading="lazy"></span>`).join('')}</span>`;
 };
 $('#cats').innerHTML=CATS.map(c=>{const n=byCat(c.id).length;
- return `<button type="button" class="cat rv ${c.w===3?'w3':''}" data-c="${c.id}">${fanHTML(c)}<span class="cbody"><span style="flex:1;display:flex;flex-direction:column;gap:8px"><span class="meta">${c.soon?'<span class="soon">скоро</span>':n+' '+word(n)}</span><span class="ct">${c.name}</span><span class="cd">${c.desc}</span></span>${arr}</span></button>`}).join('');
+ return `<button type="button" class="cat rv ${c.w===3?'w3':c.w===6?'w6':''}" data-c="${c.id}">${fanHTML(c)}<span class="cbody"><span style="flex:1;display:flex;flex-direction:column;gap:8px"><span class="meta">${c.soon?'<span class="soon">скоро</span>':n+' '+word(n)}</span><span class="ct">${c.name}</span><span class="cd">${c.desc}</span></span>${arr}</span></button>`}).join('');
 document.querySelectorAll('.cat').forEach(b=>b.onclick=()=>{location.hash='c-'+b.dataset.c});
 
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
