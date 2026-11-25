@@ -2195,24 +2195,24 @@ window.WORKS=[
   "cat": "pack",
   "title": "«ГРУНТ» — крафт-пакет для зерна",
   "tag": "Мягкая упаковка · этикетка",
-  "cover": "works/pack/grunt-bag/01.jpg",
+  "cover": "works/pack/grunt-bag/01.jpg?v=3",
   "text": "Пакет с плоским дном из крафта, весь дизайн — на наклейке: один пакет на все лоты, меняется только этикетка. Вкус крупным курсивом, паспорт лота таблицей, слои почвы снизу — как на коробке дрипов и в меню. Две версии наклейки и три мокапа: студия, стойка кофейни, в руке.",
   "media": [
    {
     "t": "img",
-    "src": "works/pack/grunt-bag/01.jpg"
+    "src": "works/pack/grunt-bag/01.jpg?v=3"
    },
    {
     "t": "img",
-    "src": "works/pack/grunt-bag/02.jpg"
+    "src": "works/pack/grunt-bag/02.jpg?v=3"
    },
    {
     "t": "img",
-    "src": "works/pack/grunt-bag/03.jpg"
+    "src": "works/pack/grunt-bag/03.jpg?v=3"
    },
    {
     "t": "img",
-    "src": "works/pack/grunt-bag/04.jpg"
+    "src": "works/pack/grunt-bag/04.jpg?v=3"
    }
   ]
  },
