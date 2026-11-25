@@ -1,5 +1,135 @@
 window.WORKS=[
  {
+  "id": "kaspi-k12-plaid",
+  "cat": "cards",
+  "title": "Kaspi · Покрывало на диван 220×240",
+  "text": "Убрал крупную надпись с главного фото — оставил интерьер, как требует Kaspi. Тактильность через крупный план, размер через «закрывает трёхместный диван», рельеф — отдельным кадром. Подписи на казахском.",
+  "cover": "works/cards-kaspi/k12-plaid/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k12-plaid/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k12-plaid/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k12-plaid/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k12-plaid/04.jpg"
+   }
+  ],
+  "tag": "Kaspi"
+ },
+ {
+  "id": "kaspi-k11-lunchbox",
+  "cat": "cards",
+  "title": "Kaspi · Ланч-бокс термос 1,5 л",
+  "text": "Главное фото без плашек и артикула. Сценарий «горячий обед на работе через 8 часов», три контейнера и складная ложка в крышке — то, о чём продавец писал мелко сбоку. Подписи на казахском.",
+  "cover": "works/cards-kaspi/k11-lunchbox/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k11-lunchbox/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k11-lunchbox/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k11-lunchbox/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k11-lunchbox/04.jpg"
+   }
+  ],
+  "tag": "Kaspi"
+ },
+ {
+  "id": "kaspi-k10-humidifier",
+  "cat": "cards",
+  "title": "Kaspi · Увлажнитель воздуха USB, 400 мл",
+  "text": "Карточка продавца была собрана из китайских слайдов с иероглифами и мелкими плашками. Сделал чистый пакшот, сценарий «зимой батарея сушит воздух», характеристики как выгоды и выбор цвета. Подписи на казахском.",
+  "cover": "works/cards-kaspi/k10-humidifier/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k10-humidifier/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k10-humidifier/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k10-humidifier/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k10-humidifier/04.jpg"
+   }
+  ],
+  "tag": "Kaspi"
+ },
+ {
+  "id": "kaspi-k8-tools",
+  "cat": "cards",
+  "title": "Kaspi · Набор инструментов 101 предмет",
+  "text": "Взял живые фото продавца из гаража, но убрал «101 ПРЕДМЕТ» и шестиугольник с главного фото — там только кейс на белом. Раскладка всех предметов и три главные цифры — на одном слайде, сталь — на фото в работе.",
+  "cover": "works/cards-kaspi/k8-tools/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k8-tools/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k8-tools/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k8-tools/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k8-tools/04.jpg"
+   }
+  ],
+  "tag": "Kaspi"
+ },
+ {
+  "id": "kaspi-k7-multicooker",
+  "cat": "cards",
+  "title": "Kaspi · Мультиварка 3 л, 8 программ",
+  "text": "У продавца первое фото забито плашками и наградами — для Kaspi это нарушение. Оставил чистый пакшот, отложенный старт подал как «завтрак готов, пока вы спите», программы — плиткой с переводом на казахский, объём — через число едоков.",
+  "cover": "works/cards-kaspi/k7-multicooker/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k7-multicooker/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k7-multicooker/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k7-multicooker/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-kaspi/k7-multicooker/04.jpg"
+   }
+  ],
+  "tag": "Kaspi"
+ },
+ {
   "id": "kaspi-k6-carpet",
   "cat": "cards",
   "title": "Kaspi · Ковёр круглый 140×140",
@@ -1979,6 +2109,58 @@ window.WORKS=[
   ]
  },
  {
+  "id": "deck-grunt",
+  "cat": "decks",
+  "title": "«ГРУНТ» — опт для кофеен и офисов",
+  "tag": "Презентация",
+  "cover": "works/decks/grunt/01.jpg",
+  "text": "Презентация оптовых поставок на 7 слайдов: о ростере, таблица лотов с ценами за кг, два формата сотрудничества и три шага старта. Редакционный стиль с курсивом — как в меню и на упаковке. Цифры условные.",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/decks/grunt/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/decks/grunt/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/decks/grunt/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/decks/grunt/04.jpg"
+   }
+  ]
+ },
+ {
+  "id": "deck-blik",
+  "cat": "decks",
+  "title": "«Блик» — коммерческое предложение для автопарков",
+  "tag": "Презентация",
+  "cover": "works/decks/blik/01.jpg",
+  "text": "КП для таксопарков и автосалонов на 7 слайдов: проблема в цифрах, три пакета с ценами, процесс работы, до/после и оффер «первая машина бесплатно». Цифры условные.",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/decks/blik/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/decks/blik/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/decks/blik/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/decks/blik/04.jpg"
+   }
+  ]
+ },
+ {
   "id": "deck-nyuh",
   "cat": "decks",
   "title": "«Нюх» — презентация франшизы",
@@ -2005,6 +2187,84 @@ window.WORKS=[
    {
     "t": "img",
     "src": "works/decks/nyuh/05.jpg?v=1795595618"
+   }
+  ]
+ },
+ {
+  "id": "pack-nyuh",
+  "cat": "pack",
+  "title": "«Нюх» — лакомства собственной марки",
+  "tag": "Упаковка",
+  "cover": "works/pack/nyuh/01.jpg",
+  "text": "Коробка лакомств для зоомагазина при клинике: мятный цвет и знак-нос связывают пачку с вывеской и приложением. На обороте — таблица «сколько давать» по весу собаки и честный состав. Развёртка с линиями реза и сгиба.",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/pack/nyuh/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/pack/nyuh/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/pack/nyuh/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/pack/nyuh/04.jpg"
+   }
+  ]
+ },
+ {
+  "id": "pack-grunt",
+  "cat": "pack",
+  "title": "«ГРУНТ» — коробка дрип-кофе",
+  "tag": "Упаковка",
+  "cover": "works/pack/grunt/01.jpg",
+  "text": "Коробка на 10 дрип-пакетов: вкус крупным курсивом, как в меню кофейни, внизу слои почвы из айдентики. На обороте — заварка в три шага и паспорт лота. Развёртка и вид на полке.",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/pack/grunt/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/pack/grunt/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/pack/grunt/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/pack/grunt/04.jpg"
+   }
+  ]
+ },
+ {
+  "id": "pack-lepim",
+  "cat": "pack",
+  "title": "«ЛЕПИМ» — коробка пельменей",
+  "tag": "Упаковка",
+  "cover": "works/pack/lepim/01.jpg",
+  "text": "Коробка 800 г для заморозки в цветах доставки, с маскотом Пышем. На обороте — как варить в три шага, КБЖУ и состав крупно. Развёртка с клапанами-замками и вид на полке.",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/pack/lepim/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/pack/lepim/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/pack/lepim/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/pack/lepim/04.jpg"
    }
   ]
  },
@@ -2265,6 +2525,74 @@ window.WORKS=[
     "src": "works/video/showreel/reel-16x9.mp4",
     "sound": true,
     "poster": "works/video/showreel/poster.jpg"
+   }
+  ]
+ },
+ {
+  "id": "case-nyuh",
+  "cat": "brand",
+  "title": "Кейс: как появился «Нюх» — от брифа до вывески",
+  "tag": "Кейс · процесс",
+  "cover": "works/brand/case-nyuh/01.jpg",
+  "text": "Весь путь айдентики ветклиники на 8 слайдах: бриф, анализ вывесок конкурентов, четыре карандашных эскиза знака и почему три отброшены, доводка носа в три шага, отказ от «больничного» синего, система из шести носителей и что сделал бы дальше.",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/brand/case-nyuh/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/brand/case-nyuh/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/brand/case-nyuh/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/brand/case-nyuh/04.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/brand/case-nyuh/05.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/brand/case-nyuh/06.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/brand/case-nyuh/07.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/brand/case-nyuh/08.jpg"
+   }
+  ]
+ },
+ {
+  "id": "icons-nyuh",
+  "cat": "brand",
+  "title": "«Нюх» — набор из 24 иконок",
+  "tag": "Иконки",
+  "cover": "works/brand/icons-nyuh/01.jpg",
+  "text": "24 иконки для ветклиники на сетке 24 px с линией 1,75 и коралловым акцентом на главной детали. Показаны правила построения, работа на 16–96 px, иконки в интерфейсе приложения и инверсия на тёмном фоне.",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/brand/icons-nyuh/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/brand/icons-nyuh/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/brand/icons-nyuh/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/brand/icons-nyuh/04.jpg"
    }
   ]
  },
