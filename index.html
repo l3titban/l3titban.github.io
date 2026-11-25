@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>l3titban — портфолио</title>
-<meta name="description" content="Портфолио l3titban: соцсети и баннеры, логотипы и айдентика, маскоты, приложения, карточки для маркетплейсов, 3D.">
+<meta name="description" content="Портфолио l3titban: соцсети и баннеры, логотипы и айдентика, маскоты, приложения, карточки для маркетплейсов, упаковка и полиграфия.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -251,8 +251,8 @@ body.cv #catView{display:block}
 <button class="zoom" id="zoom" aria-label="Закрыть увеличение"><img alt=""></button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="bg.js?v=1795598282"></script>
-<script src="data.js?v=1795598282"></script>
+<script src="bg.js?v=1795605615"></script>
+<script src="data.js?v=1795605615"></script>
 <script>
 {
 // ===== НАСТРОЙ: контакты =====
@@ -272,11 +272,10 @@ const CATS=[
  {id:'apps',name:'Приложения',desc:'Мобильные приложения: сценарии, экраны и личные кабинеты.',w:3},
  {id:'pack',name:'Упаковка',desc:'Коробки с развёрткой под печать, лицевой стороной, оборотом и видом на полке.',w:2},
  {id:'decks',name:'Презентации',desc:'Презентации для партнёров и клиентов: структура, графики, слайды 16:9.',w:2},
- {id:'mascots',name:'Маскоты',desc:'Персонажи для брендов и карточек: от скетча до 3D.',w:2,icon:'<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="10" r="6"/><circle cx="10" cy="9" r=".8" fill="currentColor"/><circle cx="14" cy="9" r=".8" fill="currentColor"/><path d="M9.5 12c1.5 1.2 3.5 1.2 5 0M7 20c1-2.5 3-4 5-4s4 1.5 5 4"/></svg>'},
- {id:'3d',name:'3D и моушен',desc:'Модели и разрезы товаров кодом, вращения 360°, оживлённые сцены.',w:3},
- {id:'sites',name:'Сайты',desc:'Сайты с нуля и редизайны: от схемы до живой вёрстки.',w:3}
+ {id:'mascots',name:'Маскоты',desc:'Персонажи для брендов и карточек: от скетча до стикерпака.',w:2,icon:'<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="10" r="6"/><circle cx="10" cy="9" r=".8" fill="currentColor"/><circle cx="14" cy="9" r=".8" fill="currentColor"/><path d="M9.5 12c1.5 1.2 3.5 1.2 5 0M7 20c1-2.5 3-4 5-4s4 1.5 5 4"/></svg>'},
+ {id:'sites',name:'Сайты',desc:'Сайты с нуля и редизайны: от схемы до живой вёрстки.',w:6}
 ];
-const FANPICK={pack:['pack-lepim','pack-grunt-bag','pack-nyuh'],print:['print-nyuh','print-lepim','print-blik'],decks:['deck-blik','deck-nyuh','deck-grunt'],cards:['kaspi-k3-vacuum','kaspi-k1-kazan','kaspi-k5-nightlight'],'3d':['3d-thermos','3d-mug-config','3d-lamp'],sites:['site-igroman','site-urfu-1','site-urfu-2'],apps:['app-nyuh','app-poehali','app-lepim'],mascots:['mascot-bag','mascot-pysh','mascot-shchepkin'],brand:['brand-blik','case-nyuh','brand-nyuh'],smm:['smm-blik','smm-poehali','smm-jun'],video:['video-showreel']};
+const FANPICK={pack:['pack-lepim','pack-grunt-bag','pack-nyuh'],print:['print-nyuh','print-lepim','print-blik'],decks:['deck-blik','deck-nyuh','deck-grunt'],cards:['kaspi-k3-vacuum','kaspi-k1-kazan','kaspi-k5-nightlight'],sites:['site-igroman','site-urfu-1','site-urfu-2'],apps:['app-nyuh','app-poehali','app-lepim'],mascots:['mascot-bag','mascot-pysh','mascot-shchepkin'],brand:['brand-blik','case-nyuh','brand-nyuh'],smm:['smm-blik','smm-poehali','smm-jun'],video:['video-showreel']};
 const icVid='<svg width="13" height="13" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg>';
 const icMul='<svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 3h11a3 3 0 0 1 3 3v11h-2V6a1 1 0 0 0-1-1H7zm-2 4h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/></svg>';
 const arr='<span class="arr" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>';
@@ -377,7 +376,7 @@ $('#logo').onclick=e=>{e.preventDefault();history.replaceState(null,'',location.
 })();
 </script>
 <script>
-(()=>{const T=[['Figma','макеты сайтов и приложений','#c6f432',['app-sosedi','app-igroman','site-urfu-2']],['Photoshop','ретушь и вырезка товаров','#9b8cff',['wb-25','wb-03','wb-31']],['Higgsfield','фото и сцены для брендов','#ffb36b',['smm-chub','smm-ryvok','smm-grunt']],['Claude','код, вёрстка, логика','#ff8a65',['site-igroman','3d-mug-config','brand-lepim']],['three.js','3D-модели и конфигураторы','#6fd6ff',['3d-mug-config','3d-thermos','3d-lamp']],['ElevenLabs','озвучка роликов','#f0f0f0',['mascot-shchepkin','motion-scenes','mascot-bag']],['CapCut','монтаж и субтитры','#ff5c8a',['motion-scenes','3d-dumbbells','smm-speak']],['HTML / CSS / JS','живые сайты и интерактив','#ffe14d',['site-igroman','site-urfu-1','3d-mug-config']]];
+(()=>{const T=[['Figma','макеты сайтов и приложений','#c6f432',['app-sosedi','app-igroman','site-urfu-2']],['Photoshop','ретушь и вырезка товаров','#9b8cff',['wb-25','wb-03','wb-31']],['Higgsfield','фото и сцены для брендов','#ffb36b',['smm-chub','smm-ryvok','smm-grunt']],['Claude','код, вёрстка, логика','#ff8a65',['site-igroman','brand-nyuh','brand-lepim']],['ElevenLabs','озвучка роликов','#f0f0f0',['mascot-shchepkin','mascot-pysh','mascot-bag']],['CapCut','монтаж и субтитры','#ff5c8a',['smm-speak','smm-poehali','smm-jun']],['HTML / CSS / JS','живые сайты и интерактив','#ffe14d',['site-igroman','site-urfu-1','brand-nyuh']]];
  const all=window.WORKS||[],cov=id=>{const w=all.find(x=>x.id===id);return w?w.cover:''};
  const one=t=>`<div class="tl" tabindex="0"><i style="background:${t[2]}">${t[0].replace(/[^A-Za-zА-я]/g,'').slice(0,2)}</i><span><b>${t[0]}</b><small>${t[1]}</small></span><span class="pop">${t[3].filter(cov).map(id=>`<a href="#w-${id}" aria-label="Открыть работу"><img src="${cov(id)}" alt="" loading="lazy"></a>`).join('')}</span></div>`;
  const tr=document.getElementById('mqt');if(!tr)return;tr.innerHTML=T.map(one).join('')+T.map(one).join('');
