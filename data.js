@@ -1983,28 +1983,28 @@ window.WORKS=[
   "cat": "decks",
   "title": "«Нюх» — презентация франшизы",
   "tag": "Презентация",
-  "cover": "works/decks/nyuh/01.jpg",
+  "cover": "works/decks/nyuh/01.jpg?v=1795595618",
   "text": "Презентация на 8 слайдов для будущих партнёров ветклиники «Нюх»: проблема хозяина питомца, три направления точки, модель выручки с диаграммой, график окупаемости, формат точки и что получает партнёр. Цифры условные — это концепт, но сетка, графики и подача готовы под реальные данные.",
   "media": [
    {
     "t": "img",
-    "src": "works/decks/nyuh/01.jpg"
+    "src": "works/decks/nyuh/01.jpg?v=1795595618"
    },
    {
     "t": "img",
-    "src": "works/decks/nyuh/02.jpg"
+    "src": "works/decks/nyuh/02.jpg?v=1795595618"
    },
    {
     "t": "img",
-    "src": "works/decks/nyuh/03.jpg"
+    "src": "works/decks/nyuh/03.jpg?v=1795595618"
    },
    {
     "t": "img",
-    "src": "works/decks/nyuh/04.jpg"
+    "src": "works/decks/nyuh/04.jpg?v=1795595618"
    },
    {
     "t": "img",
-    "src": "works/decks/nyuh/05.jpg"
+    "src": "works/decks/nyuh/05.jpg?v=1795595618"
    }
   ]
  },
