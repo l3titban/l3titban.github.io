@@ -1131,6 +1131,276 @@ window.WORKS=[
   "tag": "Спорт"
  },
  {
+  "id": "wb-43",
+  "cat": "cards",
+  "title": "Светящийся LED-ошейник для собак с USB-зарядкой",
+  "wb": "https://www.wildberries.ru/catalog/880371414/detail.aspx",
+  "text": "Все слайды продавца были одним кислотно-зелёным шаблоном с мелким текстом. Сделал ночную карточку: сцены с собаками (генерация с реальным ошейником), «режешь под шею» и три режима как сценарии прогулки.",
+  "cover": "works/cards-wb/43-dog-collar/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/43-dog-collar/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/43-dog-collar/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/43-dog-collar/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/43-dog-collar/04.jpg"
+   }
+  ],
+  "tag": "Зоотовары"
+ },
+ {
+  "id": "wb-44",
+  "cat": "cards",
+  "title": "Вафельница 8 в 1 со съёмными панелями, 2000 Вт",
+  "wb": "https://www.wildberries.ru/catalog/1417351788/detail.aspx",
+  "text": "У продавца на каждом слайде по пять плашек и мелкий текст. Сделал «утреннюю» карточку: сцена с вафлями (генерация с реальной вафельницей), чистый пакшот с цифрами и одна сетка «8 блюд» вместо шести перегруженных слайдов.",
+  "cover": "works/cards-wb/44-waffle/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/44-waffle/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/44-waffle/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/44-waffle/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/44-waffle/04.jpg"
+   }
+  ],
+  "tag": "Кухня"
+ },
+ {
+  "id": "wb-45",
+  "cat": "cards",
+  "title": "Видеорегистратор для мотоцикла с Wi-Fi",
+  "wb": "https://www.wildberries.ru/catalog/1294848365/detail.aspx",
+  "text": "Были фото на белом и английские инфографики. Сделал тёмную «гаражную» карточку с янтарным акцентом: оффер «каждая поездка записана», характеристики как выгоды и сценарий «ролик сразу в телефоне».",
+  "cover": "works/cards-wb/45-moto-cam/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/45-moto-cam/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/45-moto-cam/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/45-moto-cam/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/45-moto-cam/04.jpg"
+   }
+  ],
+  "tag": "Авто"
+ },
+ {
+  "id": "wb-46",
+  "cat": "cards",
+  "title": "Тамагочи-брелок, электронный питомец 168 игр",
+  "wb": "https://www.wildberries.ru/catalog/1508798194/detail.aspx",
+  "text": "Половина слайдов — одинаковые упаковки с «3+» и мультяшной рамкой. Сделал яркую ностальгическую карточку: «как в 2000-х», уход за питомцем, выбор цвета и брелок на рюкзаке.",
+  "cover": "works/cards-wb/46-tamagotchi/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/46-tamagotchi/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/46-tamagotchi/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/46-tamagotchi/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/46-tamagotchi/04.jpg"
+   }
+  ],
+  "tag": "Детям"
+ },
+ {
+  "id": "wb-47",
+  "cat": "cards",
+  "title": "Подвесное кресло-кокон на стойке с подушкой",
+  "wb": "https://www.wildberries.ru/catalog/263465977/detail.aspx",
+  "text": "Убрал серые плашки, слайды про доставку и «возникла проблема». Оставил живые фото продавца: эмоция на обложке, характеристики каркаса одним экраном и три интерьера.",
+  "cover": "works/cards-wb/47-cocoon-chair/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/47-cocoon-chair/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/47-cocoon-chair/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/47-cocoon-chair/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/47-cocoon-chair/04.jpg"
+   }
+  ],
+  "tag": "Дом"
+ },
+ {
+  "id": "wb-48",
+  "cat": "cards",
+  "title": "Светодиодная LED-маска для лица",
+  "wb": "https://www.wildberries.ru/catalog/913375843/detail.aspx",
+  "text": "Убрал стоковые лица и обещания «вылечит псориаз». Сделал спокойную «бьюти» карточку: сцена домашнего ухода (генерация с реальной маской), цвета света как понятные задачи и подарочная упаковка.",
+  "cover": "works/cards-wb/48-led-mask/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/48-led-mask/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/48-led-mask/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/48-led-mask/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/48-led-mask/04.jpg"
+   }
+  ],
+  "tag": "Красота"
+ },
+ {
+  "id": "wb-49",
+  "cat": "cards",
+  "title": "Аккумуляторная турбовоздуходувка 78 м/с, АКБ 9 Ач",
+  "wb": "https://www.wildberries.ru/catalog/1270744717/detail.aspx",
+  "text": "У продавца 12 слайдов с фирменным логотипом и техтекстом на «китайском русском». Сделал 4 слайда по сценариям: сушка машины и снег с капота (генерация с реальной воздуходувкой), цифры как выгоды и список задач.",
+  "cover": "works/cards-wb/49-blower/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/49-blower/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/49-blower/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/49-blower/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/49-blower/04.jpg"
+   }
+  ],
+  "tag": "Авто"
+ },
+ {
+  "id": "wb-50",
+  "cat": "cards",
+  "title": "Утеплённый уличный домик для кошек",
+  "wb": "https://www.wildberries.ru/catalog/1864725119/detail.aspx",
+  "text": "Были фото на белом и английская инфографика. Сделал зимнюю карточку про заботу о дворовых котах: сцена в снегу (генерация с реальным домиком), 4 слоя утепления по-русски и сценарии «лето/зима».",
+  "cover": "works/cards-wb/50-cat-house/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/50-cat-house/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/50-cat-house/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/50-cat-house/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/50-cat-house/04.jpg"
+   }
+  ],
+  "tag": "Зоотовары"
+ },
+ {
+  "id": "wb-51",
+  "cat": "cards",
+  "title": "Гирлянда «бахрома» уличная, 25 м, разноцветная",
+  "wb": "https://www.wildberries.ru/catalog/2245040943/detail.aspx",
+  "text": "У продавца каждый слайд — ИИ-коллаж с пятью иконками и снежинками. Оставил настоящие фото домов, убрал шум: один оффер на слайд и радужный градиент в цвет гирлянды.",
+  "cover": "works/cards-wb/51-garland/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/51-garland/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/51-garland/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/51-garland/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/51-garland/04.jpg"
+   }
+  ],
+  "tag": "Дом"
+ },
+ {
+  "id": "wb-52",
+  "cat": "cards",
+  "title": "Вакуумный очиститель для ушей с насадками",
+  "wb": "https://www.wildberries.ru/catalog/1967143563/detail.aspx",
+  "text": "Обложки продавца были перегружены иконками и «щитами». Сделал чистую «аптечную» карточку на настоящих фото: комплектация списком, компактность и честная инструкция с предупреждением.",
+  "cover": "works/cards-wb/52-ear-cleaner/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/cards-wb/52-ear-cleaner/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/52-ear-cleaner/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/52-ear-cleaner/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/cards-wb/52-ear-cleaner/04.jpg"
+   }
+  ],
+  "tag": "Красота"
+ },
+ {
   "id": "3d-mug-config",
   "cat": "3d",
   "title": "Конфигуратор термокружки — живой 3D",
