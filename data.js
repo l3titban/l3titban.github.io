@@ -1673,36 +1673,6 @@ window.WORKS=[
   ]
  },
  {
-  "id": "site-urfu-2",
-  "cat": "sites",
-  "title": "Редизайн urfu.ru — «Уральское сияние» (Liquid Glass)",
-  "tag": "Редизайн",
-  "cover": "works/sites/urfu-2/cover.jpg",
-  "text": "Вторая концепция для того же конкурса, визуально противоположная первой: стеклянные панели в духе iOS Liquid Glass поверх фото кампуса под северным сиянием. Главная подстраивается под роль — абитуриент, студент, гость; кабинет студента собран из bento-виджетов; поиск в стиле Spotlight. Инструменты: Figma (страницы собраны собственным плагином), Higgsfield для фото.",
-  "media": [
-   {
-    "t": "img",
-    "src": "works/sites/urfu-2/01.jpg"
-   },
-   {
-    "t": "img",
-    "src": "works/sites/urfu-2/02.jpg"
-   },
-   {
-    "t": "img",
-    "src": "works/sites/urfu-2/03.jpg"
-   },
-   {
-    "t": "img",
-    "src": "works/sites/urfu-2/04.jpg"
-   },
-   {
-    "t": "img",
-    "src": "works/sites/urfu-2/05.jpg"
-   }
-  ]
- },
- {
   "id": "site-urfu-1",
   "cat": "sites",
   "title": "Редизайн urfu.ru — «Один вход — любая задача»",
@@ -1757,28 +1727,28 @@ window.WORKS=[
   ]
  },
  {
-  "id": "site-portfolio-v1",
-  "cat": "sites",
-  "title": "Портфолио v1 — лента работ как в инсте",
-  "tag": "Сайт с нуля",
-  "text": "Первая версия этого портфолио: тёмная тема, сетка работ, посты-карусели со слайдами, видео и «было / стало». Чистый HTML/CSS/JS, хостинг на GitHub Pages.",
-  "cover": "works/sites/portfolio-v1/cover.jpg",
+  "id": "print-stebel",
+  "cat": "print",
+  "title": "«Стебель» — постер к 8 Марта, открытка и бирка",
+  "tag": "Полиграфия",
+  "cover": "works/print/print-stebel/01.jpg",
+  "text": "Постер A2 у входа в цветочную мастерскую, открытка A6 и бирка на шпагат, которые кладут в каждый букет. Живое фото, одна фраза курсивом, предзаказ со скидкой и совет, как продлить жизнь букету. Мокапы и чистовые макеты.",
   "media": [
    {
     "t": "img",
-    "src": "works/sites/portfolio-v1/01.jpg"
+    "src": "works/print/print-stebel/01.jpg"
    },
    {
     "t": "img",
-    "src": "works/sites/portfolio-v1/02.jpg"
+    "src": "works/print/print-stebel/02.jpg"
    },
    {
     "t": "img",
-    "src": "works/sites/portfolio-v1/03.jpg"
+    "src": "works/print/print-stebel/03.jpg"
    },
    {
     "t": "img",
-    "src": "works/sites/portfolio-v1/04.jpg"
+    "src": "works/print/print-stebel/04.jpg"
    }
   ]
  },
