@@ -59,7 +59,7 @@ a{color:inherit;text-decoration:none}
 .gal{position:relative;overflow:hidden;padding-top:clamp(84px,12vh,130px)}
 .gal .head{display:flex;justify-content:space-between;align-items:flex-end;padding:0 clamp(20px,4vw,56px);margin-bottom:40px}
 .gal h2,.vid h2,.cta h2{font:800 clamp(36px,6vw,104px)/.95 UB;letter-spacing:-.045em;text-transform:uppercase}
-.gal .cnt{font:800 clamp(16px,1.4vw,22px) UB;color:var(--mut)}.gal .cnt b{color:var(--lime)}
+.gal .cnt{font:800 clamp(16px,1.4vw,22px) UB;color:var(--mut);white-space:nowrap}.gal .cnt b{color:var(--lime)}
 .track{display:flex;gap:clamp(16px,2vw,32px);padding:0 clamp(20px,4vw,56px);width:max-content}
 .card{position:relative;flex:none;width:min(32vw,52vh,520px);min-width:260px;display:block}
 .card .im{position:relative;overflow:hidden;border-radius:22px;aspect-ratio:3/4;background:#15121f}
@@ -118,10 +118,11 @@ footer a{color:var(--ink)}
  .hero h1 .l2{padding-left:0}
  .gal{padding-top:60px}
  .hero .row{flex-direction:column;align-items:flex-start}
- .track{flex-direction:column;width:auto}
- .card,.card.last{width:100%}
- .card.last a{aspect-ratio:auto;min-height:200px}
- .phones{justify-content:center;margin-top:48px}
+ .card{width:72vw;min-width:0}
+ .card.last{width:60vw}
+ .gal .head{margin-bottom:24px}
+ .phones{justify-content:center;margin-top:48px;gap:14px}
+ .ph{width:42vw;border-width:6px;border-radius:26px}
  .ph.b{margin-top:60px}
 }
 @media (prefers-reduced-motion:reduce){
@@ -258,7 +259,7 @@ if(fine){const cu=$('.cur');let x=innerWidth/2,y=innerHeight/2,cx=x,cy=y;
 /* ---------- motion ---------- */
 gsap.registerPlugin(ScrollTrigger);
 if(!reduce){
- const lenis=new Lenis({lerp:.1});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
+ const lenis=new Lenis({lerp:.1});ScrollTrigger.config({ignoreMobileResize:true});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
  $$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();lenis.scrollTo(a.getAttribute('href'),{duration:1.4})}));
  // hero intro
  gsap.from('.hero h1 .ln>span',{yPercent:115,rotate:4,duration:1.3,ease:'expo.out',stagger:.12,delay:.15});
@@ -274,7 +275,7 @@ if(!reduce){
  $$('.split').forEach(h=>gsap.from(h.querySelectorAll('.ln>span'),{yPercent:115,duration:1.1,ease:'expo.out',stagger:.1,scrollTrigger:{trigger:h,start:'top 82%'}}));
  $$('.fade').forEach(el=>{if(el.closest('.hero'))return;gsap.from(el,{y:30,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 88%'}})});
  const mm=gsap.matchMedia();
- mm.add('(min-width:761px)',()=>{
+ mm.add('all',()=>{
   // horizontal pinned gallery
   const tr=$('#track');const dist=()=>tr.scrollWidth-innerWidth;
   const tw=gsap.to(tr,{x:()=>-dist(),ease:'none',scrollTrigger:{trigger:'.gal',start:'top top',end:()=>'+='+dist(),pin:true,scrub:1,invalidateOnRefresh:true,
@@ -285,13 +286,15 @@ if(!reduce){
   gsap.fromTo('.ph.a',{y:120},{y:-80,ease:'none',scrollTrigger:{trigger:'.vid',start:'top bottom',end:'bottom top',scrub:true}});
   gsap.fromTo('.ph.b',{y:260},{y:-180,ease:'none',scrollTrigger:{trigger:'.vid',start:'top bottom',end:'bottom top',scrub:true}});
  });
- mm.add('(max-width:760px)',()=>{
-  $$('.card').forEach(c=>gsap.from(c,{y:60,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:c,start:'top 90%'}}));
- });
+ 
  // magnetic button
  if(fine){const m=$('.mag');m.addEventListener('pointermove',e=>{const r=m.getBoundingClientRect();gsap.to(m,{x:(e.clientX-r.left-r.width/2)*.35,y:(e.clientY-r.top-r.height/2)*.35,duration:.4,ease:'power3.out'})});
   m.addEventListener('pointerleave',()=>gsap.to(m,{x:0,y:0,duration:.7,ease:'elastic.out(1,.4)'}))}
  gsap.from('.mag',{scale:0,rotate:-30,duration:1,ease:'back.out(1.6)',scrollTrigger:{trigger:'.cta .btns',start:'top 88%'}});
+}
+if(reduce){
+ $$('.split .ln>span,.fade,.card,.man p,.ph').forEach(el=>gsap.from(el,{opacity:0,duration:.6,ease:'power1.out',scrollTrigger:{trigger:el,start:'top 92%'}}));
+ gsap.from('.hero h1 .ln>span',{opacity:0,duration:.8,stagger:.15});
 }
 // videos play only when visible
 $$('.ph video').forEach(v=>new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)v.play().catch(()=>{});else v.pause()}),{threshold:.3}).observe(v));
