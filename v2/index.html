@@ -64,8 +64,8 @@ a{color:inherit;text-decoration:none}
 .track{display:flex;gap:clamp(16px,2vw,32px);padding:0 clamp(20px,4vw,56px);width:max-content}
 .card{position:relative;flex:none;display:block;width:calc(var(--ch,480px)*.75)}
 .card .im{position:relative;overflow:hidden;border-radius:22px;height:var(--ch,480px);background:#15121f}
-.card .im img{position:absolute;inset:-6% -14%;width:128%;height:112%;object-fit:cover;transition:transform .6s var(--ease)}
-.card:hover .im img{transform:scale(1.04)}
+.card .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:transform .6s var(--ease)}
+.card .im{transition:transform .45s var(--ease)}.card:hover .im{transform:translateY(-8px)}
 .card .meta{display:flex;justify-content:space-between;gap:16px;margin-top:16px}
 .card .n{font:800 14px UB;color:var(--lime)}
 .card h3{font:800 clamp(17px,1.4vw,22px)/1.2 UB;letter-spacing:-.02em}
@@ -201,10 +201,10 @@ const WORKS=[
  ['brand-nyuh','«Нюх»','Айдентика ветклиники','../works/brand/nyuh/01.jpg'],
  ['concept-dodo','Додо Пицца','Новогодняя упаковка «Пицца-каток»','../works/concepts/dodo/01.jpg'],
  ['concept-vkusvill','ВкусВилл','Редизайн мобильного приложения','../works/concepts/vkusvill/01.jpg'],
- ['print-premier','Premier Weekend','Афиша ночного мероприятия','../works/print/print-premier/01.jpg'],
+ ['print-premier','Premier Weekend','Афиша ночного мероприятия','../works/print/print-premier/01.jpg',.8],
 ];
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-$('#track').innerHTML=WORKS.map(([id,b,t,img],i)=>`<a class="card" href="../#w-${id}" data-cur><div class="im"><img src="${img}" alt="${b} — ${t}" loading="lazy"></div><div class="go">↗</div><div class="meta"><div><h3>${b}</h3><div class="t">${t}</div></div><span class="n">${String(i+1).padStart(2,'0')}</span></div></a>`).join('')+`<div class="card last"><a href="../" data-cur><span>Ещё 40+ работ в портфолио</span><span>→</span></a></div>`;
+$('#track').innerHTML=WORKS.map(([id,b,t,img,ar],i)=>`<a class="card"${ar?` style="width:calc(var(--ch,480px)*${ar})"`:''} href="../#w-${id}" data-cur><div class="im"><img src="${img}" alt="${b} — ${t}" loading="lazy"></div><div class="go">↗</div><div class="meta"><div><h3>${b}</h3><div class="t">${t}</div></div><span class="n">${String(i+1).padStart(2,'0')}</span></div></a>`).join('')+`<div class="card last"><a href="../" data-cur><span>Ещё 40+ работ в портфолио</span><span>→</span></a></div>`;
 function fitCards(){const tr=$('#track'),g=$('.gal');const top=tr.getBoundingClientRect().top-g.getBoundingClientRect().top;
  let ch=g.clientHeight-top-92;ch=Math.min(ch,(innerWidth<761?innerWidth*.72:innerWidth*.3)/.75);document.documentElement.style.setProperty('--ch',Math.max(220,ch)+'px')}
 fitCards();addEventListener('resize',fitCards);document.fonts&&document.fonts.ready.then(()=>{fitCards();window.ScrollTrigger&&ScrollTrigger.refresh()});
@@ -290,7 +290,6 @@ if(!reduce){
   const tr=$('#track');const dist=()=>tr.scrollWidth-innerWidth;
   const tw=gsap.to(tr,{x:()=>-dist(),ease:'none',scrollTrigger:{trigger:'.gal',start:'top top',end:()=>'+='+dist(),pin:true,scrub:1,invalidateOnRefresh:true,
    onUpdate:s=>{$('#ci').textContent=String(Math.min(WORKS.length,1+Math.floor(s.progress*WORKS.length))).padStart(2,'0')}}});
-  $$('.card .im img').forEach(img=>gsap.fromTo(img,{xPercent:-6},{xPercent:6,ease:'none',scrollTrigger:{trigger:img.closest('.card'),containerAnimation:tw,start:'left right',end:'right left',scrub:true}}));
   gsap.from('.card',{y:80,opacity:0,duration:1.1,ease:'expo.out',stagger:.08,scrollTrigger:{trigger:'.gal',start:'top 65%'}});
   // phones parallax
   gsap.fromTo('.ph.a',{y:50},{y:-50,ease:'none',scrollTrigger:{trigger:'.vid',start:'top bottom',end:'bottom top',scrub:true}});
