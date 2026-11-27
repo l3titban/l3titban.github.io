@@ -125,10 +125,9 @@ footer a{color:var(--ink)}
  .ph{width:42vw;border-width:6px;border-radius:26px}
  .ph.b{margin-top:60px}
 }
-@media (prefers-reduced-motion:reduce){
- .scrollhint span::after,.tagpill i,.mq .in{animation:none}
- .man .w{opacity:1}
-}
+html.rm .scrollhint span::after,html.rm .tagpill i,html.rm .mq .in{animation:none}
+html.rm .man .w{opacity:1}
+.mtog{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:60;font:800 14px MR;background:var(--lime);color:var(--bg);border:0;border-radius:999px;padding:12px 20px;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.4)}
 </style>
 </head>
 <body>
@@ -212,7 +211,12 @@ mp.innerHTML=mp.textContent.split(' ').map(w=>`<span class="w${HL.includes(w)?' 
 // split headings into masked lines
 $$('.split').forEach(h=>{h.innerHTML=h.innerHTML.split(/<br\s*\/?>/).map(l=>`<span class="ln"><span>${l}</span></span>`).join('')});
 
-const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const sysReduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let force=false;try{force=localStorage.getItem('v2motion')==='on'}catch(e){}
+const reduce=sysReduce&&!force;
+if(sysReduce){const b=document.createElement('button');b.className='mtog';b.textContent=force?'Выключить анимации':'В системе выключены анимации — включить';
+ b.onclick=()=>{try{localStorage.setItem('v2motion',force?'off':'on')}catch(e){}location.reload()};document.body.appendChild(b)}
+if(reduce)document.documentElement.classList.add('rm');
 const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
 
 /* ---------- WebGL hero (signature) ---------- */
