@@ -11,6 +11,12 @@ window.WORKS=[
     "src": "works/concepts/magnum/01.jpg"
    },
    {
+    "t": "video",
+    "src": "works/video/magnum/promo-9x16.mp4",
+    "sound": true,
+    "poster": "works/video/magnum/poster.jpg"
+   },
+   {
     "t": "img",
     "src": "works/concepts/magnum/02.jpg"
    },
@@ -2395,6 +2401,38 @@ window.WORKS=[
   ]
  },
  {
+  "id": "video-magnum",
+  "cat": "motion",
+  "title": "Magnum «Вычёркивайте» — промо-ролик",
+  "tag": "Моушн · 9:16",
+  "cover": "works/video/magnum/cover.jpg",
+  "text": "Вертикальный ролик на 20 секунд к концепту новогодней кампании Magnum: продукты из списка один за другим зачёркиваются маркером точно в бит, потом список в магазине, билборд и слоган. Музыка и тихие звуки маркера собраны кодом, ролик отрендерен покадрово, 1080×1920, 30 fps. Неофициальный концепт.",
+  "media": [
+   {
+    "t": "video",
+    "src": "works/video/magnum/promo-9x16.mp4",
+    "sound": true,
+    "poster": "works/video/magnum/poster.jpg"
+   }
+  ]
+ },
+ {
+  "id": "video-nyuh",
+  "cat": "motion",
+  "title": "«Нюх» — промо-ролик",
+  "tag": "Моушн · 9:16",
+  "cover": "works/video/nyuh/cover.jpg",
+  "text": "Вертикальный ролик на 20 секунд для айдентики ветклиники «Нюх»: мемы с котом, корги и хомяком, знак-нос с крестиком, разворот фирменного стиля и слоган. Стикеры прыгают в такт, у каждого действия свой мягкий звук. Музыка и звуки собраны кодом, 1080×1920, 30 fps.",
+  "media": [
+   {
+    "t": "video",
+    "src": "works/video/nyuh/promo-9x16.mp4",
+    "sound": true,
+    "poster": "works/video/nyuh/poster.jpg"
+   }
+  ]
+ },
+ {
   "id": "video-showreel",
   "cat": "video",
   "title": "Шоурил 2026",
@@ -2519,6 +2557,12 @@ window.WORKS=[
    {
     "t": "img",
     "src": "works/brand/nyuh/01.jpg"
+   },
+   {
+    "t": "video",
+    "src": "works/video/nyuh/promo-9x16.mp4",
+    "sound": true,
+    "poster": "works/video/nyuh/poster.jpg"
    },
    {
     "t": "img",
