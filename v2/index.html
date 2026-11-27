@@ -76,14 +76,16 @@ a{color:inherit;text-decoration:none}
 .card.last a:hover{background:var(--lime);color:var(--bg)}
 
 /* video */
-.vid{position:relative;padding:22vh clamp(20px,4vw,56px) 16vh;overflow:hidden}
+.vid{position:relative;padding:16vh clamp(20px,4vw,56px);overflow:hidden;display:grid;grid-template-columns:1fr auto;gap:clamp(24px,5vw,90px);align-items:center;min-height:100vh}
+.vid .txt{min-width:0}
+.vid h2{font-size:clamp(28px,3.9vw,84px)}
 .vid h2{position:relative;z-index:2}
 .vid h2 em{font-style:normal;color:var(--lime)}
 .vid .lead{position:relative;z-index:2;max-width:460px;color:var(--mut);margin-top:24px}
-.phones{display:flex;justify-content:flex-end;gap:clamp(18px,3vw,48px);margin-top:-14vh}
-.ph{width:clamp(200px,20vw,330px);aspect-ratio:9/19.5;border-radius:42px;border:10px solid #1c1828;background:#000;overflow:hidden;box-shadow:0 40px 120px rgba(157,144,245,.16)}
+.phones{display:flex;gap:clamp(14px,2vw,32px);align-items:flex-start}
+.ph{width:min(19vw,36vh,300px);aspect-ratio:9/16;border-radius:30px;border:8px solid #1c1828;background:#000;overflow:hidden;box-shadow:0 40px 120px rgba(157,144,245,.16)}
 .ph video{width:100%;height:100%;object-fit:cover;display:block}
-.ph.b{margin-top:16vh}
+.ph.b{margin-top:12vh}
 .ph .cap{display:none}
 
 /* marquee */
@@ -121,8 +123,10 @@ footer a{color:var(--ink)}
  .card{width:72vw;min-width:0}
  .card.last{width:60vw}
  .gal .head{margin-bottom:24px}
- .phones{justify-content:center;margin-top:48px;gap:14px}
- .ph{width:42vw;border-width:6px;border-radius:26px}
+ .vid{grid-template-columns:1fr;min-height:0}
+ .vid h2{font-size:8.2vw}
+ .phones{justify-content:center;gap:14px}
+ .ph{width:42vw;border-width:6px;border-radius:22px}
  .ph.b{margin-top:60px}
 }
 html.rm .scrollhint span::after,html.rm .tagpill i,html.rm .mq .in{animation:none}
@@ -165,8 +169,8 @@ html.rm .man .w{opacity:1}
 </section>
 
 <section class="vid" id="video">
- <h2 class="split">15 секунд,<br>которые <em>не&nbsp;пропускают</em></h2>
- <p class="lead fade">Рекламные ролики для Reels, Shorts и сторис: моушн в бит, кинетическая типографика, диктор и звук.</p>
+ <div class="txt"><h2 class="split">15 секунд,<br>которые<br><em>не&nbsp;пропускают</em></h2>
+ <p class="lead fade">Рекламные ролики для Reels, Shorts и сторис: моушн в бит, кинетическая типографика, диктор и звук.</p></div>
  <div class="phones">
   <div class="ph a"><video src="../works/video/magnum/promo-9x16.mp4" poster="../works/video/magnum/poster.jpg" muted loop playsinline preload="none"></video></div>
   <div class="ph b"><video src="../works/video/nyuh/promo-9x16.mp4" poster="../works/video/nyuh/poster.jpg" muted loop playsinline preload="none"></video></div>
@@ -287,8 +291,8 @@ if(!reduce){
   $$('.card .im img').forEach(img=>gsap.fromTo(img,{xPercent:-6},{xPercent:6,ease:'none',scrollTrigger:{trigger:img.closest('.card'),containerAnimation:tw,start:'left right',end:'right left',scrub:true}}));
   $$('.card .im').forEach(im=>gsap.from(im,{clipPath:'inset(0 0 100% 0 round 22px)',duration:1.1,ease:'expo.out',scrollTrigger:{trigger:im,containerAnimation:tw,start:'left 95%'}}));
   // phones parallax
-  gsap.fromTo('.ph.a',{y:120},{y:-80,ease:'none',scrollTrigger:{trigger:'.vid',start:'top bottom',end:'bottom top',scrub:true}});
-  gsap.fromTo('.ph.b',{y:260},{y:-180,ease:'none',scrollTrigger:{trigger:'.vid',start:'top bottom',end:'bottom top',scrub:true}});
+  gsap.fromTo('.ph.a',{y:50},{y:-50,ease:'none',scrollTrigger:{trigger:'.vid',start:'top bottom',end:'bottom top',scrub:true}});
+  gsap.fromTo('.ph.b',{y:110},{y:-110,ease:'none',scrollTrigger:{trigger:'.vid',start:'top bottom',end:'bottom top',scrub:true}});
  });
  
  // magnetic button
