@@ -1,5 +1,130 @@
 window.WORKS=[
  {
+  "id": "concept-magnum",
+  "cat": "concepts",
+  "title": "Magnum — новогодняя кампания «Вычёркивайте» · концепт",
+  "text": "Неофициальный концепт. Перед Новым годом каждый пишет список покупок — кампания превращает его в механику бренда: продукт становится зачёркнутым маркером словом, а Magnum — местом, где список заканчивается. Билборд, серия постов, сторис, отрывной список A4 для магазина, баннер и воблер на полку.",
+  "cover": "works/concepts/magnum/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/concepts/magnum/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/concepts/magnum/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/concepts/magnum/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/concepts/magnum/04.jpg"
+   }
+  ]
+ },
+ {
+  "id": "concept-dodo",
+  "cat": "concepts",
+  "title": "Додо Пицца — новогодняя упаковка «Пицца-каток» · концепт",
+  "text": "Неофициальный концепт. Зимний выпуск коробки: целый город, где пицца стала катком, и мини-игра «найди кота в окне». Плоская графика под флексопечать, стакан, бокс для закусок, стикерпак и запуск в соцсетях со сторис-игрой.",
+  "cover": "works/concepts/dodo/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/concepts/dodo/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/concepts/dodo/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/concepts/dodo/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/concepts/dodo/04.jpg"
+   }
+  ]
+ },
+ {
+  "id": "concept-airastana",
+  "cat": "concepts",
+  "title": "Air Astana — сезонная кампания «Домой. К Новому году» · концепт",
+  "text": "Неофициальный концепт. Новый год начинается не в полночь, а в зале прилёта: кампания говорит о моменте встречи, а не о скидках. Ключевой визуал, три сторис, пост на двух языках, баннеры и праздничный посадочный «ALA → ДОМ».",
+  "cover": "works/concepts/airastana/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/concepts/airastana/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/concepts/airastana/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/concepts/airastana/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/concepts/airastana/04.jpg"
+   }
+  ]
+ },
+ {
+  "id": "concept-vkusvill",
+  "cat": "concepts",
+  "title": "ВкусВилл — редизайн мобильного приложения · концепт",
+  "text": "Неофициальный концепт. Гипотезы как пользователя и решения: «Вы часто берёте» на главной, КБЖУ на первом экране карточки, прогресс до бесплатной доставки в корзине. Дизайн-система: цвета, шрифты, компоненты.",
+  "cover": "works/concepts/vkusvill/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/concepts/vkusvill/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/concepts/vkusvill/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/concepts/vkusvill/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/concepts/vkusvill/04.jpg"
+   }
+  ]
+ },
+ {
+  "id": "concept-coffeeboom",
+  "cat": "concepts",
+  "title": "Coffee Boom — ребрендинг · концепт",
+  "text": "Неофициальный концепт для казахстанской сети кофеен: знак-вспышка «boom» с линией кофейного зерна, карандашные эскизы, палитра «эспрессо — терракота — латте», вывеска, стаканы, меню, карта лояльности и лента в соцсетях.",
+  "cover": "works/concepts/coffeeboom/01.jpg",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/concepts/coffeeboom/01.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/concepts/coffeeboom/02.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/concepts/coffeeboom/03.jpg"
+   },
+   {
+    "t": "img",
+    "src": "works/concepts/coffeeboom/04.jpg"
+   }
+  ]
+ },
+ {
   "id": "kaspi-k12-plaid",
   "cat": "cards",
   "title": "Kaspi · Покрывало на диван 220×240",

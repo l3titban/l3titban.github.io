@@ -223,7 +223,7 @@ body.cv #catView{display:block}
 
  <section class="sec in" id="reel">
   <div class="head rv"><h2 class="h2">Шоурил</h2><p>37 секунд: Нюх, ГРУНТ, ЛЕПИМ и всё остальное — моушен-монтаж с тихими звуками анимации.</p></div>
-  <div class="reelbox rv"><video id="reelv" src="works/video/showreel/reel-16x9.mp4?v=95609288" poster="works/video/showreel/poster.jpg?v=95609288" muted loop playsinline preload="none"></video><button type="button" class="snd" id="snd" aria-pressed="false" aria-label="Включить звук"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="w" d="M17 9l4 6M21 9l-4 6"/></svg><span>Включить звук</span></button></div>
+  <div class="reelbox rv"><video id="reelv" src="works/video/showreel/reel-16x9.mp4?v=95763177" poster="works/video/showreel/poster.jpg?v=95763177" muted loop playsinline preload="none"></video><button type="button" class="snd" id="snd" aria-pressed="false" aria-label="Включить звук"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="w" d="M17 9l4 6M21 9l-4 6"/></svg><span>Включить звук</span></button></div>
  </section>
 
  <section class="sec in" id="best">
@@ -288,8 +288,8 @@ body.cv #catView{display:block}
 <button class="zoom" id="zoom" aria-label="Закрыть увеличение"><img alt=""></button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="bg.js?v=95609288"></script>
-<script src="data.js?v=95609288"></script>
+<script src="bg.js?v=95763177"></script>
+<script src="data.js?v=95763177"></script>
 <script>
 {
 // ===== НАСТРОЙ: контакты =====
@@ -302,6 +302,7 @@ const NOTE='Концепт редизайна. Фото товара — про�
 // =============================
 const HIDE=['video'],W=(window.WORKS||[]).filter(w=>!HIDE.includes(w.cat)),$=s=>document.querySelector(s);
 const CATS=[
+ {id:'concepts',name:'Концепты для брендов',desc:'Неофициальные концепты для реальных компаний: рекламные кампании, упаковка, приложение и ребрендинг.',w:6},
  {id:'smm',name:'Соцсети и баннеры',desc:'Ленты, сторис и рекламные баннеры в стиле бренда.',w:2},
  {id:'brand',name:'Лого и айдентика',desc:'Знаки, логотипы и фирменный стиль: цвет, шрифты, упаковка, носители.',w:2},
  {id:'print',name:'Наружка и полиграфия',desc:'Билборды, ситилайты, флаеры, буклеты и меню — с мокапами и чистовыми макетами.',w:2},
@@ -312,7 +313,7 @@ const CATS=[
  {id:'mascots',name:'Маскоты',desc:'Персонажи для брендов и карточек: от скетча до стикерпака.',w:2,icon:'<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="10" r="6"/><circle cx="10" cy="9" r=".8" fill="currentColor"/><circle cx="14" cy="9" r=".8" fill="currentColor"/><path d="M9.5 12c1.5 1.2 3.5 1.2 5 0M7 20c1-2.5 3-4 5-4s4 1.5 5 4"/></svg>'},
  {id:'sites',name:'Сайты',desc:'Сайты с нуля и редизайны: от схемы до живой вёрстки.',w:6}
 ];
-const FANPICK={pack:['pack-lepim','pack-grunt-bag','pack-nyuh'],print:['print-nyuh','print-lepim','print-blik'],decks:['deck-blik','deck-nyuh','deck-grunt'],cards:['kaspi-k3-vacuum','kaspi-k1-kazan','kaspi-k5-nightlight'],sites:['site-igroman','site-urfu-1','site-urfu-1'],apps:['app-nyuh','app-poehali','app-lepim'],mascots:['mascot-bag','mascot-pysh','mascot-shchepkin'],brand:['brand-blik','case-nyuh','brand-nyuh'],smm:['smm-blik','smm-poehali','smm-jun'],video:['video-showreel']};
+const FANPICK={concepts:['concept-magnum','concept-dodo','concept-coffeeboom'],pack:['pack-lepim','pack-grunt-bag','pack-nyuh'],print:['print-nyuh','print-lepim','print-blik'],decks:['deck-blik','deck-nyuh','deck-grunt'],cards:['kaspi-k3-vacuum','kaspi-k1-kazan','kaspi-k5-nightlight'],sites:['site-igroman','site-urfu-1','site-urfu-1'],apps:['app-nyuh','app-poehali','app-lepim'],mascots:['mascot-bag','mascot-pysh','mascot-shchepkin'],brand:['brand-blik','case-nyuh','brand-nyuh'],smm:['smm-blik','smm-poehali','smm-jun'],video:['video-showreel']};
 const icVid='<svg width="13" height="13" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg>';
 const icMul='<svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 3h11a3 3 0 0 1 3 3v11h-2V6a1 1 0 0 0-1-1H7zm-2 4h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/></svg>';
 const arr='<span class="arr" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>';
