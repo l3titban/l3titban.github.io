@@ -42,6 +42,12 @@ window.WORKS=[
     "src": "works/concepts/dodo/01.jpg"
    },
    {
+    "t": "video",
+    "src": "works/video/dodo/promo-9x16.mp4?v=95811962",
+    "sound": true,
+    "poster": "works/video/dodo/poster.jpg?v=95811962"
+   },
+   {
     "t": "img",
     "src": "works/concepts/dodo/02.jpg"
    },
@@ -65,6 +71,12 @@ window.WORKS=[
    {
     "t": "img",
     "src": "works/concepts/airastana/01.jpg"
+   },
+   {
+    "t": "video",
+    "src": "works/video/airastana/promo-9x16.mp4?v=95811962",
+    "sound": true,
+    "poster": "works/video/airastana/poster.jpg?v=95811962"
    },
    {
     "t": "img",
@@ -2111,6 +2123,50 @@ window.WORKS=[
   ]
  },
  {
+  "id": "pack-nyuh-food",
+  "cat": "pack",
+  "title": "«Нюх» — упаковка корма для собак и кошек",
+  "tag": "Упаковка",
+  "cover": "works/pack/nyuh-food/01.jpg?v=95811962",
+  "text": "Линейка сухого корма для зоомагазина «Нюх»: пакет для собак и для кошек в одной системе — крупный питомец, мятный фирменный цвет, знак-нос, понятная навигация по вкусу и возрасту. Макет развёртки и мокапы пакетов.",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/pack/nyuh-food/01.jpg?v=95811962"
+   },
+   {
+    "t": "img",
+    "src": "works/pack/nyuh-food/02.jpg?v=95811962"
+   },
+   {
+    "t": "img",
+    "src": "works/pack/nyuh-food/03.jpg?v=95811962"
+   }
+  ]
+ },
+ {
+  "id": "pack-rahat",
+  "cat": "pack",
+  "title": "«Рахат» — обёртка шоколада · концепт",
+  "tag": "Упаковка",
+  "cover": "works/pack/rahat/01.jpg?v=95811962",
+  "text": "Неофициальный концепт обёртки для шоколада «Рахат»: казахский орнамент, медальон со вкусом и три цвета под молочный с фундуком, горький и молочный с изюмом. Развёртка, мокапы плиток и линейка.",
+  "media": [
+   {
+    "t": "img",
+    "src": "works/pack/rahat/01.jpg?v=95811962"
+   },
+   {
+    "t": "img",
+    "src": "works/pack/rahat/02.jpg?v=95811962"
+   },
+   {
+    "t": "img",
+    "src": "works/pack/rahat/03.jpg?v=95811962"
+   }
+  ]
+ },
+ {
   "id": "pack-grunt",
   "cat": "pack",
   "title": "«ГРУНТ» — коробка дрип-кофе",
@@ -2429,6 +2485,86 @@ window.WORKS=[
     "src": "works/video/nyuh/promo-9x16.mp4",
     "sound": true,
     "poster": "works/video/nyuh/poster.jpg"
+   }
+  ]
+ },
+ {
+  "id": "video-airastana",
+  "cat": "motion",
+  "title": "Air Astana — рекламный ролик «Рейс домой»",
+  "tag": "Реклама · 15 с · 9:16",
+  "cover": "works/video/airastana/cover.jpg?v=95811962",
+  "text": "Рекламный ролик на 15 секунд для Reels, Shorts и сторис — неофициальный концепт для Air Astana. Вид из иллюминатора, посадочный «Рейс домой» и объятия в зале прилёта: реклама про момент встречи, а не про скидки. Живые кадры сгенерированы в Higgsfield (Seedance), голос — ElevenLabs, музыка и типографика собраны кодом, 1080×1920.",
+  "media": [
+   {
+    "t": "video",
+    "src": "works/video/airastana/promo-9x16.mp4?v=95811962",
+    "sound": true,
+    "poster": "works/video/airastana/poster.jpg?v=95811962"
+   }
+  ]
+ },
+ {
+  "id": "video-dodo",
+  "cat": "motion",
+  "title": "Додо Пицца — рекламный ролик «Найди кота»",
+  "tag": "Реклама · 15 с · 9:16",
+  "cover": "works/video/dodo/cover.jpg?v=95811962",
+  "text": "Рекламный ролик на 15 секунд — продолжение моего концепта новогодней коробки Додо. Камера влетает в окно зимнего города на крышке, там кот, а дальше пицца и призыв заказать в приложении. Живой кадр — Higgsfield (Seedance), голос — ElevenLabs, анимация и звук собраны кодом, 1080×1920. Неофициальный концепт.",
+  "media": [
+   {
+    "t": "video",
+    "src": "works/video/dodo/promo-9x16.mp4?v=95811962",
+    "sound": true,
+    "poster": "works/video/dodo/poster.jpg?v=95811962"
+   }
+  ]
+ },
+ {
+  "id": "video-arbuz",
+  "cat": "motion",
+  "title": "Arbuz.kz — рекламный ролик доставки",
+  "tag": "Реклама · 15 с · 9:16",
+  "cover": "works/video/arbuz/cover.jpg?v=95811962",
+  "text": "Рекламный ролик на 15 секунд для Reels и сторис — неофициальный концепт для Arbuz.kz. Пустой холодильник, пара тапов — и курьер уже у двери с пакетами. Живые кадры — Higgsfield (Seedance), голос — ElevenLabs, кинетическая типографика и музыка собраны кодом, 1080×1920.",
+  "media": [
+   {
+    "t": "video",
+    "src": "works/video/arbuz/promo-9x16.mp4?v=95811962",
+    "sound": true,
+    "poster": "works/video/arbuz/poster.jpg?v=95811962"
+   }
+  ]
+ },
+ {
+  "id": "video-rahat",
+  "cat": "motion",
+  "title": "«Рахат» — рекламный ролик шоколада",
+  "tag": "Реклама · 15 с · 9:16",
+  "cover": "works/video/rahat/cover.jpg?v=95811962",
+  "text": "Рекламный ролик на 15 секунд для моего концепта новой обёртки «Рахат»: плитка ломается в кадре, орнамент разворачивается, пэкшот трёх вкусов. Живой кадр — Higgsfield (Seedance), голос — ElevenLabs, музыка и анимация собраны кодом, 1080×1920. Неофициальный концепт упаковки.",
+  "media": [
+   {
+    "t": "video",
+    "src": "works/video/rahat/promo-9x16.mp4?v=95811962",
+    "sound": true,
+    "poster": "works/video/rahat/poster.jpg?v=95811962"
+   }
+  ]
+ },
+ {
+  "id": "video-samokat",
+  "cat": "motion",
+  "title": "Самокат — рекламный ролик «Даже в 23:59»",
+  "tag": "Реклама · 15 с · 9:16",
+  "cover": "works/video/samokat/cover.jpg?v=95811962",
+  "text": "Рекламный ролик на 15 секунд — неофициальный концепт для Самоката. Без пяти полночь, а для салата не хватает горошка: часы перещёлкивают на 00:00, курьер уже звонит в дверь. Живые кадры — Higgsfield (Seedance), голос — ElevenLabs, музыка и графика собраны кодом, 1080×1920.",
+  "media": [
+   {
+    "t": "video",
+    "src": "works/video/samokat/promo-9x16.mp4?v=95811962",
+    "sound": true,
+    "poster": "works/video/samokat/poster.jpg?v=95811962"
    }
   ]
  },
