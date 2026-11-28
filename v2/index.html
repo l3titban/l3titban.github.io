@@ -14,7 +14,7 @@
 @font-face{font-family:MR;font-weight:500;font-display:swap;src:url(../fonts/manrope-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F}
 @font-face{font-family:MR;font-weight:800;font-display:swap;src:url(../fonts/manrope-cyrillic-800-normal.woff2) format('woff2');unicode-range:U+0400-045F}
 @font-face{font-family:MR;font-weight:800;font-display:swap;src:url(../fonts/manrope-latin-800-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F}
-:root{--bg:#0c0a16;--ink:#f2f0f7;--mut:#a19cb0;--lime:#c6f432;--vio:#9d90f5;--line:#2a2536;--ease:cubic-bezier(.16,1,.3,1)}
+:root{--bg:#141415;--sur:#19191b;--raise:#232325;--ink:#ededed;--mut:#a1a1a6;--lime:#c24d69;--fill:#7b2238;--vio:#a1a1a6;--line:rgba(237,237,237,.1);--ease:cubic-bezier(.22,1,.36,1)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{background:var(--bg);color:var(--ink);font:500 18px/1.5 MR,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
@@ -132,7 +132,25 @@ html.rm .scrollhint span::after,html.rm .tagpill i,html.rm .mq .in{animation:non
 html.rm .man .w{opacity:1}
 .mtog{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:60;font:800 14px MR;background:var(--lime);color:var(--bg);border:0;border-radius:999px;padding:12px 20px;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.4)}
 </style>
-</head>
+<style id="unslop">
+/* unslop v2 · burgundy like iPhone 18 Pro · unslop by Damir Sokolovsky (@heydamir), CC BY 4.0 */
+::selection{background:var(--fill);color:#fff}
+.card .go,.mag,.mtog,.card.last a:hover{background:var(--fill);color:#fff}
+.cur{background:var(--ink)}
+.tagpill i{background:var(--lime);animation:none;box-shadow:none}
+.tagpill{background:var(--raise);backdrop-filter:none;letter-spacing:0;text-transform:none;font:600 14px MR}
+.scrollhint{letter-spacing:0;text-transform:none;font:600 14px MR}
+.scrollhint span::after{animation:none;top:0;height:100%;background:var(--line)}
+.nav nav{text-transform:none;letter-spacing:0;font:600 15px MR}
+.man small{letter-spacing:0;text-transform:none;color:var(--mut);font:600 15px MR}
+.gal h2,.vid h2,.cta h2{text-transform:none;font-weight:600;letter-spacing:-.035em}
+.mq span{text-transform:none;font-weight:600}
+.card .im,.card.last a{background:var(--sur)}
+.card:hover .im{transform:translateY(-4px)}
+.ph{border-color:var(--raise);box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.ghost:hover{border-color:rgba(237,237,237,.3);color:var(--ink)}
+.hero .noise{opacity:.05}
+</style></head>
 <body>
 <div class="cur" aria-hidden="true"></div>
 <header class="nav">
@@ -210,7 +228,7 @@ function fitCards(){const tr=$('#track'),g=$('.gal');const top=tr.getBoundingCli
 fitCards();addEventListener('resize',fitCards);document.fonts&&document.fonts.ready.then(()=>{fitCards();window.ScrollTrigger&&ScrollTrigger.refresh()});
 $('#ct').textContent=String(WORKS.length).padStart(2,'0');
 const MQ=['Айдентика','Соцсети','Карточки WB и Kaspi','Упаковка','Видеореклама','Моушн','Маскоты','Полиграфия'];
-$('#mq').innerHTML=[...MQ,...MQ].map(w=>`<span>${w} <b>✦</b></span>`).join('');
+$('#mq').innerHTML=[...MQ,...MQ].map(w=>`<span>${w} <b>/</b></span>`).join('');
 // manifesto words
 const mp=$('#manp');const HL=['остановиться,','три','секунды','купить.','идеи,'];
 mp.innerHTML=mp.textContent.split(' ').map(w=>`<span class="w${HL.includes(w)?' hl':''}">${w}</span>`).join('');
@@ -237,9 +255,9 @@ const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
   vec2 mm=(m-.5*r)/r.y;float d=length(p-mm);
   vec2 q=vec2(fbm(p*1.6+t*.05),fbm(p*1.6-t*.04+3.1));
   float f=fbm(p*1.8+q*1.7+vec2(t*.03,-t*.02)-(p-mm)*.35*exp(-d*2.));
-  vec3 bg=vec3(.047,.039,.086),vio=vec3(.42,.36,.86),lime=vec3(.78,.96,.2);
+  vec3 bg=vec3(.078,.078,.082),vio=vec3(.48,.13,.22),lime=vec3(.62,.2,.3);
   vec3 col=mix(bg,vio*.55,smoothstep(.45,.85,f));
-  col=mix(col,lime,smoothstep(.72,.95,f+.25*exp(-d*3.))*.85);
+  col=mix(col,lime,smoothstep(.72,.95,f+.25*exp(-d*3.))*.55);
   col*=1.-.55*smoothstep(.2,1.,uv.y*.2+(1.-uv.y)*.9)*.0;
   col=mix(col,bg,smoothstep(.15,.95,1.-uv.y)*.55);
   col=mix(col,bg,sc);
