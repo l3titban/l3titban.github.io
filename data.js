@@ -2714,7 +2714,7 @@ window.WORKS=[
    },
    {
     "t": "img",
-    "src": "works/brand/nyuh/05.jpg"
+    "src": "works/brand/nyuh/05.jpg?v=1795848481"
    }
   ]
  },
